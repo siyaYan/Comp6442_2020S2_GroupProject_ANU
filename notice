@@ -1,0 +1,6 @@
+if you can run the project without error, you can try to change the app/build.gradle file
+
+change between
+buildToolsVersion '30.0.1'
+or
+buildToolsVersion '30.0.2'
