@@ -1,0 +1,1547 @@
+{
+  "course_info":[
+  {
+    "courseID": "ASTR1001",
+    "prerequisites": "",
+    "courseName": "Astrophysics",
+    "term": "Summer,  First,  Second"
+  },
+  {
+    "courseID": "ASTR2013",
+    "prerequisites": "PHYS1201, MATH1014",
+    "courseName": "Foundations of Astrophysics",
+    "term": "Second"
+  },
+  {
+    "courseID": "ASTR3002",
+    "prerequisites": "PHYS2013, MATH2305",
+    "courseName": "Galaxies and Cosmology",
+    "term": "Second"
+  },
+  {
+    "courseID": "ASTR3005",
+    "prerequisites": "",
+    "courseName": "Astrophysics Research Topic",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "ASTR3007",
+    "prerequisites": "PHYS1201, MATH2405",
+    "courseName": "Stars",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL1003",
+    "prerequisites": "",
+    "courseName": "Biology 1: Evolution, Ecology and Genetics",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL1004",
+    "prerequisites": "",
+    "courseName": "Biology 2: Molecular and Cell Biology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL1008",
+    "prerequisites": "",
+    "courseName": "Human Biology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL1009",
+    "prerequisites": "",
+    "courseName": "Diversity of Life",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2001",
+    "prerequisites": "BIOL1003",
+    "courseName": "Introduction to Quantitative Biology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL2114",
+    "prerequisites": "BIOL1004",
+    "courseName": "Evolution",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2115",
+    "prerequisites": "BIOL1003, BIOL1004",
+    "courseName": "Comparative Physiology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2117",
+    "prerequisites": "BIOL2161",
+    "courseName": "Cell Biology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2131",
+    "prerequisites": "BIOL1003",
+    "courseName": "Ecology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL2142",
+    "prerequisites": "BIOL2161, CHEM1201",
+    "courseName": "General Microbiology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2151",
+    "prerequisites": "BIOL1003",
+    "courseName": "Genetics",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL2161",
+    "prerequisites": "BIOL1003, BIOL1004, CHEM1101",
+    "courseName": "Genes: Replication and Expression",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL2162",
+    "prerequisites": "BIOL2161, CHEM1201",
+    "courseName": "Molecular Gene Technology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2171",
+    "prerequisites": "BIOL1004, CHEM1201",
+    "courseName": "Biochemistry and Nutrition",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL2174",
+    "prerequisites": "BIOL1004, CHEM1201",
+    "courseName": "Cell Physiology in Health and Disease",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2202",
+    "prerequisites": "BIOL1003, BIOL1004",
+    "courseName": "Experimental Design and Analysis in Biology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL2203",
+    "prerequisites": "BIOL1003",
+    "courseName": "Field Studies in Functional Ecology",
+    "term": "Spring"
+  },
+  {
+    "courseID": "BIOL2222",
+    "prerequisites": "",
+    "courseName": "Exquisite Corpse - Insight Into The Human Body",
+    "term": "Winter"
+  },
+  {
+    "courseID": "BIOL3002",
+    "prerequisites": "BIOL2115",
+    "courseName": "Plants: Genes and the Environment",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3106",
+    "prerequisites": "BIOL2161, CHEM1201",
+    "courseName": "Biosecurity",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3107",
+    "prerequisites": "BIOl2171, CHEM1201",
+    "courseName": "Advances in Medical and Plant Biochemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3108",
+    "prerequisites": "BIOL2161, BIOL2174",
+    "courseName": "Hallmarks of Cancer",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3109",
+    "prerequisites": "BIOL1002, BIOL1004",
+    "courseName": "Ecological and Evolutionary Developmental Biology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3110",
+    "prerequisites": "",
+    "courseName": "Stable Isotopes in Biogeochemistry, Environment, Medicine and Authentication",
+    "term": "Autumn"
+  },
+  {
+    "courseID": "BIOL3116",
+    "prerequisites": "",
+    "courseName": "Marine Conservation Ecology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3125",
+    "prerequisites": "",
+    "courseName": "Plants and Global Climate Change",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3131",
+    "prerequisites": "BIOL1003",
+    "courseName": "Evolutionary and Behavioural Ecology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3132",
+    "prerequisites": "BIOL1009, BIOL2114",
+    "courseName": "Field Studies in Behavioural Ecology",
+    "term": "Winter"
+  },
+  {
+    "courseID": "BIOL3141",
+    "prerequisites": "BIOL2142",
+    "courseName": "Infection and Immunity",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3142",
+    "prerequisites": "BIOL2161",
+    "courseName": "Parasitology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3144",
+    "prerequisites": "BIOL3141",
+    "courseName": "Advanced and Applied Immunology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3157",
+    "prerequisites": "BIOL2151, BIOL2001",
+    "courseName": "Bioinformatics and its Applications",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3161",
+    "prerequisites": "BIOL2162, BIOL2161",
+    "courseName": "Genomics and its Applications",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3177",
+    "prerequisites": "BIOL2117",
+    "courseName": "Advances in Molecular Plant Science",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3178",
+    "prerequisites": "BIOL2131",
+    "courseName": "Recovering Threatened Species and Ecosystems",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3186",
+    "prerequisites": "",
+    "courseName": "Human Anatomy",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3190",
+    "prerequisites": "",
+    "courseName": "Medical Science in the Workplace",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3191",
+    "prerequisites": "",
+    "courseName": "Biology, Society and Ethics",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3193",
+    "prerequisites": "",
+    "courseName": "Bacteria and Health: An Ecological and Evolutionary Perspective",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3201",
+    "prerequisites": "",
+    "courseName": "Big Questions in Biology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3203",
+    "prerequisites": "BIOL1004",
+    "courseName": "Advanced Microscopy in Biosciences",
+    "term": "Summer"
+  },
+  {
+    "courseID": "BIOL3204",
+    "prerequisites": "BIOL2161",
+    "courseName": "Genetics of Human Disease 1",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3205",
+    "prerequisites": "BIOL2161, BIOL3204",
+    "courseName": "Genetics of Human Disease 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3206",
+    "prerequisites": "BIOL1003, BIOL2114",
+    "courseName": "Macroevolution and Macroecology",
+    "term": "Second"
+  },
+  {
+    "courseID": "BIOL3208",
+    "prerequisites": "",
+    "courseName": "Biology Research Project",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "BIOL3209",
+    "prerequisites": "",
+    "courseName": "Biology Research Project",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "BIOL3210",
+    "prerequisites": "",
+    "courseName": "Appreciating Parasites: From Molecules to Ecosystems",
+    "term": "Spring"
+  },
+  {
+    "courseID": "BIOL3213",
+    "prerequisites": "BIOL2111, BIOL2114",
+    "courseName": "Advanced Zoology",
+    "term": "First"
+  },
+  {
+    "courseID": "BIOL3303",
+    "prerequisites": "BIOL2203",
+    "courseName": "Advanced Field Studies in Functional Ecology",
+    "term": "Spring"
+  },
+  {
+    "courseID": "CHEM1101",
+    "prerequisites": "",
+    "courseName": "Chemistry 1",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM1201",
+    "prerequisites": "CHEM1101",
+    "courseName": "Chemistry 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM2202",
+    "prerequisites": "CHEM1101, CHEM1201",
+    "courseName": "Chemical Structure and Reactivity 1",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM2203",
+    "prerequisites": "CHEM2202",
+    "courseName": "Chemical Structure and Reactivity 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM2208",
+    "prerequisites": "CHEM1101, CHEM1201, BIOL1004",
+    "courseName": "Chemical Biology 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM2210",
+    "prerequisites": "CHEM1101, CHEM1201",
+    "courseName": "Structural Elucidation in Chemistry",
+    "term": "Summer, First"
+  },
+  {
+    "courseID": "CHEM2211",
+    "prerequisites": "CHEM1101, CHEM1201, BIOL1004",
+    "courseName": "Chemical Biology 1",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM2212",
+    "prerequisites": "CHEM1101, CHEM1201",
+    "courseName": "Foundations of Physical Chemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM2213",
+    "prerequisites": "CHEM1101, CHEM1201",
+    "courseName": "Materials Chemistry",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM3013",
+    "prerequisites": "CHEM2210",
+    "courseName": "NMR spectroscopy and mass spectrometry of small and large molecules",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM3060",
+    "prerequisites": "",
+    "courseName": "Research Project in Chemistry",
+    "term": "Summer,  First,  Second"
+  },
+  {
+    "courseID": "CHEM3201",
+    "prerequisites": "CHEM2202, CHEM2210",
+    "courseName": "Synthetic Aspects of Medicinal Chemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM3202",
+    "prerequisites": "CHEM2212",
+    "courseName": "Advanced Physical & Materials Chemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM3203",
+    "prerequisites": "CHEM2202, CHEM2203, CHEM2210",
+    "courseName": "Organometallic Chemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "CHEM3204",
+    "prerequisites": "CHEM2208",
+    "courseName": "Structural Methods in Chemical Biology",
+    "term": "Winter"
+  },
+  {
+    "courseID": "CHEM3206",
+    "prerequisites": "CHEM2202, CHEM2203, CHEM2210",
+    "courseName": "Catalysis in Chemistry",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM3207",
+    "prerequisites": "CHEM2211, CHEM2208",
+    "courseName": "Current Topics in Chemical Biology",
+    "term": "Second"
+  },
+  {
+    "courseID": "CHEM3208",
+    "prerequisites": "CHEM2210, CHEM2202, CHEM2211",
+    "courseName": "Molecular Modeling and Computational Chemistry",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC1006",
+    "prerequisites": "",
+    "courseName": "The Blue Planet: An Introduction to Earth System Science",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC1008",
+    "prerequisites": "",
+    "courseName": "EARTH: The Chemistry and Physics of our Planet",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC2021",
+    "prerequisites": "MATH1013, MATH1003",
+    "courseName": "Fundamentals of Climate System Science",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC2022",
+    "prerequisites": "EMSC1008, MATH1003",
+    "courseName": "Introduction to Global Geophysics",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC2023",
+    "prerequisites": "EMSC1008",
+    "courseName": "Fundamentals of Geology",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC2024",
+    "prerequisites": "CHEM1101, EMSC2023",
+    "courseName": "Geochemistry",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3001",
+    "prerequisites": "EMSC2012, EMSC2023",
+    "courseName": "Field Geology",
+    "term": "Winter"
+  },
+  {
+    "courseID": "EMSC3002",
+    "prerequisites": "EMSC2012, EMSC2023",
+    "courseName": "Structural Geology and Tectonics",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3007",
+    "prerequisites": "EMSC2017",
+    "courseName": "Economic Geology",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3014",
+    "prerequisites": "EMSC2012, EMSC2023",
+    "courseName": "Global Stratigraphy",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3019",
+    "prerequisites": "",
+    "courseName": "Coral Reef Field Studies",
+    "term": "Spring"
+  },
+  {
+    "courseID": "EMSC3020",
+    "prerequisites": "",
+    "courseName": "Geobiology and Evolution of Life on Earth",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3022",
+    "prerequisites": "",
+    "courseName": "Planetary Science",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3023",
+    "prerequisites": "CHEM1101",
+    "courseName": "Marine Biogeochemistry",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3024",
+    "prerequisites": "EMSC2017, EMSC2024",
+    "courseName": "Magmatism and Metamorphism",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3025",
+    "prerequisites": "",
+    "courseName": "Groundwater",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3027",
+    "prerequisites": "",
+    "courseName": "Palaeoclimatology and Climate Change",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3032",
+    "prerequisites": "MATH1013",
+    "courseName": "Melting Polar Ice Sheets, Sea Level Variations and Climate Change",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3033",
+    "prerequisites": "EMSC2022",
+    "courseName": "Applied Geophysics",
+    "term": "First"
+  },
+  {
+    "courseID": "EMSC3034",
+    "prerequisites": "EMSC2022, EMSC2012",
+    "courseName": "Dynamic Earth: Plates, Plumes and Mantle Convection",
+    "term": "Second"
+  },
+  {
+    "courseID": "EMSC3050",
+    "prerequisites": "",
+    "courseName": "Special Topics",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "ENGN3512",
+    "prerequisites": "PHYS2201",
+    "courseName": "Optical Physics",
+    "term": "First"
+  },
+  {
+    "courseID": "ENGN4513",
+    "prerequisites": "PHYS2017",
+    "courseName": "Fibre Optics Communications Systems",
+    "term": "First"
+  },
+  {
+    "courseID": "ENGN4613",
+    "prerequisites": "PHYS2017",
+    "courseName": "Photonic Sensing Systems",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS1001",
+    "prerequisites": "",
+    "courseName": "Environment and Society: Geography of Sustainability",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS1003",
+    "prerequisites": "",
+    "courseName": "Introduction to Environmental and Social Research",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS1004",
+    "prerequisites": "",
+    "courseName": "Australia's Environment",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS1008",
+    "prerequisites": "",
+    "courseName": "Sustainable Development",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS2001",
+    "prerequisites": "",
+    "courseName": "Biodiversity Science: Wildlife, Vegetation and Landscape Ecology",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS2002",
+    "prerequisites": "ENVS1003, ENVS1001",
+    "courseName": "Environmental Measurement, Modelling and Monitoring",
+    "term": "Winter"
+  },
+  {
+    "courseID": "ENVS2004",
+    "prerequisites": "",
+    "courseName": "Fire, Flood and Drought",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS2005",
+    "prerequisites": "",
+    "courseName": "Island Sustainable Development: Fiji Field School",
+    "term": "Winter"
+  },
+  {
+    "courseID": "ENVS2007",
+    "prerequisites": "",
+    "courseName": "Economics for the Environment",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS2011",
+    "prerequisites": "",
+    "courseName": "Human Ecology",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS2012",
+    "prerequisites": "ENVS2011",
+    "courseName": "Sustainable Urban Systems",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS2013",
+    "prerequisites": "",
+    "courseName": "Society and Environmental Change",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS2015",
+    "prerequisites": "",
+    "courseName": "GIS and Spatial Analysis",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS2017",
+    "prerequisites": "",
+    "courseName": "Vietnam Field School",
+    "term": "Summer"
+  },
+  {
+    "courseID": "ENVS2018",
+    "prerequisites": "ENVS1001",
+    "courseName": "Environmental Science Field School",
+    "term": "Winter"
+  },
+  {
+    "courseID": "ENVS",
+    "prerequisites": "",
+    "courseName": "Water Science",
+    "term": "Summer"
+  },
+  {
+    "courseID": "ENVS2025",
+    "prerequisites": "",
+    "courseName": "Indigenous Cultural and Natural Resource Management",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS3004",
+    "prerequisites": "",
+    "courseName": "Land and Catchment Management",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3005",
+    "prerequisites": "",
+    "courseName": "Water Management",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS3007",
+    "prerequisites": "",
+    "courseName": "Participatory Resource Management: Working with Communities and Stakeholders",
+    "term": "Winter"
+  },
+  {
+    "courseID": "ENVS3008",
+    "prerequisites": "",
+    "courseName": "Fire in the Environment",
+    "term": "Summer"
+  },
+  {
+    "courseID": "ENVS3013",
+    "prerequisites": "ENVS2004",
+    "courseName": "Climate Change: past, present and future",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3014",
+    "prerequisites": "ENVS1003",
+    "courseName": "Ecological Assessment and Management",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3015",
+    "prerequisites": "",
+    "courseName": "Essentials of Environmental Law",
+    "term": "Winter"
+  },
+  {
+    "courseID": "ENVS3016",
+    "prerequisites": "",
+    "courseName": "Special Topic",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "ENVS3019",
+    "prerequisites": "",
+    "courseName": "Advanced Remote Sensing and GIS",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3028",
+    "prerequisites": "",
+    "courseName": "Environmental Policy",
+    "term": "First"
+  },
+  {
+    "courseID": "ENVS3033",
+    "prerequisites": "",
+    "courseName": "International Environmental Policy",
+    "term": "Summer"
+  },
+  {
+    "courseID": "ENVS3039",
+    "prerequisites": "",
+    "courseName": "Biodiversity Conservation",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3040",
+    "prerequisites": "",
+    "courseName": "Complex Environmental Problems in Action",
+    "term": "Second"
+  },
+  {
+    "courseID": "ENVS3041",
+    "prerequisites": "",
+    "courseName": "Managing Forested Landscapes",
+    "term": "First"
+  },
+  {
+    "courseID": "HLTH1001",
+    "prerequisites": "",
+    "courseName": "Health in the 21st Century",
+    "term": "First"
+  },
+  {
+    "courseID": "HLTH1002",
+    "prerequisites": "HLTH1001",
+    "courseName": "Research Methods in the Health Sciences",
+    "term": "Second"
+  },
+  {
+    "courseID": "HLTH2001",
+    "prerequisites": "",
+    "courseName": "Health Sytems and Policy: An Introduction",
+    "term": "First"
+  },
+  {
+    "courseID": "HLTH2002",
+    "prerequisites": "",
+    "courseName": "Introduction to Global Health: Issues, Theories and Practices",
+    "term": "Second"
+  },
+  {
+    "courseID": "HLTH3001",
+    "prerequisites": "",
+    "courseName": "Aboriginal and Torres Strait Islander Health",
+    "term": "First"
+  },
+  {
+    "courseID": "HLTH3002",
+    "prerequisites": "",
+    "courseName": "Professional Practice in Health Science",
+    "term": "First, Second"
+  },
+  {
+    "courseID": "HLTH3003",
+    "prerequisites": "",
+    "courseName": "Bioethics and Beyond",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH1003",
+    "prerequisites": "",
+    "courseName": "Algebra and Calculus Methods",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH1005",
+    "prerequisites": "",
+    "courseName": "Discrete Mathematical Models",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH1013",
+    "prerequisites": "",
+    "courseName": "Mathematics and Applications 1",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "MATH1014",
+    "prerequisites": "MATH1013",
+    "courseName": "Mathematics and Applications 2",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "MATH1042",
+    "prerequisites": "",
+    "courseName": "Philosophy of the Cosmos",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH1113",
+    "prerequisites": "",
+    "courseName": "Mathematical Foundations for Actuarial Studies",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH1115",
+    "prerequisites": "MATH1013, MATH1113",
+    "courseName": "Advanced Mathematics and Applications 1",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH1116",
+    "prerequisites": "MATH1115",
+    "courseName": "Advanced Mathematics and Applications 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH2222",
+    "prerequisites": "MATH1115",
+    "courseName": "Introduction to Mathematical Thinking: Problem-Solving and Proofs",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH2242",
+    "prerequisites": "MATH1116",
+    "courseName": "Introduction to Geometry: Curves and Surfaces",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH2301",
+    "prerequisites": "MATH1005",
+    "courseName": "Games, Graphs and Machines",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH2305",
+    "prerequisites": "MATH1113",
+    "courseName": "Applied Mathematics I",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH2306",
+    "prerequisites": "MATH2305",
+    "courseName": "Applied Mathematics II",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH2307",
+    "prerequisites": "MATH1014",
+    "courseName": "Bioinformatics and Biological Modelling",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH2320",
+    "prerequisites": "MATH1116",
+    "courseName": "Advanced Analysis 1: Metric Spaces and Applications",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH2322",
+    "prerequisites": "MATH1116",
+    "courseName": "Advanced Algebra 1: Groups, Rings and Linear Algebra",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3015",
+    "prerequisites": "MATH3029",
+    "courseName": "Stochastic Analysis with Financial Applications",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3029",
+    "prerequisites": "MATH2320",
+    "courseName": "Probability Theory with Applications",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3062",
+    "prerequisites": "MATH1116",
+    "courseName": "Fractal Geometry and Chaotic Dynamics",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3104",
+    "prerequisites": "MATH2305, MATH2306",
+    "courseName": "Advanced Algebra 1: Groups, Rings and Linear Algebra",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3116",
+    "prerequisites": "MATH2305, MATH2306",
+    "courseName": "Advanced Analysis 1: Metric Spaces and Applications",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3228",
+    "prerequisites": "MATH2320",
+    "courseName": "Advanced Complex Analysis",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3301",
+    "prerequisites": "MATH2301",
+    "courseName": "Number Theory and Cryptography",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3320",
+    "prerequisites": "MATH2320",
+    "courseName": "Advanced Analysis 2: Lebesgue Integration and Hilbert Spaces",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3325",
+    "prerequisites": "MATH3320",
+    "courseName": "Advanced Functional Analysis, Spectral theory and Applications",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3342",
+    "prerequisites": "MATH2320",
+    "courseName": "Advanced Differential Geometry",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3343",
+    "prerequisites": "MATH2322",
+    "courseName": "Advanced Foundations of Mathematics",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3345",
+    "prerequisites": "MATH2322",
+    "courseName": "Advanced Algebra 2: Field extensions and Galois Theory",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3349",
+    "prerequisites": "",
+    "courseName": "Special Topics in Mathematics",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "MATH3351",
+    "prerequisites": "",
+    "courseName": "Advanced Topics in Mathematical Physics",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3353",
+    "prerequisites": "MATH2305, MATH2307, STAT1003",
+    "courseName": "Advanced Mathematical Bioinformatics",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3354",
+    "prerequisites": "MATH3345",
+    "courseName": "Advanced Topics in Algebra",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3501",
+    "prerequisites": "MATH2305",
+    "courseName": "Scientific and Industrial Modelling",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH3511",
+    "prerequisites": "MATH1116",
+    "courseName": "Scientific Computing",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH3514",
+    "prerequisites": "MATH2305",
+    "courseName": "Numerical Optimisation",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH4005",
+    "prerequisites": "",
+    "courseName": "Thesis and Presentations in Mathematics",
+    "term": "First, Second"
+  },
+  {
+    "courseID": "MATH4201",
+    "prerequisites": "MATH3320, MATH3511",
+    "courseName": "Topics in Computational Maths Honours",
+    "term": "First"
+  },
+  {
+    "courseID": "MATH4202",
+    "prerequisites": "MATH3320",
+    "courseName": "Theory of Partial Differential Equations Honours",
+    "term": "Second"
+  },
+  {
+    "courseID": "MATH4204",
+    "prerequisites": "MATH2322, MATH3345",
+    "courseName": "Algebraic Topology Honours",
+    "term": "Second"
+  },
+  {
+    "courseID": "MEDI3004",
+    "prerequisites": "",
+    "courseName": "IMU Clinical Experience Bridging Course",
+    "term": "Summer"
+  },
+  {
+    "courseID": "MEDN2001",
+    "prerequisites": "BIOL1008",
+    "courseName": "Medical Physiology and Pharmacology",
+    "term": "First"
+  },
+  {
+    "courseID": "MEDN2002",
+    "prerequisites": "MEDN2001",
+    "courseName": "Pathogenesis of Human Disease",
+    "term": "Second"
+  },
+  {
+    "courseID": "NEUR3101",
+    "prerequisites": "BIOL2174",
+    "courseName": "Cellular Neuroscience",
+    "term": "First"
+  },
+  {
+    "courseID": "NEUR3112",
+    "prerequisites": "BIOL2174",
+    "courseName": "Systems Neuroscience",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHIL2042",
+    "prerequisites": "",
+    "courseName": "Philosophy of the Cosmos",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS1001",
+    "prerequisites": "",
+    "courseName": "Foundations of Physics",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS1004",
+    "prerequisites": "",
+    "courseName": "Life Physics",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS1013",
+    "prerequisites": "",
+    "courseName": "Physics of Materials",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS1101",
+    "prerequisites": "MATH1013",
+    "courseName": "Physics I",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "PHYS1201",
+    "prerequisites": "PHYS1101",
+    "courseName": "Physics 2",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS2013",
+    "prerequisites": "PHYS1101, PHYS1201, MATH1013",
+    "courseName": "Quantum Mechanics",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS2016",
+    "prerequisites": "PHYS1201, MATH2306",
+    "courseName": "Electromagnetism",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS",
+    "prerequisites": "PHYS1101, PHYS1201, MATH1013",
+    "courseName": "Thermal and Statistical Physics",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS2201",
+    "prerequisites": "PHYS1201, MATH2306",
+    "courseName": "Classical Mechanics",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS2204",
+    "prerequisites": "",
+    "courseName": "Soft Condensed Matter: Understanding squishy materials from food to biology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS2205",
+    "prerequisites": "",
+    "courseName": "Physics for Future Leaders",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3005",
+    "prerequisites": "PHYS2201",
+    "courseName": "Photonics Laboratory",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3032",
+    "prerequisites": "PHYS, PHYS2013",
+    "courseName": "Solid State Physics",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3042",
+    "prerequisites": "PHYS2013, PHYS2016",
+    "courseName": "Research Topics Physics",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "PHYS3051",
+    "prerequisites": "PHYS2017",
+    "courseName": "Photonic Sensing Systems",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3057",
+    "prerequisites": "PHYS2201",
+    "courseName": "Optical Physics",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3058",
+    "prerequisites": "PHYS2017, PHYS2016",
+    "courseName": "Work Experience in Photonics",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "PHYS3060",
+    "prerequisites": "PHYS2201",
+    "courseName": "Fibre Optic Communication Systems",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3070",
+    "prerequisites": "PHYS2016, PHYS2201",
+    "courseName": "Physics of the Earth",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3101",
+    "prerequisites": "PHYS2201, PHYS2013",
+    "courseName": "Advanced Quantum Mechanics",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3102",
+    "prerequisites": "PHYS2201, PHYS2016",
+    "courseName": "Advanced Electromagnetism",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3103",
+    "prerequisites": "PHYS, PHYS2013",
+    "courseName": "Advanced Statistical Mechanics",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "PHYS3104",
+    "prerequisites": "PHYS2013, PHYS, PHYS2201",
+    "courseName": "Physics Advanced Laboratory",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "PHYS3105",
+    "prerequisites": "PHYS2013, PHYS2016",
+    "courseName": "Physics of Matter",
+    "term": "First"
+  },
+  {
+    "courseID": "PHYS3201",
+    "prerequisites": "PHYS3101, PHYS3102",
+    "courseName": "Quantum Field Theory",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3202",
+    "prerequisites": "PHYS2201, PHYS2016",
+    "courseName": "Fluids and Plasma",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3203",
+    "prerequisites": "PHYS3102",
+    "courseName": "General Relativity",
+    "term": "Second"
+  },
+  {
+    "courseID": "PHYS3701",
+    "prerequisites": "",
+    "courseName": "Rapid Prototyping and Systems Integration",
+    "term": "First,  Second"
+  },
+  {
+    "courseID": "PHYS3711",
+    "prerequisites": "",
+    "courseName": "Fundamentals of Noise and Measurement",
+    "term": "First"
+  },
+  {
+    "courseID": "POPH3000",
+    "prerequisites": "",
+    "courseName": "Introduction to Population Health",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC1003",
+    "prerequisites": "",
+    "courseName": "Psychology 1: Understanding Mind, Brain and Behaviour",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC1004",
+    "prerequisites": "",
+    "courseName": "Psychology 2: Understanding People in Context",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC1005",
+    "prerequisites": "",
+    "courseName": "The Wellbeing Formula: The Science and Practice of Making a Good Life",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC2001",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Social Psychology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC2002",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Developmental Psychology",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC2007",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Biological Basis of Behaviour",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC2008",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Cognition",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC2009",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Quantitative Methods in Psychology",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC2011",
+    "prerequisites": "",
+    "courseName": "Introduction to Forensic and Criminal Psychology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC2595",
+    "prerequisites": "PSYC1003, PSYC1004",
+    "courseName": "Issues in Contemporary Clinical Psychology",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC3002",
+    "prerequisites": "PSYC2001",
+    "courseName": "The Social Psychology of Group Processes and Social Change",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC3015",
+    "prerequisites": "PSYC2008",
+    "courseName": "Visual and Cognitive Neuroscience",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC3016",
+    "prerequisites": "PSYC2007",
+    "courseName": "Neuropsychology and Cognitive Neuroscience",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC3018",
+    "prerequisites": "PSYC2009",
+    "courseName": "Advanced Research Methods",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC3020",
+    "prerequisites": "PSYC2009",
+    "courseName": "Health Psychology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC3023",
+    "prerequisites": "",
+    "courseName": "Special Topics in Psychology",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "PSYC3025",
+    "prerequisites": "PSYC1003, PSYC1004, PSYC2001",
+    "courseName": "Psychopathology Across the Lifespan",
+    "term": "First"
+  },
+  {
+    "courseID": "PSYC3026",
+    "prerequisites": "PSYC1003, PSYC1004, PSYC2009",
+    "courseName": "Personality Psychology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC3028",
+    "prerequisites": "PSYC2001, PSYC2002, PSYC2007",
+    "courseName": "Industrial and Organisational Psychology",
+    "term": "Second"
+  },
+  {
+    "courseID": "PSYC3030",
+    "prerequisites": "",
+    "courseName": "Psychology Undergraduate Research Experience",
+    "term": "Summer,  First,  Second"
+  },
+  {
+    "courseID": "SCNC1002",
+    "prerequisites": "",
+    "courseName": "Global Experiences in Science",
+    "term": "Summer"
+  },
+  {
+    "courseID": "SCNC2000",
+    "prerequisites": "",
+    "courseName": "Science Internship",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCNC2021",
+    "prerequisites": "",
+    "courseName": "Science Research Project",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCNC2101",
+    "prerequisites": "",
+    "courseName": "Advanced Studies Course 1",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCNC3000",
+    "prerequisites": "",
+    "courseName": "Science Internship",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCNC3021",
+    "prerequisites": "",
+    "courseName": "Science Research Project",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCNC3101",
+    "prerequisites": "SCNC2101",
+    "courseName": "Advanced Studies Course 5",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCOM1001",
+    "prerequisites": "",
+    "courseName": "Science Communication 1: Science and Public Awareness",
+    "term": "First"
+  },
+  {
+    "courseID": "SCOM1002",
+    "prerequisites": "",
+    "courseName": "Science Communication 2: Scientific Evidence and Social Change",
+    "term": "Second"
+  },
+  {
+    "courseID": "SCOM2003",
+    "prerequisites": "",
+    "courseName": "Science in Popular Fiction",
+    "term": "Winter"
+  },
+  {
+    "courseID": "SCOM2015",
+    "prerequisites": "",
+    "courseName": "Speaking of Science",
+    "term": "Second"
+  },
+  {
+    "courseID": "SCOM2016",
+    "prerequisites": "SCOM1001",
+    "courseName": "Science in the Media",
+    "term": "First"
+  },
+  {
+    "courseID": "SCOM2031",
+    "prerequisites": "",
+    "courseName": "Science, Risk and Ethics",
+    "term": "First"
+  },
+  {
+    "courseID": "SCOM3003",
+    "prerequisites": "",
+    "courseName": "Science Communication Research Project",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCOM3004",
+    "prerequisites": "",
+    "courseName": "Science Communication Internship",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCOM3005",
+    "prerequisites": "",
+    "courseName": "Special Topics in Science Communication",
+    "term": "Summer,  First,  Autumn,  Second,  Winter,  Spring"
+  },
+  {
+    "courseID": "SCOM3007",
+    "prerequisites": "",
+    "courseName": "Science Communication Project Design and Delivery",
+    "term": "Winter"
+  },
+  {
+    "courseID": "SCOM3012",
+    "prerequisites": "",
+    "courseName": "Science Communication and the Web",
+    "term": "Winter"
+  },
+  {
+    "courseID": "SCOM3027",
+    "prerequisites": "",
+    "courseName": "Science Politics",
+    "term": "Second"
+  },
+  {
+    "courseID": "SCOM3029",
+    "prerequisites": "",
+    "courseName": "Cross Cultural Perspectives in Science Communication",
+    "term": "Winter"
+  },
+  {
+    "courseID": "SCOM3030",
+    "prerequisites": "",
+    "courseName": "Science Dialogue Theory and Practice",
+    "term": "Spring"
+  },
+  {
+    "courseID": "SCOM3032",
+    "prerequisites": "",
+    "courseName": "Making Modern Science",
+    "term": "First"
+  },
+  {
+    "courseID": "SCOM3033",
+    "prerequisites": "",
+    "courseName": "Health Promotion Principles and Practice",
+    "term": "Second"
+  },
+  {
+    "courseID": "SCOM3501",
+    "prerequisites": "",
+    "courseName": "Strategies in Science Communication",
+    "term": "Winter"
+  },
+  {
+    "courseID": "VCUG3001",
+    "prerequisites": "",
+    "courseName": "Unravelling Complexity",
+    "term": "Second"
+  }
+],
+
+  "course_details":[
+  {
+    "courseID": "ASTR1001",
+    "tutorial":[{
+      "tutor": "siya",
+      "time": ["10am","6pm"],
+      "location": "home"}],
+    "courseIntroduce": "this is first course and >>>"
+  },
+  {
+    "courseID": "ASTR2013",
+    "tutorial":[{
+      "tutor": "lisa",
+      "time": ["12am","2pm"],
+      "location": "zoom"}],
+    "courseIntroduce": "this is second course and >>>"
+  }
+  ]
+}
