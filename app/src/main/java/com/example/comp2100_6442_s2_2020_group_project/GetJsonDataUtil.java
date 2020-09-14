@@ -7,6 +7,9 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/* @author: Xiran Yan
+ *  @uid: 7167582
+ * */
 public class GetJsonDataUtil {
     //json transfer to string
     public static String getJson(String fileName, Context context) {
