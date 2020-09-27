@@ -50,17 +50,63 @@ public class RBTreeBarry<T extends Comparable<T>> {
         if (node.courseID == root.courseID) {
             return;
         } else {
-            // if parent and uncle are red, recolour.
+
             Node<T> uncle = findUncle(node);
-            if (node.parent.colour == Colour.RED) { // current node is red, check if parent is red too
+            // current node is red, check if parent is also red
+            if (node.parent.colour == Colour.RED) {
+                // if parent and uncle are red, recolour.
                 if(uncle.colour == Colour.RED) {
                     recolour(node, uncle);
-                }else{
-                    //TODO rotations
+                }
+                // otherwise do rotations
+                else{
+                    rotation(node);
                 }
             }
         }
     }
+
+    private void rotation(Node<T> node) {
+        //LL = right rotate at grandparent
+        //LR = right at parent then left at grandparent
+        //RL = left at parent then right at grandparent
+        //RR = left rotate at grandparent.
+        //LR means: node is left of parent, parent is right of grandparent.
+
+        boolean isNodeLeft = node.courseID == node.parent.left.courseID;
+        boolean isParentLeft = node.parent.courseID == node.parent.parent.left.courseID;
+
+        if(isNodeLeft){
+            if(isParentLeft){ // LL case
+                rightRotate(node);
+            }else{ // LR case
+                rightLeftRotate(node);
+            }
+        }else {
+            if(isParentLeft){ // RL case
+                leftRightRotate(node);
+            }else{ // RR case
+                leftRotate(node);
+            }
+        }
+        //TODO change argument node for rotate function calls
+    }
+
+    //TODO implement LL, LR, RL, RR rotations
+    private void rightRotate(Node<T> node) {
+    }
+    private void rightLeftRotate(Node<T> node) {
+    }
+    private void leftRightRotate(Node<T> node) {
+    }
+    private void leftRotate(Node<T> node) {
+    }
+
+
+
+
+
+
 
     public Node<T> findUncle(Node<T> node) {
         boolean isParentLeft = node.parent == node.parent.parent.left;
