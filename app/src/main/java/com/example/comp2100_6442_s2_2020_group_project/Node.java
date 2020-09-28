@@ -3,11 +3,13 @@ package com.example.comp2100_6442_s2_2020_group_project;
 public class Node<T> {
     Colour colour;
     T courseID;
+    T classNumber;
     Node<T> parent;
     Node<T> left, right;
 
-    public Node(T courseID) {
+    public Node(T courseID, T classNumber) {
         this.courseID  = courseID;
+        this.classNumber = classNumber;
         this.colour = Colour.RED; //property 3 (if a node is red, both children are black) may be violated if parent is red
         this.parent = null;
 
