@@ -2,9 +2,26 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 public class RBTreeBarry<T extends Comparable<T>> {
     Node<T> root;
+    public enum Side {RIGHT, LEFT};
 
     public RBTreeBarry() {
         root = null;
+    }
+
+    public void insertValue(T courseID, T classNumber){
+        Node<T> node = new Node<T>(courseID,classNumber);
+        insertNode(node);
+    }
+
+    public void insertNode(Node<T> node) {
+        if (root == null) {
+            root = node;
+        } else {
+            //TODO implement search function
+            //this is to stop duplicate entries.
+            insertRecurse(root, node);
+        }
+        checkViolations(node);
     }
 
     public void insertRecurse(Node<T> root, Node<T> node) {
@@ -32,41 +49,27 @@ public class RBTreeBarry<T extends Comparable<T>> {
     // 2) if a node is RED, both children are BLACK (cant have two consecutive reds)
     // 3) every path from node to leaf has the same number of black nodes.
 
-    public void insertNode(Node<T> node) {
-        if (root == null) {
-            root = node;
-        } else {
-            //TODO implement search function
-            //this is to stop duplicate entries.
-            insertRecurse(root, node);
-        }
-
-        checkViolations(node);
-
-    }
-
     public void checkViolations(Node<T> node) {
         //TODO choose return value
         if (node.courseID == root.courseID) {
             return;
         } else {
-
             Node<T> uncle = findUncle(node);
             // current node is red, check if parent is also red
             if (node.parent.colour == Colour.RED) {
                 // if parent and uncle are red, recolour.
-                if(uncle.colour == Colour.RED) {
+                if (uncle.colour == Colour.RED) {
                     recolour(node, uncle);
                 }
                 // otherwise do rotations
-                else{
+                else {
                     rotation(node);
                 }
             }
         }
     }
 
-    private void rotation(Node<T> node) {
+    public void rotation(Node<T> node) {
         //LL = right rotate at grandparent
         //LR = right at parent then left at grandparent
         //RL = left at parent then right at grandparent
@@ -76,37 +79,81 @@ public class RBTreeBarry<T extends Comparable<T>> {
         boolean isNodeLeft = node.courseID == node.parent.left.courseID;
         boolean isParentLeft = node.parent.courseID == node.parent.parent.left.courseID;
 
-        if(isNodeLeft){
-            if(isParentLeft){ // LL case
-                rightRotate(node);
-            }else{ // LR case
-                rightLeftRotate(node);
+        if (isNodeLeft) {
+            if (isParentLeft) { // LL case
+                rightRotate(node.parent.parent); // right rotate at grandparent.
+            } else { // LR case
+                rightRotate(node.parent);
+                leftRotate(node.parent); //current parent = previous grandparent
+                changeColour(node, Side.LEFT); // recolour node and left child.
             }
-        }else {
-            if(isParentLeft){ // RL case
-                leftRightRotate(node);
-            }else{ // RR case
-                leftRotate(node);
+        } else {
+            if (isParentLeft) { // RL case
+                leftRotate(node.parent);
+                rightRotate(node.parent);
+                changeColour(node, Side.RIGHT);
+
+            } else { // RR case
+                leftRotate(node.parent.parent);
             }
         }
-        //TODO change argument node for rotate function calls
     }
 
-    //TODO implement LL, LR, RL, RR rotations
-    private void rightRotate(Node<T> node) {
+    public void changeColour(Node<T> node, Side s) {
+        if (s == Side.RIGHT){
+            node.colour = Colour.BLACK;
+            node.right.colour = Colour.RED;
+        }else if(s == Side.LEFT){
+            node.colour = Colour.BLACK;
+            node.left.colour = Colour.RED;
+        }
     }
-    private void rightLeftRotate(Node<T> node) {
+
+    public void rightRotate(Node<T> node) {
+        Node<T> leftChild = node.left;
+        boolean isRoot = node.courseID == root.courseID; // check if node is root
+        boolean isLeft = node.parent.left.courseID == node.courseID; //check if node is a left child of its parent.
+
+        node.left = leftChild.right;
+        node.left.parent = node;
+        leftChild.right = node;
+
+        if(isRoot){
+            root = leftChild;
+        }else{
+            if(isLeft){
+                node.parent.left = leftChild;
+                leftChild.parent = node.parent;
+            }else{
+                node.parent.right = leftChild;
+                leftChild.parent = node.parent;
+            }
+        }
+        node.parent = leftChild;
     }
-    private void leftRightRotate(Node<T> node) {
+
+    public void leftRotate(Node<T> node) {
+        Node<T> rightChild = node.right;
+        boolean isRoot = node.courseID == root.courseID; // check if node is root
+        boolean isLeft = node.parent.left.courseID == node.courseID; //check if node is a left child of its parent.
+
+        node.right = rightChild.left;
+        node.right.parent = node;
+        rightChild.left = node;
+
+        if(isRoot){
+            root = rightChild;
+        }else{
+            if(isLeft){
+                node.parent.left = rightChild;
+                rightChild.parent = node.parent;
+            }else{
+                node.parent.right = rightChild;
+                rightChild.parent = node.parent;
+            }
+        }
+        node.parent = rightChild;
     }
-    private void leftRotate(Node<T> node) {
-    }
-
-
-
-
-
-
 
     public Node<T> findUncle(Node<T> node) {
         boolean isParentLeft = node.parent == node.parent.parent.left;
@@ -117,7 +164,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
-    private void recolour(Node<T> node, Node<T> uncle) {
+    public void recolour(Node<T> node, Node<T> uncle) {
         node.parent.colour = Colour.BLACK; // recolour parent to black
         uncle.colour = Colour.BLACK;// recolour uncle to black
         if (node.parent.parent.courseID != root.courseID) { // if grandparent is not root, change to red
@@ -125,7 +172,6 @@ public class RBTreeBarry<T extends Comparable<T>> {
             checkViolations(node.parent); // check if there is red-red conflict between parent and grandparent
         }
     }
-
 
 
 }
