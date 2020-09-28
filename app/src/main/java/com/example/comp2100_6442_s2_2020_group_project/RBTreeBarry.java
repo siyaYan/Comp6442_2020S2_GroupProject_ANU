@@ -16,12 +16,13 @@ public class RBTreeBarry<T extends Comparable<T>> {
     public void insertNode(Node<T> node) {
         if (root == null) {
             root = node;
+            root.colour = Colour.BLACK;
         } else {
             //TODO implement search function
             //this is to stop duplicate entries.
             insertRecurse(root, node);
+            checkViolations(node);
         }
-        checkViolations(node);
     }
 
     public void insertRecurse(Node<T> root, Node<T> node) {
@@ -51,9 +52,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
 
     public void checkViolations(Node<T> node) {
         //TODO choose return value
-        if (node.courseID == root.courseID) {
-            return;
-        } else {
+        if (node.courseID != root.courseID && node.parent.courseID != root.courseID) {
             Node<T> uncle = findUncle(node);
             // current node is red, check if parent is also red
             if (node.parent.colour == Colour.RED) {
@@ -112,7 +111,6 @@ public class RBTreeBarry<T extends Comparable<T>> {
     public void rightRotate(Node<T> node) {
         Node<T> leftChild = node.left;
         boolean isRoot = node.courseID == root.courseID; // check if node is root
-        boolean isLeft = node.parent.left.courseID == node.courseID; //check if node is a left child of its parent.
 
         node.left = leftChild.right;
         node.left.parent = node;
@@ -121,13 +119,13 @@ public class RBTreeBarry<T extends Comparable<T>> {
         if(isRoot){
             root = leftChild;
         }else{
+            boolean isLeft = node.parent.left.courseID == node.courseID;//check if node is a left child of its parent.
             if(isLeft){
                 node.parent.left = leftChild;
-                leftChild.parent = node.parent;
             }else{
                 node.parent.right = leftChild;
-                leftChild.parent = node.parent;
             }
+            leftChild.parent = node.parent;
         }
         node.parent = leftChild;
     }
