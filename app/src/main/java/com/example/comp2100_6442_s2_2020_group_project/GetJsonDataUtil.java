@@ -31,6 +31,4 @@ public class GetJsonDataUtil {
         }
         return stringBuilder.toString();
     }
-
-
 }

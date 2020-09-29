@@ -43,7 +43,7 @@ public class DetailActivity extends AppCompatActivity {
             jsonArray= jsonObject.getJSONArray("course_details");
             for (int i = 0; i < jsonArray.length();i++) {
                 if(courseID.equals(jsonArray.getJSONObject(i).getString("courseID")))
-                details.add(jsonArray.getJSONObject(i).getString("courseID")+", "+jsonArray.getJSONObject(i).getString("tutorial")+", "+jsonArray.getJSONObject(i).getString("courseIntroduce"));
+                details.add(jsonArray.getJSONObject(i).getString("courseID")+", "+jsonArray.getJSONObject(i).getString("tutorial")+", "+jsonArray.getJSONObject(i).getString("courseIntroduce")+"https://programsandcourses.anu.edu.au/2020/course/" + courseID);
             }
         } catch (JSONException e) {
             e.printStackTrace();

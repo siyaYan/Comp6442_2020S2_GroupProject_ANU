@@ -18,7 +18,6 @@ public class RBTreeBarry<T extends Comparable<T>> {
             root = node;
             root.colour = Colour.BLACK;
         } else {
-            //TODO implement search function
             //this is to stop duplicate entries.
             insertRecurse(root, node);
             checkViolations(node);
@@ -43,6 +42,50 @@ public class RBTreeBarry<T extends Comparable<T>> {
                 insertRecurse(root.right, node); // insert into right tree
             }
         }
+    }
+
+    public Node<T> searchNode(T courseID) {
+        //targetNode keep the courseId
+        Node<T> target = new Node<T>(courseID,courseID);
+        //result keep the node we want
+        Node result=null;
+        if (root != null) {
+            //root is what we want
+            if (root.courseID.compareTo(target.courseID) == 0) {
+                result=root;
+            } else {
+                //go to the left subtree
+                result = searchRecurse(root.left,target);
+                if(result==null||result.courseID==null)
+                    //if can't find in the left subtree go to right
+                    result = searchRecurse(root.right,target);
+            }
+            return result;
+        }
+        //no tree
+        return null;
+    }
+
+    public Node<T> searchRecurse(Node<T> root, Node<T> node) {
+        //posNode is greater than targetNode(go to left subtree)
+        if (root.courseID.compareTo(node.courseID)>0) {
+            if (root.left.courseID != null) {
+                return searchRecurse(root.left, node); //go to left tree
+            }
+            else return null;
+        }
+        //posNode is lesser than targetNode(go to right subtree)
+        else if (root.courseID.compareTo(node.courseID)< 0) {
+            if (root.right.courseID != null) {
+                return searchRecurse(root.right, node); // go to right tree
+            }
+            else return null;
+        }
+        //find what we want
+        else{
+            return root;
+        }
+        //return null;
     }
 
     //rules:
@@ -133,7 +176,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
     public void leftRotate(Node<T> node) {
         Node<T> rightChild = node.right;
         boolean isRoot = node.courseID == root.courseID; // check if node is root
-        boolean isLeft = node.parent.left.courseID == node.courseID; //check if node is a left child of its parent.
+        //boolean isLeft = node.parent.left.courseID.equals(node.courseID);//check if node is a left child of its parent.
 
         node.right = rightChild.left;
         node.right.parent = node;
@@ -142,7 +185,8 @@ public class RBTreeBarry<T extends Comparable<T>> {
         if(isRoot){
             root = rightChild;
         }else{
-            if(isLeft){
+            //check if node is a left child of its parent.
+            if(node.parent.left.courseID.equals(node.courseID)){
                 node.parent.left = rightChild;
                 rightChild.parent = node.parent;
             }else{
@@ -170,16 +214,29 @@ public class RBTreeBarry<T extends Comparable<T>> {
             checkViolations(node.parent); // check if there is red-red conflict between parent and grandparent
         }
     }
-    //
-    public String preOrder(Node<T> tree) {
-        //find the node&have course
+
+    //display the tree by order of the CourseId
+    public String inOrder(Node<T> tree) {
+        //because have color,so when node don't have information tree may still not null,so judge the node by id
+        String str="";
+        String leftStr="";
+        String rightStr="";
         if (tree != null && tree.courseID != null) {
-            String leftStr = preOrder(tree.left);
-            String rightStr = preOrder(tree.right);
-            return "(" + tree.courseID + " " + tree.colour.toString() + ")" + (leftStr.isEmpty() ? leftStr : " " + leftStr)
-                    + (rightStr.isEmpty() ? rightStr : " " + rightStr);
+                if (tree.left.courseID != null) {
+                    leftStr = inOrder(tree.left);
+                }
+                if (tree.right.courseID != null) {
+                    rightStr = inOrder(tree.right);
+                }
+                if (tree.right.courseID == null && tree.left.courseID == null) {
+                     str= tree.courseID + "/" + tree.classNumber + "," ;
+                     return str;
+
+                }
+            str= (leftStr.isEmpty() ? leftStr : "" + leftStr)+ tree.courseID + "/" + tree.classNumber + "," +
+                     (rightStr.isEmpty() ? rightStr : "" + rightStr);
         }
-        return "";
+        return str;
     }
 
 }

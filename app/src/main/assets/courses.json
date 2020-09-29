@@ -1532,7 +1532,7 @@
     "tutorial":[{
       "tutor": "siya",
       "time": ["10am","6pm"],
-      "location": "home"}],
+      "location": ["home","zoom"]}],
     "courseIntroduce": "this is first course and >>>"
   },
   {
