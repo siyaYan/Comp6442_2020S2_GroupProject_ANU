@@ -172,6 +172,16 @@ public class RBTreeBarry<T extends Comparable<T>> {
             checkViolations(node.parent); // check if there is red-red conflict between parent and grandparent
         }
     }
-
+    //
+    public String preOrder(Node<T> tree) {
+        //find the node&have course
+        if (tree != null && tree.courseID != null) {
+            String leftStr = preOrder(tree.left);
+            String rightStr = preOrder(tree.right);
+            return "(" + tree.courseID + " " + tree.colour.toString() + ")" + (leftStr.isEmpty() ? leftStr : " " + leftStr)
+                    + (rightStr.isEmpty() ? rightStr : " " + rightStr);
+        }
+        return "";
+    }
 
 }
