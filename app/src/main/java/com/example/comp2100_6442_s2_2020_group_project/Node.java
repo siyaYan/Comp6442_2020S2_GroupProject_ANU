@@ -4,11 +4,11 @@ public class Node<T> {
     Colour colour;
     T courseID;
     T classNumber;
-    T courseName;
+    T courseName;//descr is courseName
     Node<T> parent;
     Node<T> left, right;
 
-    public Node(T courseID, T classNumber) {
+    public Node(T courseID, T classNumber, T courseName) {
         this.courseID  = courseID;
         this.classNumber = classNumber;
         this.courseName = courseName;
