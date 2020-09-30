@@ -9,32 +9,29 @@ public class RBtreeTest {
         RBTreeBarry<String> tree;
 
         tree = new RBTreeBarry<String>();
-        //suppose we only have comp tree(already put into order)
-        tree.insertValue("1100", "1234");
-        tree.insertValue("1200", "1235");
-        tree.insertValue("1234", "1236");
-        tree.insertValue("2200", "1237");
-        tree.insertValue("2150", "1238");
-        tree.insertValue("1000", "1200");
-        tree.insertValue("1400", "3333");
-        tree.insertValue("1534", "3211");
-        tree.insertValue("2600", "4321");
-        tree.insertValue("1850", "1231");
+        //test some real data
+        tree.insertValue("MEDI3004","1369","IMU Clinical Experience Bridging Course");
+        tree.insertValue("LAWS4010","1418","Jessup Moot");
+        tree.insertValue("LAWS4217","1419","Family Law");
+        tree.insertValue("COMP2710","1618","Special Topics in Computer Science");
+        tree.insertValue("COMP1100","2183","Programming as Problem Solving");
+        tree.insertValue("COMP1110","3328","Structured Programming");
+        tree.insertValue("MATH3349","1317","Special Topics in Mathematics");
+        tree.insertValue("MATH3349","1318","Special Topics in Mathematics");
+        tree.insertValue("COMP2100","2184","Software Design Methodologies");
+        tree.insertValue("COMP2300","2185","Computer Organisation and Program Execution");
+        tree.insertValue("COMP3710","2186","Topics in Computer Science");
+        tree.insertValue("COMP3710","2186","Topics in Computer Science");
+        tree.insertValue("MATH3349","1317","Special Topics in Mathematics");
         //display the tree inorder
         System.out.println(tree.inOrder(tree.root));
         //show root
         System.out.println(tree.root.courseID);
         //find node by courseId
-        System.out.println(tree.searchNode("1534").classNumber);
-   /*   System.out.println(tree.searchNode("1100").classNumber);
-        System.out.println(tree.searchNode("1200").classNumber);
-        System.out.println(tree.searchNode("1234").classNumber);
-        System.out.println(tree.searchNode("2200").classNumber);
-        System.out.println(tree.searchNode("2150").classNumber);
-        System.out.println(tree.searchNode("1000").classNumber);
-        System.out.println(tree.searchNode("2600").classNumber);
-        System.out.println(tree.searchNode("1850").classNumber);
-        System.out.println(tree.searchNode("1400").classNumber);*/
+        System.out.println(tree.searchNode("MATH3349","courseId").classNumber);
+        System.out.println(tree.searchNode("Special Topics in Mathematics","courseName").classNumber);
+   //  System.out.println(tree.searchNode("1100").classNumber);
+
 
     }
 }
