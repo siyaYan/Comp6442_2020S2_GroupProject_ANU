@@ -71,7 +71,8 @@ public class RBTreeBarry<T extends Comparable<T>> {
         if (root != null) {
             if (type.equals("courseName")) {
                 Node<T> target = new Node<T>(null,null,course);
-                if (root.courseName.compareTo(target.courseName) == 0) {
+                int x=root.courseName.compareTo(target.courseName);
+                if (x==0) {
                     result = root;
                 } else {
                     //go to the left subtree
@@ -128,7 +129,8 @@ public class RBTreeBarry<T extends Comparable<T>> {
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
         if (root.courseID != null&& root!= null) {
-            if (root.courseName.compareTo(node.courseName) == 0) {
+            int x =root.courseName.compareTo(node.courseName);
+            if (root.courseName.toString()==node.courseName.toString()) {
                 return root;
             }
             else {
