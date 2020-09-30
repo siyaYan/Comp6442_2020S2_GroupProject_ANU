@@ -4,12 +4,14 @@ public class Node<T> {
     Colour colour;
     T courseID;
     T classNumber;
+    T courseName;
     Node<T> parent;
     Node<T> left, right;
 
     public Node(T courseID, T classNumber) {
         this.courseID  = courseID;
         this.classNumber = classNumber;
+        this.courseName = courseName;
         this.colour = Colour.RED; //property 3 (if a node is red, both children are black) may be violated if parent is red
         this.parent = null;
 
