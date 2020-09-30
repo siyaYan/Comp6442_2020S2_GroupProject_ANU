@@ -43,6 +43,15 @@ public class RBTreeBarry<T extends Comparable<T>> {
                 insertRecurse(root.right, node); // insert into right tree
             }
         }
+        //if have the same courseId just insert in the right side
+        else {
+            if (root.right.courseID == null) {
+                root.right = node;
+                node.parent = root;
+            } else {
+                insertRecurse(root.right, node); // insert into right tree
+            }
+        }
     }
 
     //2 kinds of keywords can searchNode
@@ -268,11 +277,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
                     rightStr = inOrder(tree.right);
                 }
                 if (tree.right.courseID == null && tree.left.courseID == null) {
-                     str= tree.courseID + "/" + tree.classNumber + "," ;
+                     str= "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n" ;
                      return str;
 
                 }
-            str= (leftStr.isEmpty() ? leftStr : "" + leftStr)+ tree.courseID + "/"  +tree.classNumber+"/"+tree.courseName + "," +
+            str= (leftStr.isEmpty() ? leftStr : "" + leftStr)+ "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n"  +
                      (rightStr.isEmpty() ? rightStr : "" + rightStr);
         }
         return str;

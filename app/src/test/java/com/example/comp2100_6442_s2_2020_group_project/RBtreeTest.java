@@ -22,14 +22,13 @@ public class RBtreeTest {
         tree.insertValue("COMP2300","2185","Computer Organisation and Program Execution");
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
-        tree.insertValue("MATH3349","1317","Special Topics in Mathematics");
         //display the tree inorder
         System.out.println(tree.inOrder(tree.root));
         //show root
         System.out.println(tree.root.courseID);
         //find node by courseId
         System.out.println(tree.searchNode("MATH3349","courseId").classNumber);
-        System.out.println(tree.searchNode("Special Topics in Mathematics","courseName").classNumber);
+        //System.out.println(tree.searchNode("Special Topics in Mathematics","courseName").classNumber);
    //  System.out.println(tree.searchNode("1100").classNumber);
 
 
