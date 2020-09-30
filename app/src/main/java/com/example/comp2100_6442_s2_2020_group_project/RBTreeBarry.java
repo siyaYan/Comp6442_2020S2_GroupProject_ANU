@@ -45,11 +45,21 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
         //if have the same courseId just insert in the right side
         else {
-            if (root.right.courseID == null) {
-                root.right = node;
-                node.parent = root;
-            } else {
-                insertRecurse(root.right, node); // insert into right tree
+            //classNUmber must be unique
+            if (root.classNumber.compareTo(node.classNumber) != 0) {
+                if (root.right.courseID == null) {
+                    root.right = node;
+                    node.parent = root;
+                } else {
+                    insertRecurse(root.right, node); // insert into right tree
+                }
+            }
+            //replace the original Node
+            else {
+                node.right=root.right;
+                node.parent =root.parent;
+                node.left=root.left;
+                root=node;
             }
         }
     }
