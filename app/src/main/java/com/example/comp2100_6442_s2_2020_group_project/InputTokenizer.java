@@ -39,7 +39,7 @@ public class InputTokenizer extends Tokenizer {
             int nxt = 0;
             StringBuilder sb = new StringBuilder();
             while (nxt < _buffer.length() && Character.isLetter(_buffer.charAt(nxt))) {
-                sb.append(Character.toUpperCase(_buffer.charAt(nxt)));
+                sb.append(_buffer.charAt(nxt));
                 nxt++;
             }
             _buffer = _buffer.substring(nxt);

@@ -72,7 +72,7 @@ public class TokenizerTest {
 
         Token courseCollegeToken = tokenizer.getNextToken();
         assertSame(courseCollegeToken.getType(), Token.Type.COLLEGE);
-        assertEquals(courseCollegeToken.getContent(), "COMP");
+        assertEquals(courseCollegeToken.getContent(), "Comp");
 
         Token courseNumberToken = tokenizer.getNextToken();
         assertSame(courseNumberToken.getType(), Token.Type.INT);
@@ -87,7 +87,7 @@ public class TokenizerTest {
 
         Token stringToken = tokenizer.getNextToken();
         assertSame(stringToken.getType(), Token.Type.STRING);
-        assertEquals(stringToken.getContent(), "ABC");
+        assertEquals(stringToken.getContent(), "abc");
 
         Token numberToken= tokenizer.getNextToken();
         assertSame(numberToken.getType(), Token.Type.INT);
@@ -102,7 +102,7 @@ public class TokenizerTest {
 
         Token stringToken = tokenizer.getNextToken();
         assertSame(stringToken.getType(), Token.Type.MAJOR);
-        assertEquals(stringToken.getContent(), "COMPUTERSCIENCE");
+        assertEquals(stringToken.getContent(), "computerscience");
 
     }
 
