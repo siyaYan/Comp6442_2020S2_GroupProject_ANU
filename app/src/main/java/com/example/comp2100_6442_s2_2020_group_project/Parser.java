@@ -83,10 +83,11 @@ public class Parser {
      * <f> ::= <fn> | <fn> <op>
      */
     public static void main(String[] args) {
-        InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
+        //InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("SoftwareConstruction");
         //InputTokenizer myInputTokenizer = new InputTokenizer("COMP");
+        InputTokenizer myInputTokenizer = new InputTokenizer("ComputerScience");
         List<String> parsed = new Parser(myInputTokenizer).parseInput();
         for (String s : parsed) {
             System.out.print(s + " ");
