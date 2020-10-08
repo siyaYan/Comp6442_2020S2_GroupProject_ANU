@@ -95,4 +95,15 @@ public class TokenizerTest {
 
     }
 
+    @Test
+    public void TestMajorSet() {
+
+        tokenizer = new InputTokenizer(" computerscience ");
+
+        Token stringToken = tokenizer.getNextToken();
+        assertSame(stringToken.getType(), Token.Type.MAJOR);
+        assertEquals(stringToken.getContent(), "COMPUTERSCIENCE");
+
+    }
+
 }
