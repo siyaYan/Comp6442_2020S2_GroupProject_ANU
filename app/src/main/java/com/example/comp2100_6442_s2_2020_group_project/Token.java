@@ -10,13 +10,15 @@ import java.util.Set;
  * - INT: course number, random number
  * - COLLEGE: college
  * - MAJOR: major
+ * - NAME: course full name
+ * - OPERATION: pre
  * - STRING: random string
  * - UNKNOWN: init
  *
  * @author Xinyu Zheng
  */
 public class Token {
-    public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, STRING}
+    public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
     private static Set<String> collegeSet = new HashSet<>(Arrays.asList("ASTR", "BIOL", "CHEM",
             "COMP", "EMSC", "ENGN", "ENVS", "HLTH", "MATH", "MEDI", "MEDN", "NEUR", "PHIL", "PHYS", "POPH",
             "PSYC", "SCNC", "SCOM", "VCUG"));
@@ -29,6 +31,8 @@ public class Token {
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
             "chemistry", "evolutionecologyandorganismalbiology"));
+    private static Set<String> nameSet = new HashSet<>(Arrays.asList("softwareconstruction"));
+    private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;
 
@@ -39,10 +43,14 @@ public class Token {
 
     public Token(String _content) {
         this._content = _content;
-        if (collegeSet.contains(_content)) {
+        if (collegeSet.contains(_content.toUpperCase())) {
             this._type = Type.COLLEGE;
         } else if (majorSet.contains(_content.toLowerCase())) {
             this._type = Type.MAJOR;
+        } else if (nameSet.contains(_content.toLowerCase())) {
+            this._type = Type.NAME;
+        } else if (operationSet.contains(_content.toLowerCase())) {
+            this._type = Type.OPERATION;
         } else {
             this._type = Type.STRING;
         }
