@@ -2,6 +2,9 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class RBtreeTest {
     @Test
@@ -24,11 +27,19 @@ public class RBtreeTest {
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
         //display the tree inorder
         System.out.println(tree.inOrder(tree.root));
+       // System.out.println(tree.root.courseID.substring(0,4).matches("COMP"));
+        //System.out.println(tree.root.courseID);
+        List<Node> nodes=tree.searchNodes(tree.root,"COMP",new ArrayList<Node>());
+        for(int i=0;i<nodes.size();i++) {
+            System.out.println(nodes.get(i).courseID);
+            System.out.println(nodes.get(i).classNumber);
+            System.out.println(nodes.get(i).courseName);
+        }
         //show root
-        System.out.println(tree.root.courseID);
+       /* System.out.println(tree.root.courseID);
         //find node by courseId
         System.out.println(tree.searchNode("MATH3349","courseId").courseName);
-        System.out.println(tree.searchNode("Topics in Computer Science","courseName").classNumber);
+        System.out.println(tree.searchNode("Topics in Computer Science","courseName").classNumber);*/
    //  System.out.println(tree.searchNode("1100").classNumber);
 
 

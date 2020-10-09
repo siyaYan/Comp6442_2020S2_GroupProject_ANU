@@ -36,7 +36,7 @@ public class DetailActivity extends AppCompatActivity {
     }
     public void getDetails() {
         //get jsonString
-        String JsonData =new GetJsonDataUtil().getJson("courses.json",this.getApplicationContext());
+        String JsonData =new getDataUtil().getJson("courses.json",this.getApplicationContext());
         // System.out.println(JsonData);
         try {
             jsonObject = new JSONObject(JsonData);

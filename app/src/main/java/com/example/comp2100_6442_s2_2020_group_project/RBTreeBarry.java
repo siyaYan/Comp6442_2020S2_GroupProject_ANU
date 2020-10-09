@@ -1,5 +1,8 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RBTreeBarry<T extends Comparable<T>> {
     Node<T> root;
     public enum Side {RIGHT, LEFT};
@@ -64,11 +67,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
-    //3 kinds of keywords can searchNode(classNumber go to map)
+    //2 kinds of keywords can searchNode(classNumber go to map)
     public Node<T> searchNode(T course,T type) {
         //result keep the node we want
         Node result=null;
-        if (root != null) {
+        if (root != null&&root.courseID != null) {
             if (type.equals("courseName")) {
                 Node<T> target = new Node<T>(null,null,course);
                 int x=root.courseName.compareTo(target.courseName);
@@ -92,19 +95,6 @@ public class RBTreeBarry<T extends Comparable<T>> {
                     if (result == null || result.courseID == null)
                         //if can't find in the left subtree go to right
                         result = searchRecurseById(root.right, target);
-                }
-            }
-            else if (type.equals("subject")) {
-                Node<T> target = new Node<T>(course,null,course);
-                Boolean equal=root.courseName.toString().contains(target.courseName.toString());
-                if (equal) {
-                    result = root;
-                } else {
-                    //go to the left subtree
-                    result = searchRecurseByName(root.left, target);
-                    if (result == null || result.courseID == null)
-                        //if can't find in the left subtree go to right
-                        result = searchRecurseByName(root.right, target);
                 }
             }
             else
@@ -142,7 +132,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
         if (root.courseID != null&& root!= null) {
-            int x =root.courseName.compareTo(node.courseName);
+            //int x =root.courseName.compareTo(node.courseName);
             if (root.courseName.toString()==node.courseName.toString()) {
                 return root;
             }
@@ -161,6 +151,23 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    //searchBycollege
+    public List<Node> searchNodes(Node root,String college,List<Node> result) {
+        List<Node> results=result;
+        //result keep the nodeList we want
+        if (root != null&&root.courseID!=null) {
+                if (root.courseID.toString().substring(0,4).matches(college)) {
+                    results.add(root);
+                }
+            if(root.right!=null&&root.right.courseID!=null)
+                searchNodes(root.right, college,results);
+            if(root.left!=null&&root.left.courseID!=null)
+                searchNodes(root.left, college,results);
+            return results;
+        }
+        //no tree
+        return results;
+    }
     //rules:
     // 1) all newly inserted nodes are RED
     // 2) if a node is RED, both children are BLACK (cant have two consecutive reds)

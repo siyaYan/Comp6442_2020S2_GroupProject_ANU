@@ -16,6 +16,19 @@ public class Search {
         ArrayList<Node> nodes=new ArrayList<>();
         if (parsed.get(1).matches("college")) {
 
+               /* Node target = new Node(course,null,course);
+                Boolean equal=root.courseName.toString().contains(target.courseName.toString());
+                if (equal) {
+                    result = root;
+                } else {
+                    //go to the left subtree
+                    result = searchRecurseByName(root.left, target);
+                    if (result == null || result.courseID == null)
+                        //if can't find in the left subtree go to right
+                        result = searchRecurseByName(root.right, target);
+                }
+                for()
+            */
         }
         //todo major
         else if (parsed.get(1).matches("major")) {
@@ -30,6 +43,7 @@ public class Search {
         }
         return nodes;
     }
+    //todo searchMap
     public ArrayList<Course> searchMap(ArrayList<Node> nodes) {
         return courses;
     }
