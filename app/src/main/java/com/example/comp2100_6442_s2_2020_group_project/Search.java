@@ -8,43 +8,42 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Search {
     public ArrayList<Course> courses=new ArrayList<>();
+    public RBTreeBarry<String> tree;
+    public Map<String,ArrayList<String>> map;
 
-    public ArrayList<Node> searchTree(List<String> parsed) {
+    public ArrayList<Node> searchTree(List<String> Parsed,RBTreeBarry<String> Tree) {
         ArrayList<Node> nodes=new ArrayList<>();
-        if (parsed.get(1).matches("college")) {
-
-               /* Node target = new Node(course,null,course);
-                Boolean equal=root.courseName.toString().contains(target.courseName.toString());
-                if (equal) {
-                    result = root;
-                } else {
-                    //go to the left subtree
-                    result = searchRecurseByName(root.left, target);
-                    if (result == null || result.courseID == null)
-                        //if can't find in the left subtree go to right
-                        result = searchRecurseByName(root.right, target);
-                }
-                for()
-            */
+        Node node;
+        if (Parsed.get(1).matches("college")) {
+               nodes = (ArrayList<Node>) Tree.searchNodes(Tree.root,Parsed.get(0),null);
         }
         //todo major
-        else if (parsed.get(1).matches("major")) {
+        else if (Parsed.get(1).matches("major")) {
 
-        } else if (parsed.get(1).matches("courseName")) {
-
-        } else if (parsed.get(1).matches("classNumber")) {
-
+        } else if (Parsed.get(1).matches("courseName")) {
+            node = Tree.searchNode(Parsed.get(0),Parsed.get(1));
+            nodes.add(node);
+        } else if (Parsed.get(1).matches("classNumber")) {
+            node = Tree.searchNode(Parsed.get(0),Parsed.get(1));
+            nodes.add(node);
         } else {
             //todo error occur
             System.out.println("type error!");
         }
         return nodes;
     }
-    //todo searchMap
-    public ArrayList<Course> searchMap(ArrayList<Node> nodes) {
+    //searchMap
+    public ArrayList<Course> searchMap(ArrayList<Node> nodes,Map<String,ArrayList<String>> Map) {
+        ArrayList<String> courseDetail=new ArrayList<>();
+        for (Node node : nodes) {
+            courseDetail= Map.get(node.classNumber);
+            Course course=new Course(courseDetail.get(0),courseDetail);
+            courses.add(course);
+        }
         return courses;
     }
 }
