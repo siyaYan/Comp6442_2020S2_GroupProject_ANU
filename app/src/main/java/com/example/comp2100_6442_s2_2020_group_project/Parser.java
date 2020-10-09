@@ -82,7 +82,7 @@ public class Parser {
     /**
      * <f> ::= <fn> | <fn> <op>
      */
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         //InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("SoftwareConstruction");
@@ -93,5 +93,5 @@ public class Parser {
             System.out.print(s + " ");
         }
         System.out.println();
-    }
+    }*/
 }

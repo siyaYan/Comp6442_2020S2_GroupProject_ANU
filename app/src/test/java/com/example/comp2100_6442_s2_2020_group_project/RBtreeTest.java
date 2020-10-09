@@ -23,7 +23,7 @@ public class RBtreeTest {
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
         //display the tree inorder
-        //System.out.println(tree.inOrder(tree.root));
+        System.out.println(tree.inOrder(tree.root));
         //show root
         System.out.println(tree.root.courseID);
         //find node by courseId

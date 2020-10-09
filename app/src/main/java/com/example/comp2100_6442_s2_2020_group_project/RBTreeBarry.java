@@ -64,7 +64,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
-    //2 kinds of keywords can searchNode
+    //3 kinds of keywords can searchNode(classNumber go to map)
     public Node<T> searchNode(T course,T type) {
         //result keep the node we want
         Node result=null;
@@ -92,6 +92,19 @@ public class RBTreeBarry<T extends Comparable<T>> {
                     if (result == null || result.courseID == null)
                         //if can't find in the left subtree go to right
                         result = searchRecurseById(root.right, target);
+                }
+            }
+            else if (type.equals("subject")) {
+                Node<T> target = new Node<T>(course,null,course);
+                Boolean equal=root.courseName.toString().contains(target.courseName.toString());
+                if (equal) {
+                    result = root;
+                } else {
+                    //go to the left subtree
+                    result = searchRecurseByName(root.left, target);
+                    if (result == null || result.courseID == null)
+                        //if can't find in the left subtree go to right
+                        result = searchRecurseByName(root.right, target);
                 }
             }
             else
