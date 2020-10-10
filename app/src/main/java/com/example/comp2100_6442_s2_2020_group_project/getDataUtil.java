@@ -33,7 +33,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * @uid: 7167582
  *
  * */
-
+//step1 get file return List<Course>(if read major file return ArrayList<String[]> )
 public class getDataUtil {
     //private List<Course> courses;
     //json transfer to string
@@ -58,8 +58,9 @@ public class getDataUtil {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static List<Course> readBespokeFile(File file) {
-        List<Course> getCourses=new ArrayList<>();
+    //read major file for now
+    public static ArrayList<String[]> readBespokeFile(File file) {
+        ArrayList<String[]> getMajor=new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file)))
         {
             String records;
@@ -67,14 +68,13 @@ public class getDataUtil {
             while((records=br.readLine()) !=null)
             {
                 String[] courseDetail = records.split(",");
-                Course course=new Course(courseDetail[0], new ArrayList(Arrays.asList(courseDetail)));
-                getCourses.add(course);
+                getMajor.add(courseDetail);
             }
         }catch(IOException e)
         {
             e.printStackTrace();
         }
-        return getCourses;
+        return getMajor;
     }
 
     public static List<Course> readJSONFile(File file) {
@@ -90,7 +90,7 @@ public class getDataUtil {
         return getCourses;
     }
 
-    public static List<Course>  readXMLFile(File file) {
+    public static List<Course> readXMLFile(File file) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         List<Course> getCourses=new ArrayList<>();
         try {
@@ -102,7 +102,7 @@ public class getDataUtil {
             for(int i = 0; i < nodeList.getLength(); i++)
             {
                 org.w3c.dom.Node n = nodeList.item(i);
-                    //each node is an element
+                //each node is an element
                 Element element	= (Element) n;
                 ArrayList<String> courseDetail = new ArrayList<>();
                 String ClassNumber = element.getElementsByTagName("ClassNumber").item(0).getTextContent();

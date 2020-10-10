@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+//step2 get List<Course> set tree map
 public class Initialization {
     public RBTreeBarry<String> tree;
     public Map<String,ArrayList<String>> map;
@@ -21,6 +22,7 @@ public class Initialization {
         this.tree=Tree;
         this.map=Map;
     }
+    //step1 method1, better choose method2
     public ArrayList<Node> setNodesFromJson(String fileName, Context context) {
         ArrayList<Node> nodeLists = new ArrayList<>();
         //get jsonString
@@ -41,7 +43,7 @@ public class Initialization {
         }
         return nodeLists;
     }
-
+    //step1 method2
     public ArrayList<Node> setNodes(List<Course> courses) {
         ArrayList<Node> nodeLists = new ArrayList<>();
         for (Course course:courses) {
@@ -52,7 +54,7 @@ public class Initialization {
         }
         return nodeLists;
     }
-
+    //step2
     public RBTreeBarry<String> initTree(ArrayList<Node> nodes) {
         for (Node node : nodes) {
             tree.insertValue(node.courseID.toString(),node.classNumber.toString(),node.courseName.toString());
@@ -62,6 +64,7 @@ public class Initialization {
         return tree;
     }
     //TODO how to use map
+    //step3
     public Map<String,ArrayList<String>> initMap( List<Course> courses) {
         for (Course course:courses) {
             map.put(course.classNumber,course.courseDetail);
