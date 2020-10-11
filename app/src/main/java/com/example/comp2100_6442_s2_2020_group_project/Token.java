@@ -18,6 +18,7 @@ import java.util.Set;
  * @author Xinyu Zheng
  */
 public class Token {
+    //todo modify the dataformat to be same with database
     public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
     private static Set<String> collegeSet = new HashSet<>(Arrays.asList("ASTR", "BIOL", "CHEM",
             "COMP", "EMSC", "ENGN", "ENVS", "HLTH", "MATH", "MEDI", "MEDN", "NEUR", "PHIL", "PHYS", "POPH",
@@ -31,7 +32,7 @@ public class Token {
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
             "chemistry", "evolutionecologyandorganismalbiology"));
-    private static Set<String> nameSet = new HashSet<>(Arrays.asList("softwareconstruction"));
+    private static Set<String> nameSet = new HashSet<>(Arrays.asList("logic"));
     private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;

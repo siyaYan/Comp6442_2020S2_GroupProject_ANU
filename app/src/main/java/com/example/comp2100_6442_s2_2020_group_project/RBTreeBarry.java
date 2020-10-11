@@ -131,24 +131,27 @@ public class RBTreeBarry<T extends Comparable<T>> {
     //search by courseName
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
-        if (root.courseID != null&& root!= null) {
+        Node<T> now=new Node();
+        if (root.courseID != null && root != null) {
             //int x =root.courseName.compareTo(node.courseName);
-            if (root.courseName.toString()==node.courseName.toString()) {
-                return root;
-            }
-            else {
-                if (root.left.courseName != null) {
-                    return searchRecurseByName(root.left, node); //go to left tree
-                } else if (root.right.courseName != null) {
-                    return searchRecurseByName(root.right, node); //go to left tree
-                } else {
+            if (!root.courseName.toString().matches(node.courseName.toString())) {
+                if (root.left.courseName != null || root.right.courseName != null) {
+                    now = searchRecurseByName(root.left, node); //go to left tree
+                    if (now != null)
+                        return now;
+                    now = searchRecurseByName(root.right, node);
+                    if (now != null)
+                        return now;
+                }
+                else {
                     return null;
                 }
+            } else {
+                return root;
             }
         }
-        else {
-            return null;
-        }
+        return null;
+
     }
 
     //searchBycollege
@@ -266,7 +269,8 @@ public class RBTreeBarry<T extends Comparable<T>> {
             root = rightChild;
         }else{
             //check if node is a left child of its parent.
-            if(node.parent.left.courseID.equals(node.courseID)){
+            boolean isLeft = node.parent.left.courseID == node.courseID;//check if node is a left child of its parent.
+            if(isLeft){
                 node.parent.left = rightChild;
                 rightChild.parent = node.parent;
             }else{
@@ -315,6 +319,28 @@ public class RBTreeBarry<T extends Comparable<T>> {
                 }
             str= (leftStr.isEmpty() ? leftStr : "" + leftStr)+ "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n"  +
                      (rightStr.isEmpty() ? rightStr : "" + rightStr);
+        }
+        return str;
+    }
+    //display preOrder
+    public String preOrder(Node<T> tree) {
+        String str="";
+        String leftStr="";
+        String rightStr="";
+        if (tree != null && tree.courseID != null) {
+            if (tree.left.courseID != null) {
+                leftStr = inOrder(tree.left);
+            }
+            if (tree.right.courseID != null) {
+                rightStr = inOrder(tree.right);
+            }
+            if (tree.right.courseID == null && tree.left.courseID == null) {
+                str= "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n" ;
+                return str;
+
+            }
+            str=  "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n"  +
+                    (leftStr.isEmpty() ? leftStr : "" + leftStr) + (rightStr.isEmpty() ? rightStr : "" + rightStr);
         }
         return str;
     }

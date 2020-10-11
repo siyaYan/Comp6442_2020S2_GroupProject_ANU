@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -33,11 +34,52 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * @uid: 7167582
  *
  * */
+
 //step1 get file return List<Course>(if read major file return ArrayList<String[]> )
 public class getDataUtil {
     //private List<Course> courses;
     //json transfer to string
-    public static String getJson(String fileName, Context context) {
+    public class courseDetail {
+        String classNumber;
+        String Subject;
+        String CourseID;
+        String Section;
+        String CourseName;
+        String MinUnits;
+        String MaxUnits;
+        String Description;
+        String College;
+        String RequisiteGroupDescription;
+        String GradeBase;
+        String StartDate;
+        String EndDate;
+        String CensusDateDeadline;
+        String LastDateToEnrol;
+        String ModeOfDelivery;
+    }
+
+    public ArrayList<String> setList(courseDetail detail) {
+        ArrayList<String> courseDetail=new ArrayList<>();
+        courseDetail.add(detail.classNumber);
+        courseDetail.add(detail.Subject);
+        courseDetail.add(detail.CourseID);
+        courseDetail.add(detail.Section);
+        courseDetail.add(detail.CourseName);
+        courseDetail.add(detail.MinUnits);
+        courseDetail.add(detail.MaxUnits);
+        courseDetail.add(detail.Description);
+        courseDetail.add(detail.College);
+        courseDetail.add(detail.RequisiteGroupDescription);
+        courseDetail.add(detail.GradeBase);
+        courseDetail.add(detail.StartDate);
+        courseDetail.add(detail.EndDate);
+        courseDetail.add(detail.CensusDateDeadline);
+        courseDetail.add(detail.LastDateToEnrol);
+        courseDetail.add(detail.ModeOfDelivery);
+        return courseDetail;
+    }
+
+    public String getJson(String fileName, Context context) {
         //string builder
         StringBuilder stringBuilder = new StringBuilder();
         try {
@@ -59,7 +101,7 @@ public class getDataUtil {
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     //read major file for now
-    public static ArrayList<String[]> readBespokeFile(File file) {
+    public ArrayList<String[]> readBespokeFile(File file) {
         ArrayList<String[]> getMajor=new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file)))
         {
@@ -67,8 +109,8 @@ public class getDataUtil {
             //read nextLine
             while((records=br.readLine()) !=null)
             {
-                String[] courseDetail = records.split(",");
-                getMajor.add(courseDetail);
+                String[] majorCourses = records.split(",");
+                getMajor.add(majorCourses);
             }
         }catch(IOException e)
         {
@@ -77,20 +119,32 @@ public class getDataUtil {
         return getMajor;
     }
 
-    public static List<Course> readJSONFile(File file) {
+    public List<Course> readJSONFile(File file) {
         Gson gson = new Gson();
         JsonReader jsonReader = null;
         List<Course> getCourses=new ArrayList<>();
+
         try{
             jsonReader = new JsonReader(new FileReader(file));
-            getCourses=gson.fromJson(jsonReader, TypeToken.getParameterized(ArrayList.class, Course.class).getType());
+            ArrayList<courseDetail> courses=gson.fromJson(jsonReader,new TypeToken<ArrayList<courseDetail>>(){}.getType());
+            for (courseDetail detail:courses) {
+                ArrayList<String> coursedetail=new ArrayList<>();
+                coursedetail= setList(detail);
+                Course course=new Course();
+                //System.out.println(coursedetail.get(12));
+                course.courseDetail=coursedetail;
+                course.classNumber=coursedetail.get(0);
+                //System.out.println(course.classNumber);
+                getCourses.add(course);
+            }
         }catch (Exception e) {
             e.printStackTrace();
         }
+        //System.out.println(getCourses.get(1).courseDetail.get(0));
         return getCourses;
     }
-
-    public static List<Course> readXMLFile(File file) {
+    //todo add more
+    public List<Course> readXMLFile(File file) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         List<Course> getCourses=new ArrayList<>();
         try {

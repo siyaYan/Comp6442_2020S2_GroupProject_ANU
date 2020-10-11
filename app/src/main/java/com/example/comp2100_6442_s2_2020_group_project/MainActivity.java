@@ -7,13 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -46,12 +41,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView=findViewById(R.id.lv_results);
         input=findViewById(R.id.ev_input);
-       // button_search=findViewById(R.id.b_search);
+        // button_search=findViewById(R.id.b_search);
 
-        File file1 = new File("courseTest.json");
-        File file2 = new File("majors.csv");
+        //for courses
+        File file1 = new File("src/main/assets/someCourses.json");
+        //for majors
+        File file2 = new File("src/main/assets/majors.csv");
 
-        /*
+        /* main process
             1. step1/2 get tree,map,majorlist
             2. onSearch()
             3. update
@@ -82,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 System.out.print(s + " ");
             }
 
-        //search() get nodes then go to map get course(detail)
+        //search() get nodes(one node or nodes) then go to map get courses(detail)(one or more)
         //get courseDetail
         //choose some information to display in the list
         //transfer the courseDetail into displayList

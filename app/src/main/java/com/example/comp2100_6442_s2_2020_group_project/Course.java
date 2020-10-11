@@ -7,22 +7,22 @@ public class Course implements Serializable {
 
     public String classNumber;
     public ArrayList<String> courseDetail=new ArrayList<String>() {
-            String ClassNumber="1317";//display 0
-            String Subject="MATH";//display 1
-            String CourseID="3349";//display 2
-            String Section="1";//display 3
-            String CourseName="Special Topics in Mathematics";//display 4
-        String MinUnits="6";
-        String MaxUnits="6";
-        String Description="Mathematical Science Institute";
-        String College="CMBE_CPS";
-        String RequisiteGroupDescription="Incompatible with MATH6209";//display 9
-        String GradeBase="GRD";
-        String StartDate="43831";
-        String EndDate="43921";
-        String CensusDateDeadline="43854";//todo date to string format transfer
-        String  LastDateEnrol="43854";
-        String  ModeofDelivery="P";
+        String classNumber;
+        String Subject;
+        String CourseID;
+        String Section;
+        String CourseName;
+        String MinUnits;
+        String MaxUnits;
+        String Description;
+        String College;
+        String RequisiteGroupDescription;
+        String GradeBase;
+        String StartDate;
+        String EndDate;
+        String CensusDateDeadline;
+        String LastDateToEnrol;
+        String ModeOfDelivery;
 };
 
     /**

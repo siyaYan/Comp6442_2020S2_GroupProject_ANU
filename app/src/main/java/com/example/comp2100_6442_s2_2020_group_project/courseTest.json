@@ -1,21 +1,22 @@
- [
+{
+    "courses": [
         {
             "classNumber": "1317",
             "Subject": "MATH",
             "CourseID": "3349",
             "Section": "1",
             "CourseName": "Special Topics in Mathematics",
-            "MinUnits": "6",
-            "MaxUnits": "6",
+            "Min Units": "6",
+            "Max Units": "6",
             "Description": "Mathematical Science Institute",
             "College": "CMBE_CPS",
-            "RequisiteGroupDescription": "Incompatible with MATH6209",
-            "GradeBase": "GRD",
-            "StartDate": "43831",
-            "EndDate": "43921",
-            "CensusDateDeadline": "43854",
-            "LastDatetoEnrol": "43854",
-            "ModeofDelivery": "P"
+            "Requisite Group Description": "Incompatible with MATH6209",
+            "Grade Base": "GRD",
+            "Start Date": "43831",
+            "End Date": "43921",
+            "Census Date Deadline": "43854",
+            "Last Date to Enrol": "43854",
+            "Mode of Delivery": "P"
         },
         {
             "classNumber": "1318",
@@ -2707,3 +2708,4 @@
             "Mode of Delivery": "P"
         }
     ]
+}
