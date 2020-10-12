@@ -2,9 +2,7 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.os.Build;
 
-import androidx.annotation.RequiresApi;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,10 +15,10 @@ import org.w3c.dom.NodeList;
 
 import java.io.BufferedReader;
 import java.io.File;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -82,6 +80,7 @@ public class getDataUtil {
     public String getJson(String fileName, Context context) {
         //string builder
         StringBuilder stringBuilder = new StringBuilder();
+        List<Course> getCourses=new ArrayList<>();
         try {
             //getAssetManager
             AssetManager assetManager = context.getAssets();
@@ -91,20 +90,28 @@ public class getDataUtil {
             //read by line
             String line;
             while ((line = bf.readLine()) != null) {
-                stringBuilder.append(line);//append more
+                /*String[] oneline=line.split(",");
+                ArrayList<String> coursedetail=new ArrayList<String>(Arrays.asList(oneline));
+                Course course=new Course();
+                course.courseDetail=coursedetail;
+                course.classNumber=coursedetail.get(0);
+                getCourses.add(course);*/
+               // stringBuilder.append(line);//append more
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return stringBuilder.toString();
+        //return getCourses;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     //read major file for now
-    public ArrayList<String[]> readBespokeFile(File file) {
+    public ArrayList<String[]> readBespokeFile(String fileName){
         ArrayList<String[]> getMajor=new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(file)))
+        BufferedReader br = null;
+        try
         {
+            br = new BufferedReader(new FileReader(new File(fileName)));
             String records;
             //read nextLine
             while((records=br.readLine()) !=null)
@@ -119,13 +126,13 @@ public class getDataUtil {
         return getMajor;
     }
 
-    public List<Course> readJSONFile(File file) {
+    public List<Course> readJSONFile(String fileName) {
         Gson gson = new Gson();
         JsonReader jsonReader = null;
         List<Course> getCourses=new ArrayList<>();
 
         try{
-            jsonReader = new JsonReader(new FileReader(file));
+            jsonReader = new JsonReader(new FileReader(new File(fileName)));
             ArrayList<courseDetail> courses=gson.fromJson(jsonReader,new TypeToken<ArrayList<courseDetail>>(){}.getType());
             for (courseDetail detail:courses) {
                 ArrayList<String> coursedetail=new ArrayList<>();
@@ -144,12 +151,12 @@ public class getDataUtil {
         return getCourses;
     }
     //todo add more
-    public List<Course> readXMLFile(File file) {
+    public List<Course> readXMLFile(String fileName) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         List<Course> getCourses=new ArrayList<>();
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
-            Document d = db.parse(file); //parse file,the root of the document tree
+            Document d = db.parse(new File(fileName)); //parse file,the root of the document tree
             d.getDocumentElement().normalize(); //remove the redundancies
             //get a nodeslist by tag name book
             NodeList nodeList = d.getElementsByTagName("course");

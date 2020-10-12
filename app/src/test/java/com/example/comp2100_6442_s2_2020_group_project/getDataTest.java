@@ -11,16 +11,16 @@ public class getDataTest {
     List<Course> courses=new ArrayList<>();
     @Test
     public void getMajorTest() {
-        File file = new File("src/main/assets/majors.csv");
-        majors=new getDataUtil().readBespokeFile(file);
+        String fileName2="src/main/assets/majors.csv";
+        majors=new getDataUtil().readBespokeFile(fileName2);
         for (String[] major : majors) {
             System.out.println(major[1]);
         }
     }
     @Test
     public void getCourseTest() {
-        File file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName1="src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName1);
         for (Course course : courses) {
             System.out.println(course.courseDetail);
         }

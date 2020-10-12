@@ -1,5 +1,6 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import android.app.Application;
 import android.content.Context;
 
 import org.json.JSONException;
@@ -15,10 +16,12 @@ import java.util.Map;
 import java.util.Set;
 
 public class initialTest {
-   /* @Test
-    public void setNodesFromJsonTest(String fileName, Context context) {
+/*    @Test
+    public void setNodesFromJsonTest() {
         ArrayList<Node> nodeLists = new ArrayList<>();
-
+        String fileName="src/main/assets/someCourses.json";
+        Context context=new Application().getApplicationContext();
+        nodeLists=new Initialization().setNodesFromJson(fileName,context);
         for (Node node : nodeLists) {
             System.out.println(node.courseID);
         }
@@ -26,14 +29,13 @@ public class initialTest {
 
     @Test
     public void setNodesTest() {
-        File file = new File("src/main/assets/someCourses.json");
+        String fileName1 = "src/main/assets/someCourses.json";
         List<Course> courses=new ArrayList<>();
         ArrayList<Node> nodes = new ArrayList<>();
-        courses=new getDataUtil().readJSONFile(file);
+        courses=new getDataUtil().readJSONFile(fileName1);
         nodes=new Initialization().setNodes(courses);
         for(Node node:nodes)
         System.out.println(node.courseName);
-
     }
 
     @Test
@@ -42,8 +44,8 @@ public class initialTest {
         Initialization initial=new Initialization();
         RBTreeBarry<String> tree = new RBTreeBarry<>();
         List<Course> courses=new ArrayList<>();
-        File file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName = "src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName);
         nodes=initial.setNodes(courses);
         tree=initial.initTree( nodes);
         System.out.println(tree.preOrder(tree.root));
@@ -54,8 +56,8 @@ public class initialTest {
         ArrayList<String[]> majors=new ArrayList<>();
         Initialization initial=new Initialization();
 
-        File file = new File("src/main/assets/majors.csv");
-        majors=new getDataUtil().readBespokeFile(file);
+        String fileName = "src/main/assets/majors.csv";
+        majors=new getDataUtil().readBespokeFile(fileName);
         //initial.initList( majors);
         for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
@@ -70,8 +72,8 @@ public class initialTest {
         List<Course> courses=new ArrayList<>();
         Map<String,ArrayList<String>> map =new HashMap<>();
 
-        File file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName = "src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName);
         map=initial.initMap( courses);
 
         Set<String> keys=  map.keySet();

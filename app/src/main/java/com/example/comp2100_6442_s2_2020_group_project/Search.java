@@ -74,7 +74,7 @@ public class Search {
     //todo searchPre
     //search step3(if have preCourse show preCourse otherwise show course)
     //only input courseName & courseId can have pre operation
-    public ArrayList<Node> searchPre(List<String> Parsed,RBTreeBarry<String> Tree,Map<String,ArrayList<String>> Map) {
+    /*public ArrayList<Node> searchPre(List<String> Parsed,RBTreeBarry<String> Tree,Map<String,ArrayList<String>> Map) {
         ArrayList<Node> nodes=new ArrayList<>();
         ArrayList<Node> preNodes=new ArrayList<>();
        // ArrayList<Course> Courses=new  ArrayList<>();
@@ -102,7 +102,7 @@ public class Search {
             System.out.println("type error!");
         }
         return preNodes;
-    }
+    }*/
 
     //searchMap final step(one or more courses)
     public ArrayList<Course> searchMap(ArrayList<Node> nodes,Map<String,ArrayList<String>> Map) {

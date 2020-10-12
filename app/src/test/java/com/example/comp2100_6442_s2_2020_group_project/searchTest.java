@@ -31,8 +31,8 @@ public class searchTest {
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName1="src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.setNodes(courses);
         tree=initial.initTree( nodes);
 
@@ -48,14 +48,14 @@ public class searchTest {
         nodes=new ArrayList<>();
         majorList=new ArrayList<>();
         ArrayList<String> oneMajor=new ArrayList<>();
-        File file1 = new File("src/main/assets/majors.csv");
-        majorList=new getDataUtil().readBespokeFile(file1);
+        String fileName2= "src/main/assets/majors.csv";
+        majorList=new getDataUtil().readBespokeFile(fileName2);
         myInputTokenizer = new InputTokenizer("ComputerScience");//todo parser need to be same with major database
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName1="src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.setNodes(courses);
         tree=initial.initTree( nodes);
 
@@ -97,8 +97,8 @@ public class searchTest {
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        file = new File("src/main/assets/someCourses.json");
-        courses=new getDataUtil().readJSONFile(file);
+        String fileName1="src/main/assets/someCourses.json";
+        courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.setNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap(courses);

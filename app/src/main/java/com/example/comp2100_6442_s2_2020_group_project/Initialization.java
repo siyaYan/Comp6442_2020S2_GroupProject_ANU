@@ -13,19 +13,30 @@ import java.util.Map;
 
 //step2 get List<Course> set tree map
 public class Initialization {
-    private static RBTreeBarry<String> tree;
-    public static Map<String,ArrayList<String>> map;
-    public static ArrayList<String[]> list;
+    public RBTreeBarry<String> tree;
+    public Map<String,ArrayList<String>> map;
+    public ArrayList<String[]> list;
     public JSONObject jsonObject;
     public JSONArray jsonArray;
-    public Initialization() {
-
+    //major/subject/courseId/Name
+  /*  public Initialization(String fileName, Context context) {
+        this.tree=initTree(setNodesFromJson(fileName,  context));
+        this.map=initMap(new getDataUtil().getJson(fileName,  context));
+        this.initList(new getDataUtil().readBespokeFile(fileName));
+    }*/
+    public Initialization(String fileName1,String fileName2) {
+        List<Course> courses=new getDataUtil().readJSONFile(fileName1);
+        this.tree = initTree(setNodes(courses));
+        this.map = initMap(courses);
+        this.list=this.initList(new getDataUtil().readBespokeFile(fileName2));
     }
-    public Initialization(RBTreeBarry<String> Tree, Map<String,ArrayList<String>> Map,ArrayList<String[]> List) {
+    public Initialization() {
+    }
+   /* public Initialization(RBTreeBarry<String> Tree, Map<String,ArrayList<String>> Map,ArrayList<String[]> List) {
         this.tree=Tree;
         this.map=Map;
         this.list=List;
-    }
+    }*/
     //step1 method1, better choose method2
     public ArrayList<Node> setNodesFromJson(String fileName, Context context) {
         ArrayList<Node> nodeLists = new ArrayList<>();
@@ -34,7 +45,7 @@ public class Initialization {
         // System.out.println(JsonData);
         try {
             jsonObject = new JSONObject(JsonData);
-            jsonArray= jsonObject.getJSONArray("courses");
+            jsonArray= jsonObject.getJSONArray("");
             //put the json information into node
             for (int i = 0; i < jsonArray.length();i++) {
                 Node node= new Node();
