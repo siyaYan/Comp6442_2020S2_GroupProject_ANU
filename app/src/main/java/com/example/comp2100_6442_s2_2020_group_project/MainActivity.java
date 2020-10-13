@@ -27,31 +27,22 @@ import java.util.Map;
  *  @uid: 7167582
  * */
 
-// this is the major engine page (textbox,button and listview)
+// this is the college engine page (textbox,button and listview)
 public class MainActivity extends AppCompatActivity {
     ListView listView;
     EditText input;
     ArrayAdapter listAdapter;
-    String course;
-    List<Course> courses;
     List<String> parsed;
-    ArrayList<Node> courseList;
     ArrayList<Course> courseDetail;
-    ArrayList<String[]> displayList=new ArrayList<>();
+    ArrayList<String> displayList=new ArrayList<>();
+
     RBTreeBarry<String> tree;
     Map<String,ArrayList<String>> map;
     ArrayList<String[]> majorList;
 
-    ArrayList<Node> nodes;
-    ArrayList<Node> preNodes;
-    ArrayList<Node> newNodes;
-
+    ArrayList<Node> newNodes = new ArrayList<>();
     InputTokenizer myInputTokenizer;
-    Initialization initial;
 
-    Search search;
-    File file1;
-    File file2;
 
 
    // @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -68,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
             3. update
             4. go to detail by classNumber(in Node)
         */
-        setInitial();
+        init("someCourses.json","majors.csv",this);
+        /*for (Node node:this.tree.searchNodes(this.tree.root,"COMP",new ArrayList<Node>()) ) {
+            displayList.add(node.courseName.toString());
+        }*/
+
         //bind view to the list
         listAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,displayList);
         listView.setAdapter(listAdapter);
@@ -76,27 +71,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                course=listView.getItemAtPosition(position).toString()+"";
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra("courseDetail", courseDetail);
+                intent.putStringArrayListExtra("courseDetail",courseDetail.get(position).courseDetail);
                 startActivity(intent);
             }
         });
+        listAdapter.notifyDataSetChanged();
     }
 
-    //@RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void setInitial() {
-        //getDataUtil getDataUtil=new getDataUtil();
-        //initial
-        //for courses
-        String file1 = "src/main/assets/someCourses.json";
-        //for majors
-        String file2 = "src/main/assets/majors.csv";
-        initial=new Initialization(file1,file2);
-        //System.out.println(courses.get(0).courseDetail);
-        this.tree=initial.tree;
-        this.map=initial.map;
-        this.majorList=initial.list;
+    public void init(String file1,String file2,Context context) {
+        fileParser fileParser=new fileParser();
+        fileParser.init("someCourses.json","majors.csv",context);
+        this.tree=fileParser.tree;
+        this.map=fileParser.map;
+        this.majorList=fileParser.list;
+        //System.out.println(fileParser.tree.inOrder(fileParser.tree.root));
     }
 
     public void onSearch(View v) {
@@ -104,26 +93,19 @@ public class MainActivity extends AppCompatActivity {
         //get courseDetail
         //choose some information to display in the list
         //transfer the courseDetail into displayList
-
-        //courseList.clear();
         //use tokenizer&parser
+        displayList.clear();
         myInputTokenizer = new InputTokenizer(input.getText().toString());
         parsed = new Parser(myInputTokenizer).parseInput();
-        //ArrayList<String> oneMajor=new ArrayList<>();
-        System.out.println(this.tree.inOrder(tree.root));
-        newNodes=search.searchMajor(parsed,this.tree,this.majorList);
+        System.out.println(parsed.get(1));
+        Search search=new Search();
+        newNodes=search.searchTree(parsed,tree);
         for(Node node:newNodes)
             System.out.println(node.courseID);
         if (newNodes != null) {
-            courseDetail = search.searchMap(newNodes, map);
+            this.courseDetail = search.searchMap(newNodes, map);
             for (Course course : courseDetail) {
-                ArrayList<String> display = new ArrayList<>();
-                display.add(course.courseDetail.get(0));//classNUmber
-                display.add(course.courseDetail.get(1) + course.courseDetail.get(2));//courseId
-                display.add(course.courseDetail.get(4));//courseName
-                display.add(course.courseDetail.get(3));//section
-                display.add(course.courseDetail.get(9));//Pre
-                String[] item = (String[]) display.toArray(new String[0]);
+                String item = course.courseDetail.get(1) + course.courseDetail.get(2)+"\t\t\t\t\t\t\t\t\t\t\t\t"+"section:"+course.courseDetail.get(3)+"\n"+course.courseDetail.get(4);
                 displayList.add(item);
             }
         } else {

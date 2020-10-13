@@ -16,14 +16,8 @@ public class Initialization {
     public RBTreeBarry<String> tree;
     public Map<String,ArrayList<String>> map;
     public ArrayList<String[]> list;
-    public JSONObject jsonObject;
-    public JSONArray jsonArray;
     //major/subject/courseId/Name
-  /*  public Initialization(String fileName, Context context) {
-        this.tree=initTree(setNodesFromJson(fileName,  context));
-        this.map=initMap(new getDataUtil().getJson(fileName,  context));
-        this.initList(new getDataUtil().readBespokeFile(fileName));
-    }*/
+
     public Initialization(String fileName1,String fileName2) {
         List<Course> courses=new getDataUtil().readJSONFile(fileName1);
         this.tree = initTree(setNodes(courses));
@@ -32,33 +26,35 @@ public class Initialization {
     }
     public Initialization() {
     }
-   /* public Initialization(RBTreeBarry<String> Tree, Map<String,ArrayList<String>> Map,ArrayList<String[]> List) {
-        this.tree=Tree;
-        this.map=Map;
-        this.list=List;
-    }*/
+
+    /* public Initialization(RBTreeBarry<String> Tree, Map<String,ArrayList<String>> Map,ArrayList<String[]> List) {
+         this.tree=Tree;
+         this.map=Map;
+         this.list=List;
+     }*/
     //step1 method1, better choose method2
-    public ArrayList<Node> setNodesFromJson(String fileName, Context context) {
+  /* public ArrayList<Node> setNodesFromJson(String fileName, Context context) {
+
         ArrayList<Node> nodeLists = new ArrayList<>();
         //get jsonString
-        String JsonData =new getDataUtil().getJson(fileName,context);
+        String JsonData = new getDataUtil().getJson(fileName, context);
         // System.out.println(JsonData);
         try {
             jsonObject = new JSONObject(JsonData);
-            jsonArray= jsonObject.getJSONArray("");
+            jsonArray = jsonObject.getJSONArray("");
             //put the json information into node
-            for (int i = 0; i < jsonArray.length();i++) {
-                Node node= new Node();
-                node.courseID=jsonArray.getJSONObject(i).getString("CourseID");
-                node.courseName=jsonArray.getJSONObject(i).getString("CourseName");
-                node.classNumber=jsonArray.getJSONObject(i).getString("classNumber");
+            for (int i = 0; i < jsonArray.length(); i++) {
+                Node node = new Node();
+                node.courseID = jsonArray.getJSONObject(i).getString("CourseID");
+                node.courseName = jsonArray.getJSONObject(i).getString("CourseName");
+                node.classNumber = jsonArray.getJSONObject(i).getString("classNumber");
                 nodeLists.add(node);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return nodeLists;
-    }
+    }*/
     //step1 method2
     public ArrayList<Node> setNodes(List<Course> courses) {
         ArrayList<Node> nodeLists = new ArrayList<>();

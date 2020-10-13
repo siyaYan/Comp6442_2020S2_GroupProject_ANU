@@ -12,6 +12,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 /* @author: Xiran Yan
 *  @uid: 7167582
@@ -21,23 +22,22 @@ import java.util.ArrayList;
 public class DetailActivity extends AppCompatActivity {
 
     TextView textView;
-    ArrayList<? extends Course> courseDetail = new ArrayList<>();
-
+    Map<String,ArrayList<String>> map;
+    ArrayList<String> courseDetail = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         textView=findViewById(R.id.tv);
         Intent intent = getIntent();
-        courseDetail =  intent.getParcelableArrayListExtra("courseDetail");
+        courseDetail =  intent.getStringArrayListExtra("courseDetail");
+        System.out.println(courseDetail.get(0));
         displayDetails();
 
     }
 
     public void displayDetails() {
         //todo display in the list
-        for (Course course : courseDetail) {
-            textView.setText(course.courseDetail.toString());
-        }
+        textView.setText("classNUmber:"+courseDetail.get(0)+"\n"+"courseID:"+courseDetail.get(1)+courseDetail.get(2)+"\n"+"section:"+courseDetail.get(3)+"\n"+"courseName:"+courseDetail.get(4)+"\n"+"Min units:"+courseDetail.get(5)+"\n"+"Max units:"+courseDetail.get(6));
     }
 }

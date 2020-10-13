@@ -77,9 +77,9 @@ public class getDataUtil {
         return courseDetail;
     }
 
-    public String getJson(String fileName, Context context) {
+    /*public List<Course> getJson(String fileName, Context context) {
         //string builder
-        StringBuilder stringBuilder = new StringBuilder();
+        //StringBuilder stringBuilder = new StringBuilder();
         List<Course> getCourses=new ArrayList<>();
         try {
             //getAssetManager
@@ -90,20 +90,20 @@ public class getDataUtil {
             //read by line
             String line;
             while ((line = bf.readLine()) != null) {
-                /*String[] oneline=line.split(",");
+                String[] oneline=line.split(",");
                 ArrayList<String> coursedetail=new ArrayList<String>(Arrays.asList(oneline));
                 Course course=new Course();
                 course.courseDetail=coursedetail;
                 course.classNumber=coursedetail.get(0);
-                getCourses.add(course);*/
+                getCourses.add(course);
                // stringBuilder.append(line);//append more
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return stringBuilder.toString();
-        //return getCourses;
-    }
+        //return stringBuilder.toString();
+        return getCourses;
+    }*/
 
     //read major file for now
     public ArrayList<String[]> readBespokeFile(String fileName){

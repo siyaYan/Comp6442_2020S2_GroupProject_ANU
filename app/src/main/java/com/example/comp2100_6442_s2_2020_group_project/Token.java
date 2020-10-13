@@ -41,6 +41,9 @@ public class Token {
         this._content = _content;
         this._type = _type;
     }
+    //Todo
+    // i want to use String.equalsIgnoreCase() to ignore the case(A or a),but can't use this method in your function
+    // can you figure out other ways to achieve it? and also ignore the space(Siya)
 
     public Token(String _content) {
         this._content = _content;
