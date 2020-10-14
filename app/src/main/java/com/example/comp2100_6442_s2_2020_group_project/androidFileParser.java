@@ -2,27 +2,28 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-public class fileParser {
+/**
+ * A util function with 2 ways to parse the file(json&csv) by fileName
+ * (files are in assets,using assetManger)
+ * useing for the Android
+ * Init the map,tree,list dataSet for further using from the file database
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
+public class androidFileParser {
     public JSONObject jsonObject;
     public JSONArray jsonArray;
     ArrayList<Node> nodeLists;
@@ -75,11 +76,14 @@ public class fileParser {
             List<Course> courses=parseJson(fileName1,context);
             this.tree = initTree(parserToNodes(courses));
             this.map = initMap(courses);
-        } else if (fileName2.contains(".csv")) {
+        } else {
+            System.out.println("file type error!");
+        }
+        if (fileName2.contains(".csv")) {
             ArrayList<String[]> major=parseCsv(fileName2,context);
             this.list=this.initList(major);
         } else {
-            System.out.println("type error!");
+            System.out.println("file type error!");
         }
     }
 
@@ -161,6 +165,7 @@ public class fileParser {
     public ArrayList<String[]>  initList(ArrayList<String[]> List) {
         return List;
     }
+
     public Map<String,ArrayList<String>> initMap(List<Course> courses) {
         map=new HashMap<>();
         for (Course course:courses) {

@@ -33,7 +33,7 @@ public class ExampleInstrumentedTest {
         public void getMajorTest() {
             Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             String fileName="majors.csv";
-            majors=new fileParser().parseCsv(fileName,appContext);
+            majors=new androidFileParser().parseCsv(fileName,appContext);
             for (String[] major : majors) {
                 System.out.println(major[1]);
             }
@@ -41,7 +41,7 @@ public class ExampleInstrumentedTest {
       /*  @Test
         public void getCourseTest() {
             String fileName="someCourses.json";
-            courses=new fileParser(fileName,appContext);
+            courses=new androidFileParser(fileName,appContext);
             for (Course course : courses) {
                 System.out.println(course.courseDetail);
             }

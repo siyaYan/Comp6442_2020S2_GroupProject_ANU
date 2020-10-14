@@ -67,6 +67,13 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * searchNode&Nodes based on different requirements
+     * searchNode() searchRecurseById() searchRecurseByName() searchNodes()
+     * useingf for the java backside
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     //2 kinds of keywords can searchNode(classNumber go to map)
     public Node<T> searchNode(T course, T type) {
         //result keep the node we want
@@ -105,31 +112,30 @@ public class RBTreeBarry<T extends Comparable<T>> {
         //no tree
         return null;
     }
-
     //search by courseId
     public Node<T> searchRecurseById(Node<T> root, Node<T> node) {
         //subtree exist
         if (root.courseID != null && root != null) {
-            //posNode is greater than targetNode(go to left subtree)
-            if (root.courseID.compareTo(node.courseID) > 0) {
-                if (root.left.courseID != null) {
-                    return searchRecurseById(root.left, node); //go to left tree
-                } else return null;
-            }
-            //posNode is lesser than targetNode(go to right subtree)
-            //find what we want
-            else if (root.courseID.toString().equalsIgnoreCase(node.courseID.toString().trim())) {
+            if (root.courseID.toString().equalsIgnoreCase(node.courseID.toString().trim())) {
                 return root;
             }else {
-                if (root.right.courseID != null) {
-                    return searchRecurseById(root.right, node); // go to right tree
-                } else return null;
+                //posNode is greater than targetNode(go to left subtree)
+                if (root.courseID.compareTo(node.courseID) > 0) {
+                    if (root.left.courseID != null) {
+                        return searchRecurseById(root.left, node); //go to left tree
+                    } else return null;
+                }
+                //posNode is lesser than targetNode(go to right subtree)
+                else {
+                    if (root.right.courseID != null) {
+                        return searchRecurseById(root.right, node); // go to right tree
+                    } else return null;
+                }
             }
         } else {
             return null;
         }
     }
-
     //search by courseName
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
@@ -156,13 +162,12 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
         return null;
     }
-
     //searchBycollege
     public List<Node> searchNodes(Node root,String college,List<Node> result) {
         List<Node> results=result;
         //result keep the nodeList we want
         if (root != null&&root.courseID!=null) {
-                if (root.courseID.toString().substring(0,4).matches(college)) {
+                if (root.courseID.toString().substring(0,4).equalsIgnoreCase(college)) {
                     results.add(root);
                 }
             if(root.right!=null&&root.right.courseID!=null)
@@ -174,6 +179,7 @@ public class RBTreeBarry<T extends Comparable<T>> {
         //no tree
         return results;
     }
+
     //rules:
     // 1) all newly inserted nodes are RED
     // 2) if a node is RED, both children are BLACK (cant have two consecutive reds)
@@ -302,6 +308,12 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * 2 kind of display tree function inOrder() preOrder()
+     *
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     //display the tree by order of the CourseId
     public String inOrder(Node<T> tree) {
         //because have color,so when node don't have information tree may still not null,so judge the node by id

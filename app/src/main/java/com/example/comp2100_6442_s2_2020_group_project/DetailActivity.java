@@ -14,10 +14,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Map;
 
-/* @author: Xiran Yan
-*  @uid: 7167582
-* */
-//display the detail
+/**
+ *
+ * display the detail information for ANU courses
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
+
 //todo change the layout & UI
 public class DetailActivity extends AppCompatActivity {
 

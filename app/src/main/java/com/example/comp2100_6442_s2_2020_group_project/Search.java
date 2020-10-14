@@ -1,15 +1,17 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
-import android.content.Context;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+
+/**
+ * Search function can based on different requirement
+ * to search /  basic info  /   detail info /    major related info  /  requisite info  /
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 
 public class Search {
     public ArrayList<Course> courses=new ArrayList<>();
@@ -24,12 +26,13 @@ public class Search {
                nodes = (ArrayList<Node>) Tree.searchNodes(Tree.root,Parsed.get(0),new ArrayList<Node>());
         }//searchByName/Id goto searchNode(return node)
         else if (Parsed.get(1).matches("courseName")|| Parsed.get(1).matches("courseId")) {
-            node = Tree.searchNode(Parsed.get(0),Parsed.get(1));
-            if(node!=null)
-            nodes.add(node);
+            node = Tree.searchNode(Parsed.get(0).toUpperCase(),Parsed.get(1));
+            if(node!=null) {
+                nodes.add(node);
+            }
         } else {
             //todo error occur
-            System.out.println("type error!");
+            System.out.println("type error! or don't have the data");
         }
         return nodes;
     }
@@ -41,7 +44,7 @@ public class Search {
         if (Parsed.get(1).matches("major")) {
             //get all courses in major
             for (String[] major : majorList) {
-                if (major[0].matches(Parsed.get(0))) {
+                if (major[0].replaceAll("\\s*", "").equalsIgnoreCase(Parsed.get(0))) {
                     oneMajor=new ArrayList(Arrays.asList(major));
                     //the first item store major name,so get sublist
                     oneMajor.subList(1,oneMajor.size()-1);
@@ -72,8 +75,6 @@ public class Search {
     }
 
     //todo searchPre
-    //search step3(if have preCourse show preCourse otherwise show course)
-    //only input courseName & courseId can have pre operation
     /*public ArrayList<Node> searchPre(List<String> Parsed,RBTreeBarry<String> Tree,Map<String,ArrayList<String>> Map) {
         ArrayList<Node> nodes=new ArrayList<>();
         ArrayList<Node> preNodes=new ArrayList<>();
@@ -104,6 +105,12 @@ public class Search {
         return preNodes;
     }*/
 
+    //simple one
+    public String searchPre(Node node, Map<String,ArrayList<String>> Map) {
+        ArrayList<String> requisite = Map.get(node.classNumber);
+        return requisite.get(9);//preRequire
+    }
+
     //searchMap final step(one or more courses)
     public ArrayList<Course> searchMap(ArrayList<Node> nodes,Map<String,ArrayList<String>> Map) {
         ArrayList<String> courseDetail=new ArrayList<>();
@@ -115,4 +122,5 @@ public class Search {
         }
         return courses;
     }
+
 }

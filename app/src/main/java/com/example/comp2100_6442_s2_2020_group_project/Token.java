@@ -1,5 +1,8 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import android.content.Context;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -22,7 +25,8 @@ public class Token {
     //todo modify the dataformat to be same with database
     public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
     private static Set<String> collegeSet = new HashSet<>();
-    private static Set<String> majorSet = new HashSet<>(Arrays.asList("geography",
+    private static Set<String> majorSet = new HashSet<>();
+    /*Arrays.asList("geography",
             "quantitativeenvironmentalmodelling", "marinescience", "psychology",
             "waterscience", "biochemistry", "mathematics", "environmentalscience",
             "quantitiativebiology", "computerscience", "mathematicalfinance",
@@ -30,22 +34,37 @@ public class Token {
             "biologicalanthropology", "sciencecommunication", "astronomyandastrophysics",
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
-            "chemistry", "evolutionecologyandorganismalbiology"));
+            "chemistry", "evolutionecologyandorganismalbiology")*/
     private static Set<String> nameSet = new HashSet<>();
     private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;
-    private static List<Course> courseList = new getDataUtil().readJSONFile("src/main/assets/someCourses.json");
+    private static List<Course> courseList = new ArrayList<>();
+    private static ArrayList<String[]> majorList = new ArrayList<>();
 
-    static {
+    /**
+     * init token
+     *
+     * @author Xinyu Zheng
+     * @author:Xiran Yan(modify)
+     */
+    public Token(String fileName1,String fileName2,Context context) {
+        System.out.println(context.toString());
+        this.courseList = new androidFileParser().parseJson(fileName1,context);
+        this.majorList =  new androidFileParser().parseCsv(fileName2,context);
+
         for (Course course : courseList) {
-            collegeSet.add(course.courseDetail.get(1));
+            collegeSet.add(course.courseDetail.get(1).toLowerCase());
             nameSet.add(course.courseDetail.get(4).toLowerCase().replaceAll("\\s*",""));
         }
+        for (String[] major : majorList) {
+            majorSet.add(major[0].toLowerCase().replaceAll("\\s*",""));
+        }
         for (String s : nameSet) {
-            System.out.print(s + " ");
+            System.out.print(s + "\n");
         }
         System.out.println();
+
     }
 
     public Token(String _content, Type _type) {
@@ -55,7 +74,7 @@ public class Token {
 
     public Token(String _content) {
         this._content = _content;
-        if (collegeSet.contains(_content.toUpperCase())) {
+        if (collegeSet.contains(_content.toLowerCase())) {
             this._type = Type.COLLEGE;
         } else if (majorSet.contains(_content.toLowerCase())) {
             this._type = Type.MAJOR;

@@ -3,6 +3,12 @@ package com.example.comp2100_6442_s2_2020_group_project;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ *
+ * define the course attributes
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class Course implements Serializable {
 
     public String classNumber;

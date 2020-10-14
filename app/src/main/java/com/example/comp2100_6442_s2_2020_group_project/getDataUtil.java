@@ -27,11 +27,12 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 
-/*
+/**
+ * A util function with 3 ways to parse the file by filePath
+ * useing for the java backside
  * @author: Xiran Yan
  * @uid: 7167582
- *
- * */
+ */
 
 //step1 get file return List<Course>(if read major file return ArrayList<String[]> )
 public class getDataUtil {
