@@ -32,7 +32,7 @@ public class Token {
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
             "chemistry", "evolutionecologyandorganismalbiology"));
-    private static Set<String> nameSet = new HashSet<>(Arrays.asList("logic"));
+    private static Set<String> nameSet = new HashSet<>(Arrays.asList("logic","softwareconstruction","semesterinasia"));
     private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;
@@ -41,9 +41,6 @@ public class Token {
         this._content = _content;
         this._type = _type;
     }
-    //Todo
-    // i want to use String.equalsIgnoreCase() to ignore the case(A or a),but can't use this method in your function
-    // can you figure out other ways to achieve it? and also ignore the space(Siya)
 
     public Token(String _content) {
         this._content = _content;
@@ -70,7 +67,7 @@ public class Token {
 
     public static void main(String[] args) {
         for (String s : majorSet) {
-            System.out.print("\"" + s.toLowerCase().replaceAll("\\s","") +  "\"" + ", ");
+            System.out.print("\"" + s.toLowerCase().replaceAll("\\s*","") +  "\"" + ", ");
         }
     }
 }

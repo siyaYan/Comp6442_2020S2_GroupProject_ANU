@@ -29,7 +29,7 @@ public class RBtreeTest {
         //System.out.println(tree.inOrder(tree.root));
         //System.out.println(tree.preOrder(tree.root));
        // System.out.println(tree.root.courseID.substring(0,4).matches("COMP"));
-        //System.out.println(tree.root.courseID);
+        System.out.println(tree.root.courseID);
         /*List<Node> nodes=tree.searchNodes(tree.root,"COMP",new ArrayList<Node>());
         for(int i=0;i<nodes.size();i++) {
             System.out.println(nodes.get(i).courseID);
@@ -39,8 +39,11 @@ public class RBtreeTest {
         //show root
         //System.out.println(tree.root.courseID);
         //find node by courseId
-       // System.out.println(tree.searchNode("COMP2100","courseId").courseName);
-        System.out.println(tree.searchNode("Computer Organisation and Program Execution","courseName").classNumber);
+        System.out.println(tree.searchNode("cOMP2100","courseId").courseName);
+        System.out.println(tree.searchNode(" specialTopicsinComputerScience ","courseName").courseID);
+
+        /*String str="specialTopics in Computer Science";
+        System.out.println(str.replaceAll("\\s*", "").trim());*/
    //  System.out.println(tree.searchNode("1100").classNumber);
 
 

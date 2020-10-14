@@ -82,6 +82,7 @@ public class fileParser {
             System.out.println("type error!");
         }
     }
+
     public void fileParser() {
     }
 
@@ -98,7 +99,7 @@ public class fileParser {
                 //read nextLine
                 while((records=br.readLine()) !=null)
                 {
-                    String[] majorCourses = records.split(",");
+                    String[] majorCourses = records.trim().split(",");
                     getMajor.add(majorCourses);
                 }
             }catch(IOException e)
@@ -121,7 +122,7 @@ public class fileParser {
             ArrayList<getDataUtil.courseDetail> courses=gson.fromJson(jsonReader,new TypeToken<ArrayList<getDataUtil.courseDetail>>(){}.getType());
             for (getDataUtil.courseDetail detail:courses) {
                 ArrayList<String> coursedetail=new ArrayList<>();
-                coursedetail= setList(detail);
+                coursedetail = setList(detail);
                 Course course=new Course();
                 //System.out.println(coursedetail.get(12));
                 course.courseDetail=coursedetail;

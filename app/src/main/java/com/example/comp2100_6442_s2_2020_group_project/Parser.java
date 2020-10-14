@@ -67,7 +67,7 @@ public class Parser {
 
     public List<String> parseF() {
         List<String> rtn = new ArrayList<>();
-        rtn.add(currentToken.getContent());
+        rtn.add(currentToken.getContent().trim());
         rtn.add("courseName");
         if (!_tokenizer.hasNext()) {
             return rtn;

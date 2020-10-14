@@ -104,7 +104,6 @@ public class getDataUtil {
         //return stringBuilder.toString();
         return getCourses;
     }*/
-
     //read major file for now
     public ArrayList<String[]> readBespokeFile(String fileName){
         ArrayList<String[]> getMajor=new ArrayList<>();

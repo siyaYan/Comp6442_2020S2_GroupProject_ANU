@@ -97,9 +97,12 @@ public class MainActivity extends AppCompatActivity {
         displayList.clear();
         myInputTokenizer = new InputTokenizer(input.getText().toString());
         parsed = new Parser(myInputTokenizer).parseInput();
-        System.out.println(parsed.get(1));
+       // System.out.println(parsed.get(1));
         Search search=new Search();
+        //college&courseId&courseName engine
         newNodes=search.searchTree(parsed,tree);
+        //major engine
+        //newNodes= search.searchMajor(parsed,tree,majorList);
         for(Node node:newNodes)
             System.out.println(node.courseID);
         if (newNodes != null) {

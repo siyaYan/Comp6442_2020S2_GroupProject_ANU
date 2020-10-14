@@ -5,14 +5,14 @@ import java.util.List;
 
 public class RBTreeBarry<T extends Comparable<T>> {
     Node<T> root;
-    public enum Side {RIGHT, LEFT};
 
+    public enum Side {RIGHT, LEFT};
     public RBTreeBarry() {
         root = null;
     }
 
-    public void insertValue(T courseID, T classNumber, T courseName){
-        Node<T> node = new Node<T>(courseID,classNumber,courseName);
+    public void insertValue(T courseID, T classNumber, T courseName) {
+        Node<T> node = new Node<T>(courseID, classNumber, courseName);
         insertNode(node);
     }
 
@@ -59,23 +59,24 @@ public class RBTreeBarry<T extends Comparable<T>> {
             }
             //replace the original Node
             else {
-                node.right=root.right;
-                node.parent =root.parent;
-                node.left=root.left;
-                root=node;
+                node.right = root.right;
+                node.parent = root.parent;
+                node.left = root.left;
+                root = node;
             }
         }
     }
 
     //2 kinds of keywords can searchNode(classNumber go to map)
-    public Node<T> searchNode(T course,T type) {
+    public Node<T> searchNode(T course, T type) {
         //result keep the node we want
-        Node result=null;
-        if (root != null&&root.courseID != null) {
+        Node result = null;
+        if (root != null && root.courseID != null) {
             if (type.equals("courseName")) {
-                Node<T> target = new Node<T>(null,null,course);
-                int x=root.courseName.compareTo(target.courseName);
-                if (x==0) {
+                Node<T> target = new Node<T>(null, null, course);
+                //int x = root.courseName.compareTo(target.courseName);
+                //ignore input (tab) space and case
+                if (root.courseName.toString().replaceAll("\\s*", "").equalsIgnoreCase(target.courseName.toString().trim())) {
                     result = root;
                 } else {
                     //go to the left subtree
@@ -84,11 +85,12 @@ public class RBTreeBarry<T extends Comparable<T>> {
                         //if can't find in the left subtree go to right
                         result = searchRecurseByName(root.right, target);
                 }
-            }
-            else if (type.equals("courseId")) {
+            } else if (type.equals("courseId")) {
                 Node<T> target = new Node<T>(course, null, null);
-                if (root.courseID.compareTo(target.courseID) == 0) {
+                //ignore the case
+                if (root.courseID.toString().equalsIgnoreCase(target.courseID.toString().trim())) {
                     result = root;
+                    //root.courseID.compareTo(target.courseID.toString()) == 0
                 } else {
                     //go to the left subtree
                     result = searchRecurseById(root.left, target);
@@ -96,18 +98,18 @@ public class RBTreeBarry<T extends Comparable<T>> {
                         //if can't find in the left subtree go to right
                         result = searchRecurseById(root.right, target);
                 }
-            }
-            else
+            } else
                 return null;//input wrong type
             return result;
         }
         //no tree
         return null;
     }
+
     //search by courseId
     public Node<T> searchRecurseById(Node<T> root, Node<T> node) {
         //subtree exist
-        if (root.courseID != null&& root!= null) {
+        if (root.courseID != null && root != null) {
             //posNode is greater than targetNode(go to left subtree)
             if (root.courseID.compareTo(node.courseID) > 0) {
                 if (root.left.courseID != null) {
@@ -115,26 +117,30 @@ public class RBTreeBarry<T extends Comparable<T>> {
                 } else return null;
             }
             //posNode is lesser than targetNode(go to right subtree)
-            else if (root.courseID.compareTo(node.courseID) < 0) {
+            //find what we want
+            else if (root.courseID.toString().equalsIgnoreCase(node.courseID.toString().trim())) {
+                return root;
+            }else {
                 if (root.right.courseID != null) {
                     return searchRecurseById(root.right, node); // go to right tree
                 } else return null;
-            }
-            //find what we want
-            else {
-                return root;
             }
         } else {
             return null;
         }
     }
+
     //search by courseName
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
         Node<T> now=new Node();
         if (root.courseID != null && root != null) {
             //int x =root.courseName.compareTo(node.courseName);
-            if (!root.courseName.toString().matches(node.courseName.toString())) {
+            String str=root.courseName.toString();
+            //boolean equal=str.replaceAll("\\s*", "").equalsIgnoreCase(node.courseName.toString());
+            if (str.replaceAll("\\s*", "").equalsIgnoreCase(node.courseName.toString().trim())){
+                return root;
+            } else {
                 if (root.left.courseName != null || root.right.courseName != null) {
                     now = searchRecurseByName(root.left, node); //go to left tree
                     if (now != null)
@@ -146,12 +152,9 @@ public class RBTreeBarry<T extends Comparable<T>> {
                 else {
                     return null;
                 }
-            } else {
-                return root;
             }
         }
         return null;
-
     }
 
     //searchBycollege
