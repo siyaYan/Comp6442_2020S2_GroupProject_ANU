@@ -2,6 +2,7 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -20,9 +21,7 @@ import java.util.Set;
 public class Token {
     //todo modify the dataformat to be same with database
     public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
-    private static Set<String> collegeSet = new HashSet<>(Arrays.asList("ASTR", "BIOL", "CHEM",
-            "COMP", "EMSC", "ENGN", "ENVS", "HLTH", "MATH", "MEDI", "MEDN", "NEUR", "PHIL", "PHYS", "POPH",
-            "PSYC", "SCNC", "SCOM", "VCUG"));
+    private static Set<String> collegeSet = new HashSet<>();
     private static Set<String> majorSet = new HashSet<>(Arrays.asList("geography",
             "quantitativeenvironmentalmodelling", "marinescience", "psychology",
             "waterscience", "biochemistry", "mathematics", "environmentalscience",
@@ -32,10 +31,22 @@ public class Token {
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
             "chemistry", "evolutionecologyandorganismalbiology"));
-    private static Set<String> nameSet = new HashSet<>(Arrays.asList("logic","softwareconstruction","semesterinasia"));
+    private static Set<String> nameSet = new HashSet<>();
     private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;
+    private static List<Course> courseList = new getDataUtil().readJSONFile("src/main/assets/someCourses.json");
+
+    static {
+        for (Course course : courseList) {
+            collegeSet.add(course.courseDetail.get(1));
+            nameSet.add(course.courseDetail.get(4).toLowerCase().replaceAll("\\s*",""));
+        }
+        for (String s : nameSet) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
 
     public Token(String _content, Type _type) {
         this._content = _content;

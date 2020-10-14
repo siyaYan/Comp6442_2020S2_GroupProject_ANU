@@ -65,6 +65,9 @@ public class Parser {
         return rtn;
     }
 
+    /**
+     * <f> ::= <fn> | <fn> <op>
+     */
     public List<String> parseF() {
         List<String> rtn = new ArrayList<>();
         rtn.add(currentToken.getContent().trim());
@@ -79,9 +82,6 @@ public class Parser {
         return rtn;
     }
 
-    /**
-     * <f> ::= <fn> | <fn> <op>
-     */
 /*    public static void main(String[] args) {
         //InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");

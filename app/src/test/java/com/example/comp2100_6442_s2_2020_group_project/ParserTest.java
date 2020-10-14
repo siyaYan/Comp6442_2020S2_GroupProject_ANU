@@ -7,11 +7,11 @@ import java.util.List;
 public class ParserTest {
     @Test
     public void parserTest() {
-      /*  InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
-        InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
-        InputTokenizer myInputTokenizer = new InputTokenizer("SoftwareConstruction");
-        InputTokenizer myInputTokenizer = new InputTokenizer("COMP");*/
-        InputTokenizer myInputTokenizer = new InputTokenizer("ComputerScience");
+        InputTokenizer myInputTokenizer = new InputTokenizer("MolecularGeneTechnology pre");
+        //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
+        //InputTokenizer myInputTokenizer = new InputTokenizer("MolecularGeneTechnology");
+        //InputTokenizer myInputTokenizer = new InputTokenizer("COMP");
+        //InputTokenizer myInputTokenizer = new InputTokenizer("ComputerScience");
         List<String> parsed = new Parser(myInputTokenizer).parseInput();
         for (String s : parsed) {
             System.out.print(s + " ");
