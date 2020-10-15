@@ -124,12 +124,10 @@ public class androidFileParser {
         return getCourses;
     }
 
-    public ArrayList<User> parseXML(String fileName, Context context) {
+    public ArrayList<User> parseXML(InputStream inputStream) {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         ArrayList<User> getUsers=new ArrayList<>();
-        BufferedReader br= null;
         try {
-            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
             DocumentBuilder db = dbf.newDocumentBuilder();
             Document d = db.parse(inputStream); //parse file,the root of the document tree
             d.getDocumentElement().normalize(); //remove the redundancies
@@ -154,6 +152,7 @@ public class androidFileParser {
         }
         return getUsers;
     }
+
        /*public List<Course> getJson(String fileName, Context context) {
         //string builder
         //StringBuilder stringBuilder = new StringBuilder();

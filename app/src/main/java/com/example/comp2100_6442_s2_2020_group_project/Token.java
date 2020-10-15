@@ -60,10 +60,10 @@ public class Token {
         for (String[] major : majorList) {
             majorSet.add(major[0].toLowerCase().replaceAll("\\s*",""));
         }
-        for (String s : nameSet) {
+      /*  for (String s : nameSet) {
             System.out.print(s + "\n");
         }
-        System.out.println();
+        System.out.println();*/
 
     }
 

@@ -22,6 +22,7 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     ArrayList<String[]> majors=new ArrayList<>();
     List<Course> courses=new ArrayList<>();
+    ArrayList<User> users=new ArrayList<>();
     //Context appContext;
     @Test
     public void useAppContext() {
@@ -46,5 +47,6 @@ public class ExampleInstrumentedTest {
                 System.out.println(course.courseDetail);
             }
         }*/
+
 
 }

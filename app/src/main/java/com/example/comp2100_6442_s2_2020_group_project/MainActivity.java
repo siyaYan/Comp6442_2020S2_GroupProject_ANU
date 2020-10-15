@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,8 +58,11 @@ public class MainActivity extends AppCompatActivity {
         /*for (Node node:this.tree.searchNodes(this.tree.root,"COMP",new ArrayList<Node>()) ) {
             displayList.add(node.courseName.toString());
         }*/
+
+        for (User user : userList) {
+            System.out.println(user.userName);
+        }
         token=new Token("someCourses.json","majors.csv",this);
-        System.out.println(this.toString());
         //bind view to the list
         listAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,displayList);
         listView.setAdapter(listAdapter);
@@ -75,9 +79,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void init(String file1,String file2,Context context) {
+        InputStream inputStream = this.getResources().openRawResource(R.raw.users);
         androidFileParser androidFileParser =new androidFileParser();
         Initialization init=new Initialization();
-        init.Initialization(androidFileParser.parseJson("someCourses.json",context),androidFileParser.parseCsv("majors.csv",context),androidFileParser.parseXML("user.xml",context));
+        init.Initialization(androidFileParser.parseJson("someCourses.json",context),androidFileParser.parseCsv("majors.csv",context),androidFileParser.parseXML(inputStream));
         this.tree= init.tree;
         this.map= init.map;
         this.majorList= init.majorList;
