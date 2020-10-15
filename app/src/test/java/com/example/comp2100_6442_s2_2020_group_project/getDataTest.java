@@ -9,6 +9,7 @@ import java.util.List;
 public class getDataTest {
     ArrayList<String[]> majors=new ArrayList<>();
     List<Course> courses=new ArrayList<>();
+    ArrayList<User> users=new ArrayList<>();
     @Test
     public void getMajorTest() {
         String fileName2="src/main/assets/majors.csv";
@@ -23,6 +24,14 @@ public class getDataTest {
         courses=new getDataUtil().readJSONFile(fileName1);
         for (Course course : courses) {
             System.out.println(course.courseDetail);
+        }
+    }
+    @Test
+    public void getUserTest() {
+        String fileName="src/main/res/raw/users.xml";
+        users=new getDataUtil().readXMLFile(fileName);
+        for (User user : users) {
+            System.out.println(user.userName);
         }
     }
 }

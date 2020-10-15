@@ -33,7 +33,7 @@ public class initialTest {
         List<Course> courses=new ArrayList<>();
         ArrayList<Node> nodes = new ArrayList<>();
         courses=new getDataUtil().readJSONFile(fileName1);
-        nodes=new Initialization().setNodes(courses);
+        nodes=new Initialization().parserToNodes(courses);
         for(Node node:nodes)
         System.out.println(node.courseName);
     }
@@ -46,7 +46,7 @@ public class initialTest {
         List<Course> courses=new ArrayList<>();
         String fileName = "src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName);
-        nodes=initial.setNodes(courses);
+        nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         System.out.println(tree.preOrder(tree.root));
     }

@@ -23,8 +23,8 @@ import java.util.Map;
  * @uid: 7167582
  */
 //Todo
-// not exactly String match can also find something
-// this is the college engine page (textbox,button and listview)
+
+// this is the searching engine page (textbox,button and listview)
 public class MainActivity extends AppCompatActivity {
     ListView listView;
     EditText input;
@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     RBTreeBarry<String> tree;
     Map<String,ArrayList<String>> map;
     ArrayList<String[]> majorList;
+    ArrayList<User> userList;
 
     ArrayList<Node> newNodes = new ArrayList<>();
     InputTokenizer myInputTokenizer;
@@ -75,10 +76,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void init(String file1,String file2,Context context) {
         androidFileParser androidFileParser =new androidFileParser();
-        androidFileParser.init("someCourses.json","majors.csv",context);
-        this.tree= androidFileParser.tree;
-        this.map= androidFileParser.map;
-        this.majorList= androidFileParser.list;
+        Initialization init=new Initialization();
+        init.Initialization(androidFileParser.parseJson("someCourses.json",context),androidFileParser.parseCsv("majors.csv",context),androidFileParser.parseXML("user.xml",context));
+        this.tree= init.tree;
+        this.map= init.map;
+        this.majorList= init.majorList;
+        this.userList= init.userList;
         //System.out.println(androidFileParser.tree.inOrder(androidFileParser.tree.root));
     }
 
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
      * 1/clear the data
      * 2/use tokenizer&parser
      * 3/use search() get nodes(one node or nodes)
-     * 4/ choose some information to display in the list
+     * 4/choose some information to display in the list
      * 5/adapt change
      * @author Xiran Yan
      */

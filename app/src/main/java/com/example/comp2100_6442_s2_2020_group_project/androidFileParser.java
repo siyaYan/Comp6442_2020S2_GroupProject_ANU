@@ -2,18 +2,27 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+
 /**
  * A util function with 2 ways to parse the file(json&csv) by fileName
  * (files are in assets,using assetManger)
@@ -24,12 +33,6 @@ import java.util.Map;
  * @uid: 7167582
  */
 public class androidFileParser {
-    public JSONObject jsonObject;
-    public JSONArray jsonArray;
-    ArrayList<Node> nodeLists;
-    public RBTreeBarry<String> tree;
-    public Map<String,ArrayList<String>> map;
-    public ArrayList<String[]> list;
 
     public class courseDetail {
         String classNumber;
@@ -69,25 +72,6 @@ public class androidFileParser {
         courseDetail.add(detail.LastDateToEnrol);
         courseDetail.add(detail.ModeOfDelivery);
         return courseDetail;
-    }
-
-    public void init(String fileName1,String fileName2,Context context) {
-        if (fileName1.contains(".json")) {
-            List<Course> courses=parseJson(fileName1,context);
-            this.tree = initTree(parserToNodes(courses));
-            this.map = initMap(courses);
-        } else {
-            System.out.println("file type error!");
-        }
-        if (fileName2.contains(".csv")) {
-            ArrayList<String[]> major=parseCsv(fileName2,context);
-            this.list=this.initList(major);
-        } else {
-            System.out.println("file type error!");
-        }
-    }
-
-    public void fileParser() {
     }
 
     public ArrayList<String[]> parseCsv (String fileName, Context context) {
@@ -140,37 +124,62 @@ public class androidFileParser {
         return getCourses;
     }
 
-    public ArrayList<Node> parserToNodes(List<Course> courses) {
-        ArrayList<Node> nodeLists = new ArrayList<>();
-        for (Course course:courses) {
-            Node node=new Node();
-            node.courseID=course.courseDetail.get(1)+course.courseDetail.get(2);
-            node.courseName=course.courseDetail.get(4);
-            node.classNumber=course.courseDetail.get(0);
-            nodeLists.add(node);
+    public ArrayList<User> parseXML(String fileName, Context context) {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        ArrayList<User> getUsers=new ArrayList<>();
+        BufferedReader br= null;
+        try {
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            Document d = db.parse(inputStream); //parse file,the root of the document tree
+            d.getDocumentElement().normalize(); //remove the redundancies
+            NodeList nodeList = d.getElementsByTagName("user");
+            for(int i = 0; i < nodeList.getLength(); i++)
+            {
+                org.w3c.dom.Node n = nodeList.item(i);
+                Element element	= (Element) n;
+                String id = element.getElementsByTagName("id").item(0).getTextContent();
+                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
+                String password= element.getElementsByTagName("password").item(0).getTextContent();
+                User user=new User();
+                user.id=id;
+                user.userName=userName;
+                user.password=password;
+                getUsers.add(user);
+            }
         }
-        return nodeLists;
-    }
-
-    public RBTreeBarry<String> initTree(ArrayList<Node> nodes) {
-        tree = new RBTreeBarry<String>();
-        for (Node node : nodes) {
-            tree.insertValue(node.courseID.toString(),node.classNumber.toString(),node.courseName.toString());
+        catch(Exception e)
+        {
+            e.printStackTrace();
         }
-        //display the tree inorder
-        //System.out.println(tree.inOrder(tree.root));
-        return tree;
+        return getUsers;
     }
-
-    public ArrayList<String[]>  initList(ArrayList<String[]> List) {
-        return List;
-    }
-
-    public Map<String,ArrayList<String>> initMap(List<Course> courses) {
-        map=new HashMap<>();
-        for (Course course:courses) {
-            map.put(course.classNumber,course.courseDetail);
+       /*public List<Course> getJson(String fileName, Context context) {
+        //string builder
+        //StringBuilder stringBuilder = new StringBuilder();
+        List<Course> getCourses=new ArrayList<>();
+        try {
+            //getAssetManager
+            AssetManager assetManager = context.getAssets();
+            //open file by assetManager and read by bufferedReader
+            BufferedReader bf = new BufferedReader(new InputStreamReader(
+                    assetManager.open(fileName)));
+            //read by line
+            String line;
+            while ((line = bf.readLine()) != null) {
+                String[] oneline=line.split(",");
+                ArrayList<String> coursedetail=new ArrayList<String>(Arrays.asList(oneline));
+                Course course=new Course();
+                course.courseDetail=coursedetail;
+                course.classNumber=coursedetail.get(0);
+                getCourses.add(course);
+               // stringBuilder.append(line);//append more
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return map;
-    }
+        //return stringBuilder.toString();
+        return getCourses;
+    }*/
+
 }

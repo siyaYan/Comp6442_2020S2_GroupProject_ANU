@@ -33,7 +33,7 @@ public class searchTest {
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
-        nodes=initial.setNodes(courses);
+        nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
 
         newNodes=new Search().searchTree(parsed,tree);
@@ -57,7 +57,7 @@ public class searchTest {
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
-        nodes=initial.setNodes(courses);
+        nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
 
         newNodes=new Search().searchMajor(parsed,tree,majorList);
@@ -78,7 +78,7 @@ public class searchTest {
         courses=new ArrayList<>();
         file = new File("src/main/assets/someCourses.json");
         courses=new getDataUtil().readJSONFile(file);
-        nodes=initial.setNodes(courses);
+        nodes=initial.parserToNodes()(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap( courses);
 
@@ -100,7 +100,7 @@ public class searchTest {
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
-        nodes=initial.setNodes(courses);
+        nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap(courses);
         ArrayList<Node> getNodes=new Search().searchTree(parsed,tree);
