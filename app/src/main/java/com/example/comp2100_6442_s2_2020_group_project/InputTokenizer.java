@@ -15,7 +15,7 @@ public class InputTokenizer extends Tokenizer {
 
     @Override
     public boolean hasNext() {
-        return !_buffer.trim().isEmpty();
+        return !_buffer.trim().replaceFirst("^,", "").isEmpty();
     }
 
     @Override
@@ -24,7 +24,7 @@ public class InputTokenizer extends Tokenizer {
             throw new AssertionError();
         }
 
-        _buffer = _buffer.trim();
+        _buffer = _buffer.trim().replaceFirst("^,", "");
 
         if (Character.isDigit(_buffer.charAt(0))) {
             int nxt = 0;
@@ -38,12 +38,13 @@ public class InputTokenizer extends Tokenizer {
         } else {
             int nxt = 0;
             StringBuilder sb = new StringBuilder();
-            while (nxt < _buffer.length() && Character.isLetter(_buffer.charAt(nxt))) {
+            while (nxt < _buffer.length() && _buffer.charAt(nxt) != ','
+                    && !Character.isDigit(_buffer.charAt(nxt))) {
                 sb.append(_buffer.charAt(nxt));
                 nxt++;
             }
             _buffer = _buffer.substring(nxt);
-            return new Token(sb.toString());
+            return new Token(sb.toString().replaceAll("\\s*",""));
         }
     }
 }

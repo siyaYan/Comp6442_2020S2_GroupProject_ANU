@@ -42,6 +42,21 @@ public class Token {
     private static List<Course> courseList = new ArrayList<>();
     private static ArrayList<String[]> majorList = new ArrayList<>();
 
+    public static void loadData() {
+        String fileName1 = "src/main/assets/someCourses.json";
+        courseList = new getDataUtil().readJSONFile(fileName1);
+        String fileName2 = "src/main/assets/majors.csv";
+        majorList = new getDataUtil().readBespokeFile(fileName2);
+
+
+        for (Course course : courseList) {
+            collegeSet.add(course.courseDetail.get(1).toLowerCase());
+            nameSet.add(course.courseDetail.get(4).toLowerCase().replaceAll("\\s*",""));
+        }
+        for (String[] major : majorList) {
+            majorSet.add(major[0].toLowerCase().replaceAll("\\s*",""));
+        }
+    }
     /**
      * init token
      *
@@ -50,8 +65,8 @@ public class Token {
      */
     public Token(String fileName1,String fileName2,Context context) {
         System.out.println(context.toString());
-        this.courseList = new androidFileParser().parseJson(fileName1,context);
-        this.majorList =  new androidFileParser().parseCsv(fileName2,context);
+        courseList = new androidFileParser().parseJson(fileName1,context);
+        majorList =  new androidFileParser().parseCsv(fileName2,context);
 
         for (Course course : courseList) {
             collegeSet.add(course.courseDetail.get(1).toLowerCase());
@@ -95,11 +110,17 @@ public class Token {
         return _type;
     }
 
+    @Override
+    public String toString() {
+        return this._content;
+    }
+
     public static void main(String[] args) {
         for (String s : majorSet) {
             System.out.print("\"" + s.toLowerCase().replaceAll("\\s*","") +  "\"" + ", ");
         }
     }
+
 }
 
 

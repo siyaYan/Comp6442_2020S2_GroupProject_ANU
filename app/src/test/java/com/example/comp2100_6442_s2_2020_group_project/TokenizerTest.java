@@ -1,5 +1,6 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -12,6 +13,11 @@ import static org.junit.Assert.*;
 public class TokenizerTest {
 
     private static Tokenizer tokenizer;
+
+    @BeforeClass
+    public static void setup() {
+        Token.loadData();
+    }
 
     @Test
     public void TestCourseNumber() {
@@ -98,7 +104,7 @@ public class TokenizerTest {
     @Test
     public void TestMajorSet() {
 
-        tokenizer = new InputTokenizer(" computerscience ");
+        tokenizer = new InputTokenizer(" computer science ");
 
         Token stringToken = tokenizer.getNextToken();
         assertSame(stringToken.getType(), Token.Type.MAJOR);
