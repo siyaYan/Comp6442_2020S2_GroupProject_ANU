@@ -13,9 +13,9 @@ public class ParserTest {
 
     @Test
     public void parserTest() {
-        //InputTokenizer myInputTokenizer = new InputTokenizer("ChemicalBiology2 pre");
+        InputTokenizer myInputTokenizer = new InputTokenizer("ChemicalBiology2 pre");
         //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
-        InputTokenizer myInputTokenizer = new InputTokenizer(" comp1100, MolecularGeneTechnology, pre, MolecularGeneTechnology, comp1100, pre, comp1100, pre, MolecularGeneTechnology, pre ");
+        //InputTokenizer myInputTokenizer = new InputTokenizer(" comp1100, MolecularGeneTechnology, pre, MolecularGeneTechnology, comp1100, pre, comp1100, pre, MolecularGeneTechnology, pre ");
         //InputTokenizer myInputTokenizer = new InputTokenizer("COMP");
         //InputTokenizer myInputTokenizer = new InputTokenizer("ComputerScience");
         List<List<String>> parsed = new Parser(myInputTokenizer).parseInput();
