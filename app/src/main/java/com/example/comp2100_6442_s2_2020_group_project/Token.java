@@ -22,7 +22,6 @@ import java.util.Set;
  * @author Xinyu Zheng
  */
 public class Token {
-    //todo modify the dataformat to be same with database
     public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
     private static Set<String> collegeSet = new HashSet<>();
     private static Set<String> majorSet = new HashSet<>();

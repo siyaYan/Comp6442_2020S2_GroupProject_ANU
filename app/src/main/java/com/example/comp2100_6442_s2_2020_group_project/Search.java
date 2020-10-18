@@ -114,7 +114,6 @@ public class Search {
     //searchMap final step(one or more courses)
     public ArrayList<Course> searchMap(ArrayList<Node> nodes,Map<String,ArrayList<String>> Map) {
         ArrayList<String> courseDetail=new ArrayList<>();
-        //todo use map
         for (Node node : nodes) {
             courseDetail= Map.get(node.classNumber);
             Course course=new Course(courseDetail.get(0),courseDetail);

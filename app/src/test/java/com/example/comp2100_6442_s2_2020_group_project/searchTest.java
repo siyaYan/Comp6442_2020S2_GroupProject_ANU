@@ -1,5 +1,6 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,28 +19,35 @@ public class searchTest {
     ArrayList<String[]> majorList;
     Map<String,ArrayList<String>> map;
     InputTokenizer myInputTokenizer;
-    List<String> parsed;
+    List<List<String>> parsed;
+    List<String> oneparse;
     Initialization initial;
     List<Course> courses;
     File file;
 
+    @BeforeClass
+    public static void setup() {
+        Token.loadData();
+    }
     @Test
     public void searchTreeTest() {
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
-        myInputTokenizer = new InputTokenizer("logic ");
-        // TODO parsed = new Parser(myInputTokenizer).parseInput();
+        myInputTokenizer = new InputTokenizer("comp1100, pre");
+        // TODO
+        parsed = new Parser(myInputTokenizer).parseInput();
+        System.out.println(parsed );
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
-
-        newNodes=new Search().searchTree(parsed,tree);
-        for(Node node:newNodes)
-            System.out.println(node.courseID);
-
+        for (List<String> oneparse : parsed) {
+            newNodes=new Search().searchTree(oneparse,tree);
+            for(Node node:newNodes)
+                System.out.println(node.courseID);
+        }
     }
 
     @Test
@@ -51,18 +59,18 @@ public class searchTest {
         String fileName2= "src/main/assets/majors.csv";
         majorList=new getDataUtil().readBespokeFile(fileName2);
         myInputTokenizer = new InputTokenizer("Marine science");
-        // TODO parsed = new Parser(myInputTokenizer).parseInput();
-        System.out.println(parsed.get(0)+parsed.get(1));
+        parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
-
-        newNodes=new Search().searchMajor(parsed,tree,majorList);
-        for(Node node:newNodes)
-            System.out.println(node.courseID);
+        for (List<String> oneparse : parsed) {
+            newNodes=new Search().searchMajor(oneparse,tree,majorList);
+            for(Node node:newNodes)
+                System.out.println(node.courseID);
+        }
     }
 
 /*    @Test
@@ -94,8 +102,8 @@ public class searchTest {
         map =new HashMap<>();
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
-        myInputTokenizer = new InputTokenizer("Logic");
-        // TODO parsed = new Parser(myInputTokenizer).parseInput();
+        myInputTokenizer = new InputTokenizer("Logic,Cognition");
+        parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
@@ -103,10 +111,13 @@ public class searchTest {
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap(courses);
-        ArrayList<Node> getNodes=new Search().searchTree(parsed,tree);
 
-        courseList=new Search().searchMap(getNodes,map);
-        for(Course course :courseList)
-            System.out.println(course.courseDetail);
+        for (List<String> oneparse : parsed) {
+            ArrayList<Node> getNodes=new Search().searchTree(oneparse,tree);
+            courseList=new Search().searchMap(getNodes,map);
+            for(Course course :courseList)
+                System.out.println(course.courseDetail);
+        }
+
     }
 }
