@@ -1,11 +1,14 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
- * <input> ::= <c> | <f> | <mj>
- * <c> ::= <col> | <col><id> | <col><id> <op>
+ * <input> ::= <cs> | <fs> | <mj>
+ * <cs> ::= <c> | <c> <cs> | <c> <fs>
+ * <c> ::= <col> | <col> <id> | <col> <id> <op>
+ * <fs> ::= <f> | <f> <fs> | <f> <cs>
  * <f> ::= <fn> | <fn> <op>
  * <id> ::= <unsigned integer>
  *
@@ -18,25 +21,36 @@ public class Parser {
 
     public Parser(InputTokenizer tokenizer) {
         this._tokenizer = tokenizer;
+        this.currentToken = _tokenizer.getNextToken();
     }
 
     /**
-     * <input> ::= <c> | <fn> | <mj>
+     * <input> ::= <cs> | <fn> | <mj>
      */
-    public List<String> parseInput() {
-        List<String> rtn = new ArrayList<>();
+    public List<List<String>> parseInput() {
+        List<List<String>> rtn = new ArrayList<>();
         if (currentToken == null) {
-            if (!_tokenizer.hasNext()) return rtn;
-            currentToken = _tokenizer.getNextToken();
-        }
-        if (currentToken.getType() == Token.Type.COLLEGE) {
-            rtn.addAll(parseC());
+            return rtn;
+        } else if (currentToken.getType() == Token.Type.COLLEGE) {
+            rtn.addAll(parseCs());
         } else if (currentToken.getType() == Token.Type.NAME) {
-            rtn.addAll(parseF());
+            rtn.addAll(parseFs());
         } else if (currentToken.getType() == Token.Type.MAJOR) {
-            rtn.add(currentToken.getContent());
-            rtn.add("major");
+            rtn.add(Arrays.asList(currentToken.getContent(), "major"));
         }
+        return rtn;
+    }
+
+    /**
+     * <cs> ::= <c> | <c> <cs> | <c> <fs>
+     */
+    public List<List<String>> parseCs() {
+        List<List<String>> rtn = new ArrayList<>();
+        if (currentToken == null) return rtn;
+        rtn.add(parseC());
+        if (currentToken == null) return rtn;
+        if (currentToken.getType() == Token.Type.COLLEGE) rtn.addAll(parseCs());
+        else rtn.addAll(parseFs());
         return rtn;
     }
 
@@ -45,23 +59,35 @@ public class Parser {
      */
     public List<String> parseC() {
         List<String> rtn = new ArrayList<>();
-        rtn.add(currentToken.getContent());
-        if (!_tokenizer.hasNext()) {
+        if (currentToken != null && currentToken.getType() == Token.Type.COLLEGE) {
+            rtn.add(currentToken.getContent());
+            currentToken = _tokenizer.getNextToken();
+        }
+        if (currentToken == null) {
             rtn.add("college");
             return rtn;
-        }
-        currentToken = _tokenizer.getNextToken();
-        if (currentToken.getType() == Token.Type.INT) {
+        } else if (currentToken.getType() == Token.Type.INT) {
             rtn.set(rtn.size() - 1, rtn.get(rtn.size() - 1) + currentToken.getContent());
+            rtn.add("courseId");
+            currentToken = _tokenizer.getNextToken();
         }
-        rtn.add("courseId");
-        if (!_tokenizer.hasNext()) {
-            return rtn;
-        }
-        currentToken = _tokenizer.getNextToken();
-        if (currentToken.getType() == Token.Type.OPERATION) {
+        if (currentToken != null && currentToken.getType() == Token.Type.OPERATION) {
             rtn.add(currentToken.getContent());
+            currentToken = _tokenizer.getNextToken();
         }
+        return rtn;
+    }
+
+    /**
+     * <fs> ::= <f> | <f> <fs> | <f> <cs>
+     */
+    public List<List<String>> parseFs() {
+        List<List<String>> rtn = new ArrayList<>();
+        if (currentToken == null) return rtn;
+        rtn.add(parseF());
+        if (currentToken == null) return rtn;
+        if (currentToken.getType() == Token.Type.COLLEGE) rtn.addAll(parseCs());
+        else rtn.addAll(parseFs());
         return rtn;
     }
 
@@ -70,28 +96,16 @@ public class Parser {
      */
     public List<String> parseF() {
         List<String> rtn = new ArrayList<>();
-        rtn.add(currentToken.getContent().trim());
-        rtn.add("courseName");
-        if (!_tokenizer.hasNext()) {
-            return rtn;
-        }
-        currentToken = _tokenizer.getNextToken();
-        if (currentToken.getType() == Token.Type.OPERATION) {
+        if (currentToken != null && currentToken.getType() == Token.Type.NAME) {
             rtn.add(currentToken.getContent());
+            rtn.add("courseName");
+            currentToken = _tokenizer.getNextToken();
+        }
+        if (currentToken != null && currentToken.getType() == Token.Type.OPERATION) {
+            rtn.add(currentToken.getContent());
+            currentToken = _tokenizer.getNextToken();
         }
         return rtn;
     }
 
-/*    public static void main(String[] args) {
-        //InputTokenizer myInputTokenizer = new InputTokenizer("softwareconstruction pre");
-        //InputTokenizer myInputTokenizer = new InputTokenizer("comp6442 pre");
-        //InputTokenizer myInputTokenizer = new InputTokenizer("SoftwareConstruction");
-        //InputTokenizer myInputTokenizer = new InputTokenizer("COMP");
-        InputTokenizer myInputTokenizer = new InputTokenizer("ComputerScience");
-        List<String> parsed = new Parser(myInputTokenizer).parseInput();
-        for (String s : parsed) {
-            System.out.print(s + " ");
-        }
-        System.out.println();
-    }*/
 }

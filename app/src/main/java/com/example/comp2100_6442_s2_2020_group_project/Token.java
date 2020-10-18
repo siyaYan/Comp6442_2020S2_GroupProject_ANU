@@ -89,13 +89,13 @@ public class Token {
 
     public Token(String _content) {
         this._content = _content;
-        if (collegeSet.contains(_content.toLowerCase())) {
+        if (collegeSet.contains(_content)) {
             this._type = Type.COLLEGE;
-        } else if (majorSet.contains(_content.toLowerCase())) {
+        } else if (majorSet.contains(_content)) {
             this._type = Type.MAJOR;
-        } else if (nameSet.contains(_content.toLowerCase())) {
+        } else if (nameSet.contains(_content)) {
             this._type = Type.NAME;
-        } else if (operationSet.contains(_content.toLowerCase())) {
+        } else if (operationSet.contains(_content)) {
             this._type = Type.OPERATION;
         } else {
             this._type = Type.STRING;

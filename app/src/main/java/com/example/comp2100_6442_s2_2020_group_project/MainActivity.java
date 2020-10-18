@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
     public void onSearch(View v) {
         displayList.clear();
         myInputTokenizer = new InputTokenizer(input.getText().toString());
-        parsed = new Parser(myInputTokenizer).parseInput();
+        //parsed = new Parser(myInputTokenizer).parseInput();
         if (parsed.size() > 0) {
             System.out.println(parsed.get(1));
             Search search = new Search();

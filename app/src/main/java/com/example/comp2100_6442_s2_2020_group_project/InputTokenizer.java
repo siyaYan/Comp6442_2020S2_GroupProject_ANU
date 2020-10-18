@@ -21,7 +21,7 @@ public class InputTokenizer extends Tokenizer {
     @Override
     public Token getNextToken() {
         if (!this.hasNext()) {
-            throw new AssertionError();
+            return null;
         }
 
         _buffer = _buffer.trim().replaceFirst("^,", "");
@@ -44,7 +44,7 @@ public class InputTokenizer extends Tokenizer {
                 nxt++;
             }
             _buffer = _buffer.substring(nxt);
-            return new Token(sb.toString().replaceAll("\\s*",""));
+            return new Token(sb.toString().replaceAll("\\s*","").toLowerCase());
         }
     }
 }

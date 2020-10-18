@@ -28,7 +28,7 @@ public class searchTest {
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("logic ");
-        parsed = new Parser(myInputTokenizer).parseInput();
+        // TODO parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
@@ -51,7 +51,7 @@ public class searchTest {
         String fileName2= "src/main/assets/majors.csv";
         majorList=new getDataUtil().readBespokeFile(fileName2);
         myInputTokenizer = new InputTokenizer("Marine science");
-        parsed = new Parser(myInputTokenizer).parseInput();
+        // TODO parsed = new Parser(myInputTokenizer).parseInput();
         System.out.println(parsed.get(0)+parsed.get(1));
         initial=new Initialization();
         courses=new ArrayList<>();
@@ -95,7 +95,7 @@ public class searchTest {
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("Logic");
-        parsed = new Parser(myInputTokenizer).parseInput();
+        // TODO parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/someCourses.json";
