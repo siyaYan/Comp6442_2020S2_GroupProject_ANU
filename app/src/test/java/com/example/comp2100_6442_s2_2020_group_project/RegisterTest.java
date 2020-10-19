@@ -23,7 +23,7 @@ public class RegisterTest {
 
         new Register().removeUserData(user); //remove user at the end of test.
 
-        assertEquals(expected,actual);
+        assertEquals("The list " + actual + " is not equal to the expected list " + expected,expected,actual);
     }
     //TODO add tests for registering users.xml
 }

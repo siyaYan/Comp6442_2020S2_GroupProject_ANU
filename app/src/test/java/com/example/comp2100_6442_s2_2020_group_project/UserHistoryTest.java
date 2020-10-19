@@ -24,7 +24,7 @@ public class UserHistoryTest {
 
         new UserHistory().setHistory(user,originalList); //reset the user's history (ie. remove the course we added).
 
-        assertEquals("The list " + expected + " is not equal to the list " + updatedList,expected,updatedList);
+        assertEquals("The list " + updatedList + " is not equal to the expected list " + expected,expected,updatedList);
     }
 
     @Test
@@ -45,6 +45,6 @@ public class UserHistoryTest {
 
         new UserHistory().setHistory(user,originalList); //reset the user's history.
 
-        assertEquals("The list " + expected + " is not equal to the list " + updatedList,expected,updatedList);
+        assertEquals("The list " + updatedList + " is not equal to the expected list " + expected,expected,updatedList);
     }
 }
