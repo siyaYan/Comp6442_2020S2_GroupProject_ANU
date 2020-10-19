@@ -15,7 +15,7 @@ public class Node<T> {
         this.colour = Colour.RED;
         this.parent = null;
 
-        
+
         this.left 			= new Node<T>();
         this.right 			= new Node<T>();
         this.left.parent 	= this;
