@@ -12,7 +12,6 @@ import java.util.Arrays;
 
 
 public class UserHistory {
-    String userCourses = "";
     String filename = "userData.csv";
     File original = new File("src/main/assets/" + filename);
     File interim = new File("src/main/assets/interim.csv");
@@ -91,6 +90,7 @@ public class UserHistory {
     /**
      * This method is for resetting the userData.csv file after testing.
      * @param courseList
+     * @author Bharath Kulkarni
      */
     public void setHistory(String userID, ArrayList<String> courseList){
         try {
@@ -138,6 +138,7 @@ public class UserHistory {
     /**
      * Remove all courses from a user's history
      * @param userID
+     * @author Bharath Kulkarni
      */
     public void clearHistory(String userID){
         try {
