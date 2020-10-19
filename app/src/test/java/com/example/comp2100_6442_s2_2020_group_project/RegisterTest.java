@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class RegisterTest {
-    //TODO test users.xml to see if adding a user changes the databases
-
+    
     @Test
     public void registerUserDataTest(){
         String user = "-1"; //use a negative userID so it doesnt interfere with current database.
