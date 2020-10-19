@@ -12,18 +12,18 @@ public class Node<T> {
         this.courseID  = courseID;
         this.classNumber = classNumber;
         this.courseName = courseName;
-        this.colour = Colour.RED; //property 3 (if a node is red, both children are black) may be violated if parent is red
+        this.colour = Colour.RED;
         this.parent = null;
 
-        // Initialise children leaf nodes
-        this.left 			= new Node<T>();  //leaf node
-        this.right 			= new Node<T>();  //leaf node
-        this.left.parent 	= this; //reference to parent
-        this.right.parent 	= this; //reference to parent
+
+        this.left 			= new Node<T>();
+        this.right 			= new Node<T>();
+        this.left.parent 	= this;
+        this.right.parent 	= this;
     }
 
     public Node() {
-        this.courseID 	= null; //leaf nodes are null
-        this.colour = Colour.BLACK; //leaf nodes are always black
+        this.courseID 	= null;
+        this.colour = Colour.BLACK;
     }
 }

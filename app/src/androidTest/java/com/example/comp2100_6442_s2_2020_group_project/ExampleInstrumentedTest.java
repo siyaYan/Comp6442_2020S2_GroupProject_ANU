@@ -30,7 +30,7 @@ public class ExampleInstrumentedTest {
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
         assertEquals("com.example.comp2100_6442_s2_2020_group_project", appContext.getPackageName());
     }
-        @Test
+        /*@Test
         public void getMajorTest() {
             Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
             String fileName="majors.csv";
@@ -38,7 +38,7 @@ public class ExampleInstrumentedTest {
             for (String[] major : majors) {
                 System.out.println(major[1]);
             }
-        }
+        }*/
       /*  @Test
         public void getCourseTest() {
             String fileName="someCourses.json";
