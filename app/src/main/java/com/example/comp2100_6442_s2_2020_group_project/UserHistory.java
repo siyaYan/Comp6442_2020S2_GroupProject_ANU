@@ -89,7 +89,7 @@ public class UserHistory {
     }
 
     /**
-     * This method is for resetting the userData.csv file after testing.
+     * This method assigns a list of courses to a user. Was used for testing.
      * @param courseList
      * @author Bharath Kulkarni
      */
