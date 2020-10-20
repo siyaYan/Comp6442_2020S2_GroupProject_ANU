@@ -21,7 +21,7 @@ public class initialTest {
 /*    @Test
     public void setNodesFromJsonTest() {
         ArrayList<Node> nodeLists = new ArrayList<>();
-        String fileName="src/main/assets/someCourses.json";
+        String fileName="src/main/assets/courses.json";
         Context context=new Application().getApplicationContext();
         nodeLists=new Initialization().setNodesFromJson(fileName,context);
         for (Node node : nodeLists) {
@@ -31,7 +31,7 @@ public class initialTest {
 
     @Test
     public void setNodesTest() {
-        String fileName1 = "src/main/assets/someCourses.json";
+        String fileName1 = "src/main/assets/courses.json";
         List<Course> courses=new ArrayList<>();
         ArrayList<Node> nodes = new ArrayList<>();
         courses=new getDataUtil().readJSONFile(fileName1);
@@ -48,7 +48,7 @@ public class initialTest {
         Initialization initial=new Initialization();
         RBTreeBarry<String> tree = new RBTreeBarry<>();
         List<Course> courses=new ArrayList<>();
-        String fileName = "src/main/assets/someCourses.json";
+        String fileName = "src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
@@ -80,7 +80,7 @@ public class initialTest {
         List<Course> courses=new ArrayList<>();
         Map<String,ArrayList<String>> map =new HashMap<>();
 
-        String fileName = "src/main/assets/someCourses.json";
+        String fileName = "src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName);
         map=initial.initMap( courses);
 

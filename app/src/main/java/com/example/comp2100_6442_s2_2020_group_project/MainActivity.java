@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             3. update
             4. go to detail by classNumber(in Node)
         */
-        init("someCourses.json","majors.csv",this);
+        init("courses.json","majors.csv",this);
         /*for (Node node:this.tree.searchNodes(this.tree.root,"COMP",new ArrayList<Node>()) ) {
             displayList.add(node.courseName.toString());
         }*/
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         for (User user : userList) {
             System.out.println(user.userName);
         }
-        token=new Token("someCourses.json","majors.csv",this);
+        token=new Token("courses.json","majors.csv",this);
         //bind view to the list
         listAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,displayList);
         listView.setAdapter(listAdapter);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         InputStream inputStream = this.getResources().openRawResource(R.raw.users);
         androidFileParser androidFileParser =new androidFileParser();
         Initialization init=new Initialization();
-        init.Initialization(androidFileParser.parseJson("someCourses.json",context),androidFileParser.parseCsv("majors.csv",context),androidFileParser.parseXML(inputStream));
+        init.Initialization(androidFileParser.parseJson("courses.json",context),androidFileParser.parseCsv("majors.csv",context),androidFileParser.parseXML(inputStream));
         this.tree= init.tree;
         this.map= init.map;
         this.majorList= init.majorList;

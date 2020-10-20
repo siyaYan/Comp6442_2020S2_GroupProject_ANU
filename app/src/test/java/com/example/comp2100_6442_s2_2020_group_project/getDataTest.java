@@ -24,7 +24,7 @@ public class getDataTest {
     }
     @Test
     public void getCourseTest() {
-        String fileName1="src/main/assets/someCourses.json";
+        String fileName1="src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         /*for (Course course : courses) {
             System.out.println(course.courseDetail);

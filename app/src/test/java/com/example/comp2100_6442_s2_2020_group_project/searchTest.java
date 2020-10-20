@@ -39,7 +39,7 @@ public class searchTest {
         System.out.println(parsed );
         initial=new Initialization();
         courses=new ArrayList<>();
-        String fileName1="src/main/assets/someCourses.json";
+        String fileName1="src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
@@ -62,7 +62,7 @@ public class searchTest {
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        String fileName1="src/main/assets/someCourses.json";
+        String fileName1="src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
@@ -84,7 +84,7 @@ public class searchTest {
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        file = new File("src/main/assets/someCourses.json");
+        file = new File("src/main/assets/courses.json");
         courses=new getDataUtil().readJSONFile(file);
         nodes=initial.parserToNodes()(courses);
         tree=initial.initTree( nodes);
@@ -106,7 +106,7 @@ public class searchTest {
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
-        String fileName1="src/main/assets/someCourses.json";
+        String fileName1="src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
