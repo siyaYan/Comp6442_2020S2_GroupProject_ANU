@@ -30,7 +30,6 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:ems="10"
-        android:hint="search the course"
         android:inputType="textNoSuggestions"
         app:layout_constraintBottom_toTopOf="@+id/lv_results"
         app:layout_constraintEnd_toStartOf="@+id/b_search"

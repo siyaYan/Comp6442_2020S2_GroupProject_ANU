@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -43,12 +44,37 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Node> newNodes = new ArrayList<>();
     InputTokenizer myInputTokenizer;
     Token token;
+
+    List<String> hints = new ArrayList<>(Arrays.asList("search here", "try comp", "try comp2100",
+            "try comp2100, pre", "try comp2100, comp2400", "try computer science"));
+    int curHint = 0;
+    Thread hintRefreshThread = new Thread() {
+        @Override
+        public void run() {
+            try {
+                while (!hintRefreshThread.isInterrupted()) {
+                    Thread.sleep(1500);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            input.setHint(hints.get(curHint++));
+                            if (curHint == hints.size()) curHint = 0;
+                        }
+                    });
+                }
+            } catch (InterruptedException e) {
+            }
+        }
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView=findViewById(R.id.lv_results);
         input=findViewById(R.id.ev_input);
+
+        hintRefreshThread.start();
         /* main process
             1. step1/2 get tree,map,majorlist
             2. onSearch()
