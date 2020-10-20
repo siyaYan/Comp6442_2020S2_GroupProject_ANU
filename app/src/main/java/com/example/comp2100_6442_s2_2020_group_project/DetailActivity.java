@@ -39,7 +39,8 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+
     public void displayDetails() {
-        textView.setText("classNUmber:"+courseDetail.get(0)+"\n"+"courseID:"+courseDetail.get(1)+courseDetail.get(2)+"\n"+"section:"+courseDetail.get(3)+"\n"+"courseName:"+courseDetail.get(4)+"\n"+"Min units:"+courseDetail.get(5)+"\n"+"Max units:"+courseDetail.get(6));
+        textView.setText("classNUmber:"+courseDetail.get(0) +"\n"+"courseID:"+courseDetail.get(1)+courseDetail.get(2)+"\n"+"section:"+courseDetail.get(3)+"\n"+"courseName:"+courseDetail.get(4)+"\n"+"Min units:"+courseDetail.get(5)+"\n"+"Max units:"+courseDetail.get(6));
     }
 }
