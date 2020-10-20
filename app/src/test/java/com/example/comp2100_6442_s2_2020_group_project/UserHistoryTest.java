@@ -44,7 +44,7 @@ public class UserHistoryTest {
 
         //remove user at end of testing
         new Register().removeUserData(userID);
-
+        //System.out.println(updatedList);
         assertEquals("The list " + updatedList + " is not equal to the expected list " + expected,expected,updatedList);
     }
 

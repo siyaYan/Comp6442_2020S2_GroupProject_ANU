@@ -31,13 +31,14 @@ public class MainActivity extends AppCompatActivity {
     EditText input;
     ArrayAdapter listAdapter;
     List<List<String>> parsed;
-    ArrayList<Course> courseDetail;
+    ArrayList<Course> coursedetail;
     ArrayList<String> displayList=new ArrayList<>();
 
     RBTreeBarry<String> tree;
     Map<String,ArrayList<String>> map;
     ArrayList<String[]> majorList;
     ArrayList<User> userList;
+    User user= new User();
 
     ArrayList<Node> newNodes = new ArrayList<>();
     InputTokenizer myInputTokenizer;
@@ -71,12 +72,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                //the position is not pre
-                if (displayList.get(position).contains("section:")) {
-                    if (courseDetail.get(position).courseDetail != null) {
-                        intent.putStringArrayListExtra("courseDetail", courseDetail.get(position).courseDetail);
-                        startActivity(intent);
-                    }
+                if (coursedetail.get(position).courseDetail != null) {
+                    intent.putStringArrayListExtra("courseDetail", coursedetail.get(position).courseDetail);
+                    startActivity(intent);
                 }
             }
         });
@@ -92,6 +90,8 @@ public class MainActivity extends AppCompatActivity {
         this.map= init.map;
         this.majorList= init.majorList;
         this.userList= init.userList;
+        user.User("Eckel","1234",userList);
+        //System.out.println(user.id);
         //System.out.println(androidFileParser.tree.inOrder(androidFileParser.tree.root));
     }
 
@@ -107,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onSearch(View v) {
         displayList.clear();
-        courseDetail = new ArrayList<>();
+        coursedetail = new ArrayList<>();
         myInputTokenizer = new InputTokenizer(input.getText().toString());
         parsed = new Parser(myInputTokenizer).parseInput();
         if (parsed.size() > 0) {
@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                                 displayList.add(search.searchPre(node, map));
                                 //coursedetail is null,pre to keep the same number with displaylist
                                 Course course=new Course("pre",null);
-                                courseDetail.add(course);
+                                coursedetail.add(course);
                             }
                         }
                     } else {
@@ -141,11 +141,12 @@ public class MainActivity extends AppCompatActivity {
             //conditon without the pre operation
             if (newNodes != null&&oneparse.size()<3) {
                 ArrayList<Course> courses=search.searchMap(newNodes, map);
-                courseDetail.addAll(courses);
+                coursedetail.addAll(courses);
+               // System.out.println("rank:"+coursedetail.get(0)+","+coursedetail.get(1));
                 List<String> items=new ArrayList<>();
                 for (Course course : courses) {
                     if(course.courseDetail!=null) {
-                        String item = course.courseDetail.get(1) + course.courseDetail.get(2) + "\t\t\t\t\t\t\t\t\t\t\t\t" + "section:" + course.courseDetail.get(3) + "\n" + course.courseDetail.get(4);
+                        String item = course.courseDetail.get(1) + course.courseDetail.get(2) + "\n" + course.courseDetail.get(4);
                         items.add(item);
                     }
                 }
@@ -157,6 +158,33 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("user input error or don't have the data!");
             Toast.makeText(this,"input error or don't have the information",(int)100).show();
         }
+        displayList=rank(displayList);
         listAdapter.notifyDataSetChanged();
+    }
+    public ArrayList<String> rank(ArrayList<String> displayList) {
+        //todo get real data
+        //ArrayList<String> historyCourses = new UserHistory().findUserCourses(this.user.id);
+        Search search = new Search();
+        //testing rank(user1)
+        ArrayList<String> historyCourses=new ArrayList<>();
+        historyCourses.add("2183");
+        historyCourses.add("8345");
+        for (String course : historyCourses) {
+            //System.out.println(map.get(course));
+            for (int index = 0; index < this.coursedetail.size(); index++) {
+                Course courseNum = this.coursedetail.get(index);
+                //System.out.println(courseNum.classNumber);
+                if (courseNum.classNumber.matches(course)) {
+                    this.coursedetail.add(0, new Course(course, map.get(course)));
+                    displayList.add(0, displayList.get(index));
+                    this.coursedetail.remove(index + 1);
+                    displayList.remove(index + 1);
+                   /* System.out.println(this.coursedetail.get(0).classNumber);
+                    System.out.println(this.coursedetail.get(1).classNumber);*/
+                }
+            }
+        }
+        //System.out.println(historyCourses.get(0));
+        return displayList;
     }
 }
