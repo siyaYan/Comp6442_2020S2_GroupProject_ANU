@@ -77,7 +77,6 @@ public class getDataUtil {
         courseDetail.add(detail.ModeOfDelivery);
         return courseDetail;
     }
-
     //read major file for now
     public ArrayList<String[]> readBespokeFile(String fileName){
         ArrayList<String[]> getMajor=new ArrayList<>();
