@@ -15,6 +15,7 @@ public class UserHistory {
     String filename = "userData.csv";
     File original = new File("src/main/assets/" + filename);
     File interim = new File("src/main/assets/interim.csv");
+    String delimiter = " ";
 
 
     /**
@@ -76,7 +77,7 @@ public class UserHistory {
                 if (userID.equals(reader.get("id"))) {
                     if(reader.get("courses").isEmpty()){break;}
 
-                    String[] list = reader.get("courses").split(" ");
+                    String[] list = reader.get("courses").split(delimiter);
                     courseList.addAll(Arrays.asList(list));
                     break;
                 }
@@ -107,15 +108,15 @@ public class UserHistory {
             while (reader.readRecord()) {
                 String courses = reader.get("courses");
                 if (userID.equals(reader.get("id"))) {
-                    String s = "";
+                    StringBuilder s = new StringBuilder();
                     for (String course : courseList) {
-                        if(s.isEmpty()){
-                            s = s+course;
+                        if(s.length() == 0){
+                            s.append(course);
                         }else{
-                            s = s + " " + course;
+                            s.append(delimiter).append(course);
                         }
                     }
-                    courses = s;
+                    courses = s.toString();
                 }
                 out[0] = reader.get("id");
                 out[1] = courses;
