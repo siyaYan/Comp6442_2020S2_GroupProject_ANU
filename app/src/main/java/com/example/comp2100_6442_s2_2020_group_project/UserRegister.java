@@ -61,7 +61,6 @@ public class UserRegister extends AppCompatActivity {
                 }else{
                     try {
                         re = new BufferedReader(new InputStreamReader(getAssets().open("userRegisteration.xml")));
-
                         XmlSerializer xmlSerializer = Xml.newSerializer();
                         StringWriter w = new StringWriter();
                         xmlSerializer.setOutput(w);
