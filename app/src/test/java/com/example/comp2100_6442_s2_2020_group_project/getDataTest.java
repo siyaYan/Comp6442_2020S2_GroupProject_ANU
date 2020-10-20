@@ -7,21 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-
+/**
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class getDataTest {
     ArrayList<String[]> majors=new ArrayList<>();
     List<Course> courses=new ArrayList<>();
     ArrayList<User> users=new ArrayList<>();
+
     @Test
     public void getMajorTest() {
         String fileName2="src/main/assets/majors.csv";
         majors=new getDataUtil().readBespokeFile(fileName2);
-        /*for (String[] major : majors) {
-            System.out.println(major[1]);
-        }*/
-        String[] firstMajor =majors.get(0);
-        assertEquals(firstMajor[0], "majorName");
+        String majorNames="";
+        for (String[] major : majors) {
+            majorNames += major[0]+",";
+        }
+        assertEquals(majorNames, "majorName,Astronomy and Astrophysics,Biochemistry,Biological Anthropology,Cell and Molecular Biology,Chemistry,Computer Science,Earth Science,Environmental Science,Evolution Ecology and Organismal Biology,Geography,Human Biology,Human Evolutionary Biology,Marine Science,Mathematical Economics,Mathematical Finance,Mathematical Modelling,Mathematics,Physics,Psychology,Quantitative Environmental Modelling,Quantitiative Biology,Resource and Environmental Management,Science Communication,Statistics,Sustainability Studies,Water Science,");
     }
+
     @Test
     public void getCourseTest() {
         String fileName1="src/main/assets/courses.json";
@@ -32,15 +38,16 @@ public class getDataTest {
         Course firstCourse =courses.get(0);
         assertEquals(firstCourse.classNumber, "1205");
     }
+
     @Test
     public void getUserTest() {
         String fileName="src/main/res/raw/users.xml";
         users=new getDataUtil().readXMLFile(fileName);
-        /*for (User user : users) {
-            System.out.println(user.userName);
-        }*/
-        User firstUser =users.get(0);
-        assertEquals(firstUser.userName, "Eckel");
+        String userNames="";
+        for (User user : users) {
+            userNames +=user.userName+",";
+        }
+        assertEquals(userNames, "Eckel,Adams,J,");
     }
 }
 

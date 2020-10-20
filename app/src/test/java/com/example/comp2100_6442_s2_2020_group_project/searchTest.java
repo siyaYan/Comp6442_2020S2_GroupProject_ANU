@@ -11,6 +11,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
+
+/**
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class searchTest {
     RBTreeBarry<String> tree;
     ArrayList<Node> nodes;
@@ -33,23 +40,24 @@ public class searchTest {
     public void searchTreeTest() {
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
-        myInputTokenizer = new InputTokenizer("comp1100, pre");
-        // TODO
+        myInputTokenizer = new InputTokenizer("comp1100,Comp 2100");
         parsed = new Parser(myInputTokenizer).parseInput();
-        System.out.println(parsed );
+        //System.out.println(parsed );
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
+        String nodeIds="";
         for (List<String> oneparse : parsed) {
             newNodes=new Search().searchTree(oneparse,tree);
             for(Node node:newNodes)
-                System.out.println(node.courseID);
+                nodeIds +=node.courseID+",";
         }
+        assertEquals(nodeIds, "COMP1100,COMP2100,");
     }
-
+    //can only search for one major
     @Test
     public void searchMajorTest() {
         tree= new RBTreeBarry<>();
@@ -58,7 +66,7 @@ public class searchTest {
         ArrayList<String> oneMajor=new ArrayList<>();
         String fileName2= "src/main/assets/majors.csv";
         majorList=new getDataUtil().readBespokeFile(fileName2);
-        myInputTokenizer = new InputTokenizer("Marine science");
+        myInputTokenizer = new InputTokenizer("Water science");
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
@@ -66,34 +74,34 @@ public class searchTest {
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
-        for (List<String> oneparse : parsed) {
-            newNodes=new Search().searchMajor(oneparse,tree,majorList);
-            for(Node node:newNodes)
-                System.out.println(node.courseID);
-        }
+        List<String> oneparse=parsed.get(0);
+        newNodes=new Search().searchMajor(oneparse,tree,majorList);
+        String courses ="";
+        for(Node node:newNodes)
+             courses += node.courseID+",";
+        assertEquals(courses, "EMSC1006,ENVS2020,ENVS3005,EMSC3025,CHEM1101,EMSC2024,EMSC3014,EMSC3050,");
     }
 
-/*    @Test
+    @Test
     public void searchPreTest() {
-        //ArrayList<String> preCourseId=new  ArrayList<>();
         map =new HashMap<>();
         tree= new RBTreeBarry<>();
         nodes=new ArrayList<>();
         preNodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("COMP2100 pre");
         parsed = new Parser(myInputTokenizer).parseInput();
+        oneparse=parsed.get(0);
         initial=new Initialization();
         courses=new ArrayList<>();
-        file = new File("src/main/assets/courses.json");
-        courses=new getDataUtil().readJSONFile(file);
-        nodes=initial.parserToNodes()(courses);
+        String fileName1 = "src/main/assets/courses.json";
+        courses=new getDataUtil().readJSONFile(fileName1);
+        nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap( courses);
-
-        newNodes=new Search().searchPre(parsed,tree,map);
-        for(Node node:newNodes)
-            System.out.println(node.courseID);
-    }*/
+        ArrayList<Node> node=new Search().searchTree(oneparse,tree);
+        String preRequire=new Search().searchPre(node.get(0),map);
+        assertEquals(preRequire, " To enrol in this course you must have successfully completed COMP1100 or COMP1130, and COMP1110 or COMP1140 or COMP1510, and 6 units of 1000 level MATH. You are not able to enrol in this course if you have completed COMP2500 or COMP6442.");
+    }
 
     @Test
     public void searchMapTest() {
@@ -111,13 +119,13 @@ public class searchTest {
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap(courses);
-
+        String mapId="";
         for (List<String> oneparse : parsed) {
             ArrayList<Node> getNodes=new Search().searchTree(oneparse,tree);
             courseList=new Search().searchMap(getNodes,map);
             for(Course course :courseList)
-                System.out.println(course.courseDetail);
+               mapId += course.courseDetail.get(0)+",";
         }
-
+        assertEquals(mapId, "2578,8916,");
     }
 }

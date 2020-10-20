@@ -16,7 +16,11 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-
+/**
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class initialTest {
 /*    @Test
     public void setNodesFromJsonTest() {
@@ -40,6 +44,9 @@ public class initialTest {
         System.out.println(node.courseName);*/
         Node firstNode =nodes.get(0);
         assertEquals(firstNode.classNumber, "1205");
+        assertEquals(firstNode.courseID, "ASIA2114");
+        assertEquals(firstNode.courseName, "Advanced Studies in Asia and the Pacific 2");
+
     }
 
     @Test
@@ -68,8 +75,10 @@ public class initialTest {
         /*for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
         }*/
+        String[] firstMajor=majors.get(1);
         String[] lastMajor=majors.get(majors.size()-1);
         assertEquals(lastMajor[0], "Water Science");
+        assertEquals(firstMajor[0], "Astronomy and Astrophysics");
     }
 
     @Test
