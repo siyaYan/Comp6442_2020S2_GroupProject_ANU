@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * process:
+     * search process:
      * 1/clear the data
      * 2/use tokenizer&parser
      * 3/use search() get nodes(one node or nodes)
@@ -161,6 +161,15 @@ public class MainActivity extends AppCompatActivity {
         displayList=rank(displayList);
         listAdapter.notifyDataSetChanged();
     }
+
+    /**
+     * rank process:
+     * 1/get the display and courseDetail( their are responseble with each other,same index)
+     * 2/loop find the history match(from the old to the newest history)
+     * 3/move this find point to the top of the list and delete the origin point (both displaylist&courseDetail)
+     * 4/keep doing that ,it will replace by the newest history on the top of  both lists
+     * @author Xiran Yan
+     */
     public ArrayList<String> rank(ArrayList<String> displayList) {
         //todo get real data
         //ArrayList<String> historyCourses = new UserHistory().findUserCourses(this.user.id);
