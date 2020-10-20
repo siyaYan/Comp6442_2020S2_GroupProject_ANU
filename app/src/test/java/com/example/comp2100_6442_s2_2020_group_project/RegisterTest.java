@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertEquals;
 
 public class RegisterTest {
-    
+
     @Test
     public void registerUserDataTest(){
         String user = "-1"; //use a negative userID so it doesnt interfere with current database.

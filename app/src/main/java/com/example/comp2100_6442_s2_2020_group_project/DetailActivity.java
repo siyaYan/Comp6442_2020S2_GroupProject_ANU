@@ -37,6 +37,9 @@ public class DetailActivity extends AppCompatActivity {
         System.out.println(courseDetail.get(0));
         displayDetails();
 
+        //TODO create a button to go to course website via WebsiteActivity.
+        //putExtra key must be "courseID".
+
     }
 
     public void displayDetails() {
