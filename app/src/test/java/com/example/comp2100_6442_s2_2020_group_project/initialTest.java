@@ -15,6 +15,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import static org.junit.Assert.assertEquals;
+
 public class initialTest {
 /*    @Test
     public void setNodesFromJsonTest() {
@@ -34,8 +36,10 @@ public class initialTest {
         ArrayList<Node> nodes = new ArrayList<>();
         courses=new getDataUtil().readJSONFile(fileName1);
         nodes=new Initialization().parserToNodes(courses);
-        for(Node node:nodes)
-        System.out.println(node.courseName);
+        /*for(Node node:nodes)
+        System.out.println(node.courseName);*/
+        Node firstNode =nodes.get(0);
+        assertEquals(firstNode.classNumber, "1205");
     }
 
     @Test
@@ -48,7 +52,9 @@ public class initialTest {
         courses=new getDataUtil().readJSONFile(fileName);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
-        System.out.println(tree.preOrder(tree.root));
+        //System.out.println((tree.root.classNumber));
+        Node rootNode =tree.root;
+        assertEquals(rootNode.classNumber, "3471");
     }
 
     @Test
@@ -59,9 +65,11 @@ public class initialTest {
         String fileName = "src/main/assets/majors.csv";
         majors=new getDataUtil().readBespokeFile(fileName);
         //initial.initList( majors);
-        for (String[] courses : majors) {
+        /*for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
-        }
+        }*/
+        String[] lastMajor=majors.get(majors.size()-1);
+        assertEquals(lastMajor[0], "Water Science");
     }
 
     @Test
@@ -76,10 +84,10 @@ public class initialTest {
         courses=new getDataUtil().readJSONFile(fileName);
         map=initial.initMap( courses);
 
-        Set<String> keys=  map.keySet();
-        //System.out.println(map.get("1205"));
-        for (String key : keys) {
+        //Set<String> keys=  map.keySet();
+        /*for (String key : keys) {
             System.out.println(map.get(key).get(0));
-        }
+        }*/
+        assertEquals(map.get("1205").get(2), "2114");
     }
 }
