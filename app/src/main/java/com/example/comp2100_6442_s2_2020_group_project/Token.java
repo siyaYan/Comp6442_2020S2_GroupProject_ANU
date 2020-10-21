@@ -42,7 +42,7 @@ public class Token {
     private static ArrayList<String[]> majorList = new ArrayList<>();
 
     public static void loadData() {
-        String fileName1 = "src/main/assets/someCourses.json";
+        String fileName1 = "src/main/assets/courses.json";
         courseList = new getDataUtil().readJSONFile(fileName1);
         String fileName2 = "src/main/assets/majors.csv";
         majorList = new getDataUtil().readBespokeFile(fileName2);

@@ -41,7 +41,7 @@ public class ExampleInstrumentedTest {
         }*/
       /*  @Test
         public void getCourseTest() {
-            String fileName="someCourses.json";
+            String fileName="courses.json";
             courses=new androidFileParser(fileName,appContext);
             for (Course course : courses) {
                 System.out.println(course.courseDetail);

@@ -16,12 +16,16 @@ import java.util.Map;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-
+/**
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class initialTest {
 /*    @Test
     public void setNodesFromJsonTest() {
         ArrayList<Node> nodeLists = new ArrayList<>();
-        String fileName="src/main/assets/someCourses.json";
+        String fileName="src/main/assets/courses.json";
         Context context=new Application().getApplicationContext();
         nodeLists=new Initialization().setNodesFromJson(fileName,context);
         for (Node node : nodeLists) {
@@ -31,7 +35,7 @@ public class initialTest {
 
     @Test
     public void setNodesTest() {
-        String fileName1 = "src/main/assets/someCourses.json";
+        String fileName1 = "src/main/assets/courses.json";
         List<Course> courses=new ArrayList<>();
         ArrayList<Node> nodes = new ArrayList<>();
         courses=new getDataUtil().readJSONFile(fileName1);
@@ -40,6 +44,9 @@ public class initialTest {
         System.out.println(node.courseName);*/
         Node firstNode =nodes.get(0);
         assertEquals(firstNode.classNumber, "1205");
+        assertEquals(firstNode.courseID, "ASIA2114");
+        assertEquals(firstNode.courseName, "Advanced Studies in Asia and the Pacific 2");
+
     }
 
     @Test
@@ -48,7 +55,7 @@ public class initialTest {
         Initialization initial=new Initialization();
         RBTreeBarry<String> tree = new RBTreeBarry<>();
         List<Course> courses=new ArrayList<>();
-        String fileName = "src/main/assets/someCourses.json";
+        String fileName = "src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
@@ -68,8 +75,10 @@ public class initialTest {
         /*for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
         }*/
+        String[] firstMajor=majors.get(1);
         String[] lastMajor=majors.get(majors.size()-1);
         assertEquals(lastMajor[0], "Water Science");
+        assertEquals(firstMajor[0], "Astronomy and Astrophysics");
     }
 
     @Test
@@ -80,7 +89,7 @@ public class initialTest {
         List<Course> courses=new ArrayList<>();
         Map<String,ArrayList<String>> map =new HashMap<>();
 
-        String fileName = "src/main/assets/someCourses.json";
+        String fileName = "src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName);
         map=initial.initMap( courses);
 

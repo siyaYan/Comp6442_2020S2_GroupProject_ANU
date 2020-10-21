@@ -5,7 +5,13 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
 
+/**
+ *
+ * @author: Xiran Yan
+ * @uid: 7167582
+ */
 public class RBtreeTest {
     @Test
     public void testRBtree(){
@@ -25,27 +31,18 @@ public class RBtreeTest {
         tree.insertValue("COMP2300","2185","Computer Organisation and Program Execution");
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
         tree.insertValue("COMP3710","2186","Topics in Computer Science");
-        //display the tree inorder
         //System.out.println(tree.inOrder(tree.root));
         //System.out.println(tree.preOrder(tree.root));
-       // System.out.println(tree.root.courseID.substring(0,4).matches("COMP"));
-        System.out.println(tree.root.courseID);
-        /*List<Node> nodes=tree.searchNodes(tree.root,"COMP",new ArrayList<Node>());
-        for(int i=0;i<nodes.size();i++) {
-            System.out.println(nodes.get(i).courseID);
-            System.out.println(nodes.get(i).classNumber);
-            System.out.println(nodes.get(i).courseName);
-        }*/
-        //show root
-        //System.out.println(tree.root.courseID);
-        //find node by courseId
-        System.out.println(tree.searchNode("cOMP2100","courseId").courseName);
-        System.out.println(tree.searchNode(" specialTopicsinComputerScience ","courseName").courseID);
-
-        /*String str="specialTopics in Computer Science";
-        System.out.println(str.replaceAll("\\s*", "").trim());*/
-   //  System.out.println(tree.searchNode("1100").classNumber);
-
-
+        assertEquals(tree.root.courseID, "COMP2710");
+        List<Node> compnodes=tree.searchNodes(tree.root,"COMP",new ArrayList<Node>());
+        Node idNode=tree.searchNode("cOMP2100","courseId");
+        Node nameNode=tree.searchNode(" specialTopicsinComputerScience ","courseName");
+        String compCourse ="";
+        for(int i=0;i<compnodes.size();i++) {
+            compCourse +=compnodes.get(i).courseID+",";
+        }
+        assertEquals(compCourse, "COMP2710,COMP3710,COMP2100,COMP2300,COMP1110,COMP1100,");
+        assertEquals(idNode.courseName, "Software Design Methodologies");
+        assertEquals(nameNode.courseID, "COMP2710");
     }
 }
