@@ -1,5 +1,6 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,7 @@ public class UserLogin extends AppCompatActivity {
     EditText loginid;
     EditText loginpassword;
     Button login;
+    Button signup;
 
 
     @Override
@@ -30,6 +32,7 @@ public class UserLogin extends AppCompatActivity {
         loginid = (EditText)findViewById(R.id.loginUserID);
         loginpassword = (EditText)findViewById(R.id.loginUserPassword);
         login = (Button) findViewById(R.id.loginButton);
+        signup = (Button) findViewById(R.id.initialsignupButton);
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +45,14 @@ public class UserLogin extends AppCompatActivity {
                 }else{
 
                 }
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(UserLogin.this,UserRegister.class);
+                startActivity(in);
             }
         });
     }

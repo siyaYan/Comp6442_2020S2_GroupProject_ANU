@@ -12,7 +12,7 @@
         android:layout_height="19dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
-        android:text="Find your course!"
+        android:text="Find out about your course!"
         app:layout_constraintBottom_toTopOf="@+id/ev_input"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,6 +29,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
+        android:background="#FFFFFF"
         android:ems="10"
         android:inputType="textNoSuggestions"
         app:layout_constraintBottom_toTopOf="@+id/lv_results"
@@ -73,6 +74,23 @@
         app:layout_constraintTop_toBottomOf="@+id/b_search"
         app:layout_constraintVertical_bias="0.0"></ListView>
 
+    <Button
+        android:id="@+id/mainSignin"
+        android:layout_width="58dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:drawable/btn_star_big_on"
+        android:fontFamily="sans-serif-black"
+        android:text="Sign-in"
+        android:textSize="7sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/title"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
