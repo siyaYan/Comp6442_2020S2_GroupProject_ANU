@@ -8,8 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
@@ -29,7 +29,7 @@ import java.util.Map;
 // this is the searching engine page (textbox,button and listview)
 public class MainActivity extends AppCompatActivity {
     ListView listView;
-    EditText input;
+    MultiAutoCompleteTextView input;
     ArrayAdapter listAdapter;
     List<List<String>> parsed;
     ArrayList<Course> coursedetail;
@@ -45,27 +45,8 @@ public class MainActivity extends AppCompatActivity {
     InputTokenizer myInputTokenizer;
     Token token;
 
-    List<String> hints = new ArrayList<>(Arrays.asList("search here", "try comp", "try comp2100",
-            "try comp2100, pre", "try comp2100, comp2400", "try computer science"));
     int curHint = 0;
-    Thread hintRefreshThread = new Thread() {
-        @Override
-        public void run() {
-            try {
-                while (!hintRefreshThread.isInterrupted()) {
-                    Thread.sleep(1500);
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            input.setHint(hints.get(curHint++));
-                            if (curHint == hints.size()) curHint = 0;
-                        }
-                    });
-                }
-            } catch (InterruptedException e) {
-            }
-        }
-    };
+    Thread hintRefreshThread;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         listView=findViewById(R.id.lv_results);
         input=findViewById(R.id.ev_input);
 
-        hintRefreshThread.start();
+
         /* main process
             1. step1/2 get tree,map,majorlist
             2. onSearch()
@@ -105,6 +86,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         listAdapter.notifyDataSetChanged();
+
+        setUpHintRefresh();
+
+        setUpAutoComplete();
+
+    }
+
+    /**
+     * Input hint refreshes every 1.5 seconds
+     *
+     * @author Xinyu Zheng
+     */
+    private void setUpHintRefresh() {
+        final List<String> HINTS = new ArrayList<>(Arrays.asList("search here", "try comp", "try comp2100",
+                "try comp2100, pre", "try comp2100, comp2400", "try computer science", "try course name"));
+        hintRefreshThread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    while (!hintRefreshThread.isInterrupted()) {
+                        Thread.sleep(1500);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                input.setHint(HINTS.get(curHint++));
+                                if (curHint == HINTS.size()) curHint = 0;
+                            }
+                        });
+                    }
+                } catch (InterruptedException e) {
+                }
+            }
+        };
+        hintRefreshThread.start();
+    }
+
+    /**
+     * Autocomplete course full name for each input separated by comma
+     *
+     * @author Xinyu Zheng
+     */
+    private void setUpAutoComplete() {
+        final List<String> COURSE_NAMES = new ArrayList<>(Token.nameSet);
+        ArrayAdapter<String> autoCompleteAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_dropdown_item_1line, COURSE_NAMES);
+        input.setAdapter(autoCompleteAdapter);
+        input.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
 
     public void init(String file1,String file2,Context context) {

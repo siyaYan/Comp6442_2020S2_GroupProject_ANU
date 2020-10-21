@@ -34,7 +34,7 @@ public class Token {
             "cellandmolecularbiology", "humanbiology", "mathematicalmodelling", "statistics",
             "humanevolutionarybiology", "mathematicaleconomics", "physics", "earthscience",
             "chemistry", "evolutionecologyandorganismalbiology")*/
-    private static Set<String> nameSet = new HashSet<>();
+    public static Set<String> nameSet = new HashSet<>();
     private static Set<String> operationSet = new HashSet<>(Arrays.asList("pre"));
     private String _content;
     private Type _type = Type.UNKNOWN;
