@@ -64,7 +64,7 @@ public class Parser {
             currentToken = _tokenizer.getNextToken();
         }
         if (currentToken == null) {
-            rtn.add("college");
+            rtn.add("subject");
             return rtn;
         } else if (currentToken.getType() == Token.Type.INT) {
             rtn.set(rtn.size() - 1, rtn.get(rtn.size() - 1) + currentToken.getContent());
