@@ -28,62 +28,49 @@ public class UserLogin extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle saveInstanceStace){
+    protected void onCreate(Bundle saveInstanceStace) {
         super.onCreate(saveInstanceStace);
-
         setContentView(R.layout.activity_login);
-
-        loginid = (EditText)findViewById(R.id.loginUserID);
-        loginpassword = (EditText)findViewById(R.id.loginUserPassword);
-        backmain = (Button)findViewById(R.id.backtoMain);
+        loginid = (EditText) findViewById(R.id.loginUserID);
+        loginpassword = (EditText) findViewById(R.id.loginUserPassword);
+        backmain = (Button) findViewById(R.id.backtoMain);
         login = (Button) findViewById(R.id.loginButton);
         signup = (Button) findViewById(R.id.initialsignupButton);
-
-        backmain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent main = new Intent(UserLogin.this,MainActivity.class);
-                startActivity(main);
-
-            }
-        });
-
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String id = loginid.getText().toString();
-                String password = loginpassword.getText().toString();
-                if(id.isEmpty() || password.isEmpty()){
-                    Toast.makeText(UserLogin.this,"Please check if you entered your ID or Password",Toast.LENGTH_SHORT).show();
-                }else{
-                    if(ud.userExists(id)){
-                        //pretend user1
-                        if(ud.getUserDetails(id).password.equals(password)){
-                            Intent intent = new Intent(UserLogin.this, MainActivity.class);
-                            intent.putExtra("userID", id);
-                            startActivity(intent);
-                        }else{
-                            Toast.makeText(UserLogin.this,"Please check your password",Toast.LENGTH_SHORT).show();
-                        }
-                    }else{
-                        Toast.makeText(UserLogin.this,"No matching ID, please check if you entered correct ID or sign up today!",Toast.LENGTH_SHORT).show();
-                    }
-                }
-            }
-        });
-
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent in = new Intent(UserLogin.this,UserRegister.class);
-                startActivity(in);
-            }
-        });
     }
 
+        public void login(View v){
+            String id = loginid.getText().toString();
+            String password = loginpassword.getText().toString();
+            if (id.isEmpty() || password.isEmpty()) {
+                Toast.makeText(UserLogin.this, "Please check if you entered your ID or Password", Toast.LENGTH_SHORT).show();
+            } else {
+                if (ud.userExists(id)) {
+                    //pretend user1
+                    if (ud.getUserDetails(id).password.equals(password)) {
+                        Intent intent = new Intent(UserLogin.this, MainActivity.class);
+                        intent.putExtra("userID", id);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(UserLogin.this, "Please check your password", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(UserLogin.this, "No matching ID, please check if you entered correct ID or sign up today!", Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
+
+        public void backMain(View v){
+            Intent main = new Intent(UserLogin.this, MainActivity.class);
+            startActivity(main);
+
+        }
 
 
+        public void signUp(View v){
+            Intent in = new Intent(UserLogin.this, UserRegister.class);
+            startActivity(in);
+        }
 
-}
+
+    }
+
