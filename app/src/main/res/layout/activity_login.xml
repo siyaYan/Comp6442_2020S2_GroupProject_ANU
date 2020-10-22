@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#97979797">
+    android:background="#B0BCBCBC">
 
     <TextView
         android:id="@+id/textView"
@@ -16,7 +16,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Welcome"
         android:textColor="#200D0D"
         android:textSize="36sp"

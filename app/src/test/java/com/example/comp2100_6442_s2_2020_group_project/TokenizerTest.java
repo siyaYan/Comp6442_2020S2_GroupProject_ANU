@@ -46,7 +46,7 @@ public class TokenizerTest {
         tokenizer = new InputTokenizer("COMP2100");
 
         Token courseCollegeToken = tokenizer.getNextToken();
-        assertSame(courseCollegeToken.getType(), Token.Type.COLLEGE);
+        assertSame(courseCollegeToken.getType(), Token.Type.SUBJECT);
         assertEquals(courseCollegeToken.getContent(), "comp");
 
         Token courseNumberToken = tokenizer.getNextToken();
@@ -62,7 +62,7 @@ public class TokenizerTest {
         tokenizer = new InputTokenizer("COMP2100");
 
         Token courseCollegeToken = tokenizer.getNextToken();
-        assertSame(courseCollegeToken.getType(), Token.Type.COLLEGE);
+        assertSame(courseCollegeToken.getType(), Token.Type.SUBJECT);
         assertEquals(courseCollegeToken.getContent(), "comp");
 
         Token courseNumberToken = tokenizer.getNextToken();
@@ -77,7 +77,7 @@ public class TokenizerTest {
         tokenizer = new InputTokenizer("  Comp 2100   ");
 
         Token courseCollegeToken = tokenizer.getNextToken();
-        assertSame(courseCollegeToken.getType(), Token.Type.COLLEGE);
+        assertSame(courseCollegeToken.getType(), Token.Type.SUBJECT);
         assertEquals(courseCollegeToken.getContent(), "comp");
 
         Token courseNumberToken = tokenizer.getNextToken();

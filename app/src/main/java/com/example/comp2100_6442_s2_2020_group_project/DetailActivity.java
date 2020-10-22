@@ -4,13 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -18,16 +13,22 @@ import java.util.Map;
 /**
  *
  * display the detail information for ANU courses
- * @author: Xiran Yan
- * @uid: 7167582
+ * @author: So Young Kwon
+ * @uid: 6511277
  */
 
 //todo change the layout & UI
 public class DetailActivity extends AppCompatActivity {
 
-    TextView textView;
-    TextView couseTitle;
-    TextView courseInfo;
+    TextView courseCode;
+    TextView courseNum;
+    TextView courseTitle;
+    TextView credit;
+    TextView prerequsit;
+    TextView startdate;
+    TextView enddate;
+
+    Button moreInfo;
 
 
     Map<String,ArrayList<String>> map;
@@ -37,28 +38,45 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-        textView=findViewById(R.id.tv);
+        courseCode = findViewById(R.id.courseCode);
+        courseNum = findViewById(R.id.coursenum);
+        courseTitle =findViewById(R.id.cname);
+        credit = findViewById(R.id.credit);
+        prerequsit = findViewById(R.id.coursepre);
+        startdate = findViewById(R.id.coursestart);
+        enddate = findViewById(R.id.courseend);
 
         Intent intent = getIntent();
         courseDetail =  intent.getStringArrayListExtra("courseDetail");
         System.out.println(courseDetail.get(0));
+
         displayDetails();
 
         //TODO create a button to go to course website via WebsiteActivity.
         //putExtra key must be "courseID".
 
-
+//        moreInfo.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                String courseID ="";
+//                Intent officialWeb = new Intent(DetailActivity.this,WebActivity.class);
+//                officialWeb.putExtra(courseID,courseDetail.get(1));
+//                startActivity(officialWeb);
+//            }
+//        });
 
     }
 
+//Assign information to textview
 
     public void displayDetails() {
-        // how to desp
-
-        textView.setText("classNUmber:"+courseDetail.get(0) +"\n"+"courseID:"+courseDetail.get(1)+courseDetail.get(2)+"\n"+"section:"+courseDetail.get(3)+"\n"+"courseName:"+courseDetail.get(4)+"\n"+"Min units:"+courseDetail.get(5)+"\n"+"Max units:"+courseDetail.get(6));
-
-
+        courseCode.setText(courseDetail.get(1)+courseDetail.get(2));
+        courseNum.setText("Class Number: " + courseDetail.get(0));
+        courseTitle.setText(courseDetail.get(4));
+        credit.setText("Credit: "+ courseDetail.get(6));
+        prerequsit.setText(courseDetail.get(9));
+        startdate.setText("Start Date: " + courseDetail.get(11));
+        enddate.setText("End Date: " + courseDetail.get(12));
     }
-
 
 }

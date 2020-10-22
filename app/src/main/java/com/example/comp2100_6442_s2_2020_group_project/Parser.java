@@ -31,7 +31,7 @@ public class Parser {
         List<List<String>> rtn = new ArrayList<>();
         if (currentToken == null) {
             return rtn;
-        } else if (currentToken.getType() == Token.Type.COLLEGE) {
+        } else if (currentToken.getType() == Token.Type.SUBJECT) {
             rtn.addAll(parseCs());
         } else if (currentToken.getType() == Token.Type.NAME) {
             rtn.addAll(parseFs());
@@ -49,7 +49,7 @@ public class Parser {
         if (currentToken == null) return rtn;
         rtn.add(parseC());
         if (currentToken == null) return rtn;
-        if (currentToken.getType() == Token.Type.COLLEGE) rtn.addAll(parseCs());
+        if (currentToken.getType() == Token.Type.SUBJECT) rtn.addAll(parseCs());
         else rtn.addAll(parseFs());
         return rtn;
     }
@@ -59,7 +59,7 @@ public class Parser {
      */
     public List<String> parseC() {
         List<String> rtn = new ArrayList<>();
-        if (currentToken != null && currentToken.getType() == Token.Type.COLLEGE) {
+        if (currentToken != null && currentToken.getType() == Token.Type.SUBJECT) {
             rtn.add(currentToken.getContent());
             currentToken = _tokenizer.getNextToken();
         }
@@ -86,7 +86,7 @@ public class Parser {
         if (currentToken == null) return rtn;
         rtn.add(parseF());
         if (currentToken == null) return rtn;
-        if (currentToken.getType() == Token.Type.COLLEGE) rtn.addAll(parseCs());
+        if (currentToken.getType() == Token.Type.SUBJECT) rtn.addAll(parseCs());
         else rtn.addAll(parseFs());
         return rtn;
     }

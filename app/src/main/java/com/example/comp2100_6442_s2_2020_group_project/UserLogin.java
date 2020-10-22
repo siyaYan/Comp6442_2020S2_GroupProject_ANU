@@ -55,8 +55,13 @@ public class UserLogin extends AppCompatActivity {
                 if(id.isEmpty() || password.isEmpty()){
                     Toast.makeText(UserLogin.this,"Please check if you entered your ID or Password",Toast.LENGTH_SHORT).show();
                 }else{
-
+                    //todo
                 }
+
+                //pretend user1
+                Intent intent = new Intent(UserLogin.this, MainActivity.class);
+                intent.putExtra("userID", "1");
+                startActivity(intent);
             }
         });
 
