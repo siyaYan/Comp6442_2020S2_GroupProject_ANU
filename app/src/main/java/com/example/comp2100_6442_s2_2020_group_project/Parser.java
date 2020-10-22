@@ -57,7 +57,7 @@ public class Parser {
     /**
      * <c> ::= <sub> | <sub><id> | <sub><id> <op>
      */
-    public List<String> parseC() {
+    private List<String> parseC() {
         List<String> rtn = new ArrayList<>();
         if (currentToken != null && currentToken.getType() == Token.Type.SUBJECT) {
             rtn.add(currentToken.getContent());
@@ -81,7 +81,7 @@ public class Parser {
     /**
      * <fs> ::= <f> | <f> <fs> | <f> <cs>
      */
-    public List<List<String>> parseFs() {
+    private List<List<String>> parseFs() {
         List<List<String>> rtn = new ArrayList<>();
         if (currentToken == null) return rtn;
         rtn.add(parseF());
@@ -94,7 +94,7 @@ public class Parser {
     /**
      * <f> ::= <fn> | <fn> <op>
      */
-    public List<String> parseF() {
+    private List<String> parseF() {
         List<String> rtn = new ArrayList<>();
         if (currentToken != null && currentToken.getType() == Token.Type.NAME) {
             rtn.add(currentToken.getContent());
