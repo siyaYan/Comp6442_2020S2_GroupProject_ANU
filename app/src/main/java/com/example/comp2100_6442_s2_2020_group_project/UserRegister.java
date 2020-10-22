@@ -58,19 +58,19 @@ public class UserRegister extends AppCompatActivity {
                     Toast.makeText(UserRegister.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
                 }else if(!pw.equals(pwc)){
                     Toast.makeText(UserRegister.this,"Password does not match",Toast.LENGTH_SHORT).show();
-                }else{
-                    try {
-                        re = new BufferedReader(new InputStreamReader(getAssets().open("userRegisteration.xml")));
-                        XmlSerializer xmlSerializer = Xml.newSerializer();
-                        StringWriter w = new StringWriter();
-                        xmlSerializer.setOutput(w);
-                        xmlSerializer.startDocument("UTF-8",true);
-                        xmlSerializer.startTag(null,id);
-                        xmlSerializer.startTag(null,un);
-                        xmlSerializer.startTag(null,pw);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+//                }else{
+//                    try {
+//                        re = new BufferedReader(new InputStreamReader(getAssets().open("userRegisteration.xml")));
+//                        XmlSerializer xmlSerializer = Xml.newSerializer();
+//                        StringWriter w = new StringWriter();
+//                        xmlSerializer.setOutput(w);
+//                        xmlSerializer.startDocument("UTF-8",true);
+//                        xmlSerializer.startTag(null,id);
+//                        xmlSerializer.startTag(null,un);
+//                        xmlSerializer.startTag(null,pw);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
 
                 }
 
