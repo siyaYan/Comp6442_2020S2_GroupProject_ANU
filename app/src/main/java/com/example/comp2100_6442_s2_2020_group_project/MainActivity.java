@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Course> coursedetail;
     ArrayList<String> displayList = new ArrayList<>();
 
-    RBTreeBarry<String> tree;
+    RBTree<String> tree;
     Map<String, ArrayList<String>> map;
     ArrayList<String[]> majorList;
     ArrayList<User> userList;
@@ -66,10 +66,8 @@ public class MainActivity extends AppCompatActivity {
             currentUser = intent.getStringExtra("userID");
         }
 
-
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
-        //initialise current user history
 
 
         /* main process
@@ -94,12 +92,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String course = coursedetail.get(position).courseDetail.get(1) + coursedetail.get(position).courseDetail.get(2);
 
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 if (coursedetail.get(position).courseDetail != null) {
-
-                    //update history on click
+                    String course = coursedetail.get(position).courseDetail.get(1) + coursedetail.get(position).courseDetail.get(2);
+                    //update history on click, does not work for default user
                     if (!currentUser.equals("user")) {
                         if (!userHistoryDatabase.userExists(currentUser)) {
                             userHistoryDatabase.addToDB(currentUser, course);
@@ -110,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                         //updates userHistory variable on each click.
                         userHistory = userHistoryDatabase.getHistory(currentUser);
                     }
-                    System.out.println(userHistory);
                     intent.putStringArrayListExtra("courseDetail", coursedetail.get(position).courseDetail);
                     startActivity(intent);
                 }

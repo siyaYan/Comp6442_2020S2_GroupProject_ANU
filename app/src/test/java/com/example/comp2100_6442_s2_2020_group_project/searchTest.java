@@ -5,11 +5,9 @@ import org.junit.Test;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 
@@ -19,7 +17,7 @@ import static org.junit.Assert.assertEquals;
  * @uid: 7167582
  */
 public class searchTest {
-    RBTreeBarry<String> tree;
+    RBTree<String> tree;
     ArrayList<Node> nodes;
     ArrayList<Node> preNodes;
     ArrayList<Node> newNodes;
@@ -38,7 +36,7 @@ public class searchTest {
     }
     @Test
     public void searchTreeTest() {
-        tree= new RBTreeBarry<>();
+        tree= new RBTree<>();
         nodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("comp1100,Comp 2100");
         parsed = new Parser(myInputTokenizer).parseInput();
@@ -60,7 +58,7 @@ public class searchTest {
     //can only search for one major
     @Test
     public void searchMajorTest() {
-        tree= new RBTreeBarry<>();
+        tree= new RBTree<>();
         nodes=new ArrayList<>();
         majorList=new ArrayList<>();
         ArrayList<String> oneMajor=new ArrayList<>();
@@ -85,7 +83,7 @@ public class searchTest {
     @Test
     public void searchPreTest() {
         map =new HashMap<>();
-        tree= new RBTreeBarry<>();
+        tree= new RBTree<>();
         nodes=new ArrayList<>();
         preNodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("COMP2100 pre");
@@ -108,7 +106,7 @@ public class searchTest {
         ArrayList<String> courseDetail=new ArrayList<>();
         ArrayList<Course> courseList;
         map =new HashMap<>();
-        tree= new RBTreeBarry<>();
+        tree= new RBTree<>();
         nodes=new ArrayList<>();
         myInputTokenizer = new InputTokenizer("Logic,Cognition");
         parsed = new Parser(myInputTokenizer).parseInput();

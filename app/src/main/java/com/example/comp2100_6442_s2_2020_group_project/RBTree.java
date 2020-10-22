@@ -3,19 +3,31 @@ package com.example.comp2100_6442_s2_2020_group_project;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RBTreeBarry<T extends Comparable<T>> {
+public class RBTree<T extends Comparable<T>> {
     Node<T> root;
 
     public enum Side {RIGHT, LEFT};
-    public RBTreeBarry() {
+    public RBTree() {
         root = null;
     }
 
+    /**
+     * Creates node using given values.
+     * @param courseID
+     * @param classNumber
+     * @param courseName
+     * @author Bharath Kulkarni
+     */
     public void insertValue(T courseID, T classNumber, T courseName) {
         Node<T> node = new Node<T>(courseID, classNumber, courseName);
         insertNode(node);
     }
 
+    /**
+     *
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void insertNode(Node<T> node) {
         if (root == null) {
             root = node;
@@ -27,7 +39,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
-    //insert node by comparing the courseId
+    /**
+     * Recursively adds nodes to tree.
+     * @param root
+     * @param node
+     */
     public void insertRecurse(Node<T> root, Node<T> node) {
         int x = root.courseID.compareTo(node.courseID);
 
@@ -181,12 +197,14 @@ public class RBTreeBarry<T extends Comparable<T>> {
     }
 
     //rules:
-    // 1) all newly inserted nodes are RED
-    // 2) if a node is RED, both children are BLACK (cant have two consecutive reds)
-    // 3) every path from node to leaf has the same number of black nodes.
+    //
 
+    /**
+     * Check if the tree violates the red-red rule (ie. parent and child are both red).
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void checkViolations(Node<T> node) {
-        //TODO choose return value
         if (node.courseID != root.courseID && node.parent.courseID != root.courseID) {
             Node<T> uncle = findUncle(node);
             // current node is red, check if parent is also red
@@ -203,6 +221,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Determine which type of rotation to perform.
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void rotation(Node<T> node) {
         //LL = right rotate at grandparent
         //LR = right at parent then left at grandparent
@@ -233,6 +256,12 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Change colour of given node and its child
+     * @param node
+     * @param s LEFT if child of node is on the left, RIGHT if child of node is on the right.
+     * @author Bharath Kulkarni
+     */
     public void changeColour(Node<T> node, Side s) {
         if (s == Side.RIGHT){
             node.colour = Colour.BLACK;
@@ -243,6 +272,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Perform right rotation at position of given node
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void rightRotate(Node<T> node) {
         Node<T> leftChild = node.left;
         boolean isRoot = node.courseID == root.courseID; // check if node is root
@@ -264,7 +298,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
         node.parent = leftChild;
     }
-
+    /**
+     * Perform left rotation at position of given node
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void leftRotate(Node<T> node) {
         Node<T> rightChild = node.right;
         boolean isRoot = node.courseID == root.courseID; // check if node is root
@@ -289,7 +327,11 @@ public class RBTreeBarry<T extends Comparable<T>> {
         }
         node.parent = rightChild;
     }
-
+    /**
+     * Find uncle of given node
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public Node<T> findUncle(Node<T> node) {
         boolean isParentLeft = node.parent == node.parent.parent.left;
         if (isParentLeft) {
@@ -298,11 +340,16 @@ public class RBTreeBarry<T extends Comparable<T>> {
             return node.parent.parent.left;
         }
     }
-
+    /**
+     * Recolour uncle, parent and grandparent then check for violations.
+     * @param node
+     * @author Bharath Kulkarni
+     */
     public void recolour(Node<T> node, Node<T> uncle) {
         node.parent.colour = Colour.BLACK; // recolour parent to black
         uncle.colour = Colour.BLACK;// recolour uncle to black
-        if (node.parent.parent.courseID != root.courseID) { // if grandparent is not root, change to red
+        if (node.parent.parent.courseID != root.courseID) {
+            // if grandparent is not root, change to red
             node.parent.parent.colour = Colour.RED;
             checkViolations(node.parent); // check if there is red-red conflict between parent and grandparent
         }

@@ -1,19 +1,11 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
-import android.app.Application;
-import android.content.Context;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Test;
 
-import java.io.File;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 /**
@@ -53,7 +45,7 @@ public class initialTest {
     public  void initTreeTest() {
         ArrayList<Node> nodes = new ArrayList<>();
         Initialization initial=new Initialization();
-        RBTreeBarry<String> tree = new RBTreeBarry<>();
+        RBTree<String> tree = new RBTree<>();
         List<Course> courses=new ArrayList<>();
         String fileName = "src/main/assets/courses.json";
         courses=new getDataUtil().readJSONFile(fileName);
@@ -85,7 +77,7 @@ public class initialTest {
     public  void initMapTest() {
         ArrayList<Node> nodes = new ArrayList<>();
         Initialization initial=new Initialization();
-        RBTreeBarry<String> tree = new RBTreeBarry<>();
+        RBTree<String> tree = new RBTree<>();
         List<Course> courses=new ArrayList<>();
         Map<String,ArrayList<String>> map =new HashMap<>();
 

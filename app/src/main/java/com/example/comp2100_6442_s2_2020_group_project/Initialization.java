@@ -1,20 +1,9 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
-import android.content.Context;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-
-import java.io.BufferedReader;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * A init function with the tree,map,majorlist,userList
@@ -24,7 +13,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  */
 //step2 get List<Course> set tree map
 public class Initialization {
-    public RBTreeBarry<String> tree;
+    public RBTree<String> tree;
     public Map<String, ArrayList<String>> map;
     public ArrayList<String[]> majorList;
     public ArrayList<User> userList;
@@ -50,8 +39,8 @@ public class Initialization {
         return nodeLists;
     }
 
-    public RBTreeBarry<String> initTree(ArrayList<Node> nodes) {
-        tree = new RBTreeBarry<String>();
+    public RBTree<String> initTree(ArrayList<Node> nodes) {
+        tree = new RBTree<String>();
         for (Node node : nodes) {
             tree.insertValue(node.courseID.toString(), node.classNumber.toString(), node.courseName.toString());
         }
