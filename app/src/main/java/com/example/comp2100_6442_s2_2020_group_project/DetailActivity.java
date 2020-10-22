@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -54,16 +56,17 @@ public class DetailActivity extends AppCompatActivity {
 
         //TODO create a button to go to course website via WebsiteActivity.
         //putExtra key must be "courseID".
+        moreInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-//        moreInfo.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String courseID ="";
-//                Intent officialWeb = new Intent(DetailActivity.this,WebActivity.class);
-//                officialWeb.putExtra(courseID,courseDetail.get(1));
-//                startActivity(officialWeb);
-//            }
-//        });
+                String link =  courseDetail.get(1).toLowerCase() + courseDetail.get(2);
+                Intent officialWeb = new Intent(DetailActivity.this,WebActivity.class);
+                officialWeb.putExtra("courseID",link);
+                startActivity(officialWeb);
+
+            }
+        });
 
     }
 

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_results);
         input = findViewById(R.id.ev_input);
 
-        loginButton =findViewById(R.id.initialsignupButton);
+        loginButton =findViewById(R.id.mainSignin);
 
         //set current user from login activity
         Intent intent = getIntent();
@@ -92,21 +92,21 @@ public class MainActivity extends AppCompatActivity {
         token = new Token("courses.json", "majors.csv", this);
 
 
-//        /**
-//         * the main searching page for ANU courses
-//         *
-//         * @author: So Young Kwon
-//         * @uid: 6511277
-//         */
-//
-//        loginButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent loginintent = new Intent(MainActivity.this,UserLogin.class);
-//                startActivity(loginintent);
-//
-//            }
-//        });
+        /**
+         * the main searching page for ANU courses
+         *
+         * @author: So Young Kwon
+         * @uid: 6511277
+         */
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentLog = new Intent(MainActivity.this,UserLogin.class);
+                startActivity(intentLog);
+
+            }
+        });
 
 
         //bind view to the list
