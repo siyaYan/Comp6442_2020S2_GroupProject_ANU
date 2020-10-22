@@ -22,7 +22,7 @@ public class Search {
         ArrayList<Node> nodes=new ArrayList<>();
         Node node;
         //searchByCollege goto searchNodes(return many nodes)
-        if (Parsed.get(1).matches("college")) {
+        if (Parsed.get(1).matches("subject")) {
                nodes = (ArrayList<Node>) Tree.searchNodes(Tree.root,Parsed.get(0),new ArrayList<Node>());
         }//searchByName/Id goto searchNode(return node)
         else if (Parsed.get(1).matches("courseName")|| Parsed.get(1).matches("courseId")) {

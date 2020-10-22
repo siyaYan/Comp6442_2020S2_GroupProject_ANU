@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * <input> ::= <cs> | <fs> | <mj>
  * <cs> ::= <c> | <c> <cs> | <c> <fs>
- * <c> ::= <col> | <col> <id> | <col> <id> <op>
+ * <c> ::= <sub> | <sub> <id> | <sub> <id> <op>
  * <fs> ::= <f> | <f> <fs> | <f> <cs>
  * <f> ::= <fn> | <fn> <op>
  * <id> ::= <unsigned integer>
@@ -55,7 +55,7 @@ public class Parser {
     }
 
     /**
-     * <c> ::= <col> | <col><id> | <col><id> <op>
+     * <c> ::= <sub> | <sub><id> | <sub><id> <op>
      */
     public List<String> parseC() {
         List<String> rtn = new ArrayList<>();
@@ -64,7 +64,7 @@ public class Parser {
             currentToken = _tokenizer.getNextToken();
         }
         if (currentToken == null) {
-            rtn.add("college");
+            rtn.add("subject");
             return rtn;
         } else if (currentToken.getType() == Token.Type.INT) {
             rtn.set(rtn.size() - 1, rtn.get(rtn.size() - 1) + currentToken.getContent());
