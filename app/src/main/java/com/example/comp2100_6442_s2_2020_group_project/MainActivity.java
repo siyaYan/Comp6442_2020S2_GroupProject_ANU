@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Course> coursedetail;
     ArrayList<String> displayList = new ArrayList<>();
 
-    RBTreeBarry<String> tree;
+    RBTree<String> tree;
     Map<String, ArrayList<String>> map;
     ArrayList<String[]> majorList;
     ArrayList<User> userList;
