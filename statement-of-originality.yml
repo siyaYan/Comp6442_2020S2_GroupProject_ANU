@@ -16,9 +16,10 @@ collaboration:
 # add as many "url+licence+comment" entries as necessary
 # (or remove it altogether if you haven't used any external code)
 code:
-  - comment:
-    url:
-    licence:
+  - comment: used the timer for hint refresh
+    url: https://stackoverflow.com/questions/40103742/update-textview-every-second-in-android
+    licence: CC BY-SA 4.0
+
 
 
 # add as many "url+licence+comment" entries as necessary

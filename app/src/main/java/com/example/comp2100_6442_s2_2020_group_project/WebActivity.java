@@ -17,7 +17,7 @@ public class WebActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String courseID = intent.getExtras().getString("courseID");
 
-        String website = "https://programsandcourses.anu.edu.au/2020/course/" + courseID;
+        String website = "https://programsandcourses.anu.edu.au/course/" + courseID;
 
         webview = findViewById(R.id.course_webview);
         webview.loadUrl(website);

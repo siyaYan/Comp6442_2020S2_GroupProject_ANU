@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#B0BCBCBC">
 
     <TextView
         android:id="@+id/textView"
@@ -15,10 +16,10 @@
         android:layout_marginEnd="175dp"
         android:layout_marginRight="175dp"
         android:layout_marginBottom="10dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif-black"
         android:text="Welcome"
-        android:textColor="#535353"
-        android:textSize="36sp"
+        android:textColor="#000000"
+        android:textSize="50sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +37,7 @@
         android:layout_marginRight="10dp"
         android:layout_marginBottom="10dp"
         android:text="By signing up and logging in you will be able to save your search history"
-        android:textSize="12sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/loginUserID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +46,7 @@
 
     <Button
         android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
@@ -53,6 +54,7 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="30dp"
+        android:background="#C4EA3C3C"
         android:text="Log-in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/signupButton"
@@ -61,7 +63,7 @@
 
     <Button
         android:id="@+id/signupButton"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="45dp"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
@@ -69,6 +71,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:layout_marginBottom="30dp"
+        android:background="#ABFF9800"
         android:text="Sign-up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -78,7 +81,7 @@
 
     <EditText
         android:id="@+id/loginUserID"
-        android:layout_width="267dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
@@ -91,13 +94,13 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/loginUserPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/loginUserPassword"
-        android:layout_width="270dp"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
