@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
@@ -31,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     UserHistoryDatabase userHistoryDatabase;
 
     ListView listView;
+    Button loginButton;
     MultiAutoCompleteTextView input;
     ArrayAdapter listAdapter;
     List<List<String>> parsed;
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.lv_results);
         input = findViewById(R.id.ev_input);
 
+        loginButton =findViewById(R.id.initialsignupButton);
+
         //set current user from login activity
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
@@ -86,9 +90,29 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(user.userName);
         }*/
         token = new Token("courses.json", "majors.csv", this);
+
+
+//        /**
+//         * the main searching page for ANU courses
+//         *
+//         * @author: So Young Kwon
+//         * @uid: 6511277
+//         */
+//
+//        loginButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent loginintent = new Intent(MainActivity.this,UserLogin.class);
+//                startActivity(loginintent);
+//
+//            }
+//        });
+
+
         //bind view to the list
         listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, displayList);
         listView.setAdapter(listAdapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -117,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         listAdapter.notifyDataSetChanged();
 
         setUpHintRefresh();
