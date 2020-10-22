@@ -12,7 +12,7 @@ import java.util.Set;
  * Token class
  * Types are for:
  * - INT: course number, random number
- * - COLLEGE: college
+ * - SUBJECT: subject
  * - MAJOR: major
  * - NAME: course full name
  * - OPERATION: pre
@@ -22,8 +22,8 @@ import java.util.Set;
  * @author Xinyu Zheng
  */
 public class Token {
-    public enum Type {UNKNOWN, INT, COLLEGE, MAJOR, NAME, OPERATION, STRING}
-    private static Set<String> collegeSet = new HashSet<>();
+    public enum Type {UNKNOWN, INT, SUBJECT, MAJOR, NAME, OPERATION, STRING}
+    private static Set<String> subjectSet = new HashSet<>();
     private static Set<String> majorSet = new HashSet<>();
     /*Arrays.asList("geography",
             "quantitativeenvironmentalmodelling", "marinescience", "psychology",
@@ -49,7 +49,7 @@ public class Token {
 
 
         for (Course course : courseList) {
-            collegeSet.add(course.courseDetail.get(1).toLowerCase());
+            subjectSet.add(course.courseDetail.get(1).toLowerCase());
             nameSet.add(course.courseDetail.get(4).toLowerCase().replaceAll("\\s*",""));
         }
         for (String[] major : majorList) {
@@ -68,7 +68,7 @@ public class Token {
         majorList =  new androidFileParser().parseCsv(fileName2,context);
 
         for (Course course : courseList) {
-            collegeSet.add(course.courseDetail.get(1).toLowerCase());
+            subjectSet.add(course.courseDetail.get(1).toLowerCase());
             nameSet.add(course.courseDetail.get(4).toLowerCase().replaceAll("\\s*",""));
         }
         for (String[] major : majorList) {
@@ -88,8 +88,8 @@ public class Token {
 
     public Token(String _content) {
         this._content = _content;
-        if (collegeSet.contains(_content)) {
-            this._type = Type.COLLEGE;
+        if (subjectSet.contains(_content)) {
+            this._type = Type.SUBJECT;
         } else if (majorSet.contains(_content)) {
             this._type = Type.MAJOR;
         } else if (nameSet.contains(_content)) {
@@ -112,12 +112,6 @@ public class Token {
     @Override
     public String toString() {
         return this._content;
-    }
-
-    public static void main(String[] args) {
-        for (String s : majorSet) {
-            System.out.print("\"" + s.toLowerCase().replaceAll("\\s*","") +  "\"" + ", ");
-        }
     }
 
 }
