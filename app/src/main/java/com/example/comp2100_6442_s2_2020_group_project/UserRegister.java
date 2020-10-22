@@ -61,13 +61,29 @@ public class UserRegister extends AppCompatActivity {
                 }else{
                     try {
                         re = new BufferedReader(new InputStreamReader(getAssets().open("userRegisteration.xml")));
+
+
                         XmlSerializer xmlSerializer = Xml.newSerializer();
+
                         StringWriter w = new StringWriter();
+
                         xmlSerializer.setOutput(w);
+
+
                         xmlSerializer.startDocument("UTF-8",true);
                         xmlSerializer.startTag(null,id);
+                        xmlSerializer.text(id);
+                        xmlSerializer.endTag(null,id);
                         xmlSerializer.startTag(null,un);
+                        xmlSerializer.text(un);
+                        xmlSerializer.endTag(null,un);
                         xmlSerializer.startTag(null,pw);
+                        xmlSerializer.text(pw);
+
+
+                        xmlSerializer.endDocument();
+                        xmlSerializer.flush();
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -76,7 +92,6 @@ public class UserRegister extends AppCompatActivity {
 
             }
         });
-
     }
 
 

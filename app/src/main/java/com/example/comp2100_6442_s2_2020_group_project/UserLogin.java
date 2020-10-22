@@ -20,7 +20,9 @@ public class UserLogin extends AppCompatActivity {
 
     EditText loginid;
     EditText loginpassword;
+    Button backmain;
     Button login;
+    Button signup;
 
 
     @Override
@@ -30,7 +32,19 @@ public class UserLogin extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         loginid = (EditText)findViewById(R.id.loginUserID);
         loginpassword = (EditText)findViewById(R.id.loginUserPassword);
+        backmain = (Button)findViewById(R.id.backtoMain);
         login = (Button) findViewById(R.id.loginButton);
+        signup = (Button) findViewById(R.id.initialsignupButton);
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent main = new Intent(UserLogin.this,MainActivity.class);
+                startActivity(main);
+
+            }
+        });
 
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +62,14 @@ public class UserLogin extends AppCompatActivity {
                 Intent intent = new Intent(UserLogin.this, MainActivity.class);
                 intent.putExtra("userID", "1");
                 startActivity(intent);
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(UserLogin.this,UserRegister.class);
+                startActivity(in);
             }
         });
     }
