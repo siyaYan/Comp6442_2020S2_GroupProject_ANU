@@ -46,7 +46,6 @@ public class UserRegister extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.acitiviy_registeration);
         username = (EditText)findViewById(R.id.userName);
         userID = (EditText)findViewById(R.id.userID);
@@ -55,41 +54,35 @@ public class UserRegister extends AppCompatActivity {
         signUp = (Button) findViewById(R.id.initialsignupButton);
         backLog = (Button) findViewById(R.id.backtoLogin);
 
+    }
 
-        signUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+    public void registerID(View view) {
 
-                String un = username.getText().toString();
-                String id = userID.getText().toString();
-                String pw = password.getText().toString();
-                String pwc = passwordConfrim.getText().toString();
+        String un = username.getText().toString();
+        String id = userID.getText().toString();
+        String pw = password.getText().toString();
+        String pwc = passwordConfrim.getText().toString();
 
-//                BufferedReader re = null;
+        if(un.isEmpty() || id.isEmpty() || pw.isEmpty() || pwc.isEmpty()){
+            Toast.makeText(UserRegister.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
+        }else if(!pw.equals(pwc)){
+            Toast.makeText(UserRegister.this,"Password does not match",Toast.LENGTH_SHORT).show();
+        }else if(ud.userExists(id) == true){
+            Toast.makeText(UserRegister.this,"User ID already exists",Toast.LENGTH_SHORT).show();
 
-                if(un.isEmpty() || id.isEmpty() || pw.isEmpty() || pwc.isEmpty()){
-                    Toast.makeText(UserRegister.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
-                }else if(!pw.equals(pwc)){
-                    Toast.makeText(UserRegister.this,"Password does not match",Toast.LENGTH_SHORT).show();
-                }else if(ud.userExists(id) == true){
-                    Toast.makeText(UserRegister.this,"User ID already exists",Toast.LENGTH_SHORT).show();
+        }else{
+            ud.registerUser(id,un,pw);
+            Intent mainintet = new Intent(UserRegister.this,MainActivity.class);
+            startActivity(mainintet);
+        }
 
-                }else{
-                    ud.registerUser(id,un,pw);
-                }
-
-            }
-        });
+    }
 
 
-        backLog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent login = new Intent(UserRegister.this,UserLogin.class);
-                startActivity(login);
+    public void backLogin(View view) {
+        Intent login = new Intent(UserRegister.this,UserLogin.class);
+        startActivity(login);
 
-            }
-        });
     }
 
 

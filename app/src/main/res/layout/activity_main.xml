@@ -85,6 +85,7 @@
         android:layout_marginRight="4dp"
         android:background="@android:drawable/btn_star_big_on"
         android:fontFamily="sans-serif-black"
+        android:onClick="mainButton"
         android:text="Sign-in"
         android:textSize="8sp"
         android:textStyle="italic"

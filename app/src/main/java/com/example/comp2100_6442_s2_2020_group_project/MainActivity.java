@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     int curHint = 0;
     Thread hintRefreshThread;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,16 +101,6 @@ public class MainActivity extends AppCompatActivity {
          * @uid: 6511277
          */
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentLog = new Intent(MainActivity.this,UserLogin.class);
-                startActivity(intentLog);
-
-            }
-        });
-
-
         //bind view to the list
         listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, displayList);
         listView.setAdapter(listAdapter);
@@ -147,6 +139,12 @@ public class MainActivity extends AppCompatActivity {
         setUpHintRefresh();
 
         setUpAutoComplete();
+
+    }
+
+    public void mainButton(View view) {
+        Intent intentLog = new Intent(MainActivity.this,UserLogin.class);
+        startActivity(intentLog);
 
     }
 
