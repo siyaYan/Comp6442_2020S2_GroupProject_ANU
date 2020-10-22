@@ -54,20 +54,22 @@ public class UserHistoryDatabase extends SQLiteOpenHelper {
 
         return flag;
     }
-
+    /**
+     * modify the update
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     public void updateHistory(String userID, String course) {
         SQLiteDatabase writedb = this.getWritableDatabase();
-        String history = getHistory(userID);
-
-        //no duplicates in history
-        if(!history.contains(course)){
-            ContentValues cv = new ContentValues();
-            cv.put("id", userID);
-            cv.put("history",  history + " " + course);
-            writedb.update(TABLE_NAME, cv, "id = " + userID, null);
-        }
+            //his history
+            String history = getHistory(userID);
+            //no duplicates in history
+            if (!history.contains(course)) {
+                ContentValues cv = new ContentValues();
+                cv.put("history", history + " " + course);
+                writedb.update(TABLE_NAME, cv, "id = ?", new String[]{userID.toString()});
+            }
     }
-
     public String getHistory(String userID) {
         SQLiteDatabase db = this.getReadableDatabase();
         String historyList = "";

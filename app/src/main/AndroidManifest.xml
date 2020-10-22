@@ -12,9 +12,17 @@
         <activity android:name=".WebActivity"></activity>
         <activity android:name=".DetailActivity" />
         <activity android:name=".ListActivity" />
+        <activity android:name=".UserRegister" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".UserLogin">
+            <intent-filter>
+                <action android:name="android.intent.action.LOGIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

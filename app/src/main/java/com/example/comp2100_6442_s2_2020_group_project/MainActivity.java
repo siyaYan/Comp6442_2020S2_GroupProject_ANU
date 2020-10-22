@@ -63,14 +63,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
-            currentUser = intent.getStringExtra("userID");
+            currentUser += intent.getStringExtra("userID");
         }
 
 
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
         //initialise current user history
-
 
         /* main process
             1. step1/2 get tree,map,majorlist
@@ -83,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
             displayList.add(node.courseName.toString());
         }*/
 
-        for (User user : userList) {
+       /* for (User user : userList) {
             System.out.println(user.userName);
-        }
+        }*/
         token = new Token("courses.json", "majors.csv", this);
         //bind view to the list
         listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, displayList);
@@ -94,23 +93,25 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String course = coursedetail.get(position).courseDetail.get(1) + coursedetail.get(position).courseDetail.get(2);
+                String course = coursedetail.get(position).courseDetail.get(0);
 
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 if (coursedetail.get(position).courseDetail != null) {
 
                     //update history on click
-                    if (!currentUser.equals("user")) {
+                    if (currentUser.contains("user")) {
                         if (!userHistoryDatabase.userExists(currentUser)) {
                             userHistoryDatabase.addToDB(currentUser, course);
+                            System.out.println("initHistory");
                         } else {
                             userHistoryDatabase.updateHistory(currentUser, course);
+                            System.out.println("updateHistory");
                         }
                         //TODO use variable userHistory to see history
                         //updates userHistory variable on each click.
                         userHistory = userHistoryDatabase.getHistory(currentUser);
                     }
-                    System.out.println(userHistory);
+                    System.out.println("history:"+userHistory);
                     intent.putStringArrayListExtra("courseDetail", coursedetail.get(position).courseDetail);
                     startActivity(intent);
                 }
@@ -174,8 +175,7 @@ public class MainActivity extends AppCompatActivity {
         this.tree = init.tree;
         this.map = init.map;
         this.majorList = init.majorList;
-        this.userList = init.userList;
-        user.User("Eckel", "1234", userList);
+       // this.userList = init.userList;
         //System.out.println(user.id);
         //System.out.println(androidFileParser.tree.inOrder(androidFileParser.tree.root));
     }
@@ -260,9 +260,7 @@ public class MainActivity extends AppCompatActivity {
 
         Search search = new Search();
         //testing rank(user1)
-        ArrayList<String> historyCourses = new ArrayList<>();
-        historyCourses.add("2183");
-        historyCourses.add("8345");
+        String[] historyCourses = userHistory.split(" ");
         for (String course : historyCourses) {
             //System.out.println(map.get(course));
             for (int index = 0; index < this.coursedetail.size(); index++) {

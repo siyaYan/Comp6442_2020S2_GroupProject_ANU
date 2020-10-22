@@ -1,5 +1,6 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +41,13 @@ public class UserLogin extends AppCompatActivity {
                 if(id.isEmpty() || password.isEmpty()){
                     Toast.makeText(UserLogin.this,"Please check if you entered your ID or Password",Toast.LENGTH_SHORT).show();
                 }else{
-
+                    //todo
                 }
+
+                //pretend user1
+                Intent intent = new Intent(UserLogin.this, MainActivity.class);
+                intent.putExtra("userID", "1");
+                startActivity(intent);
             }
         });
     }
