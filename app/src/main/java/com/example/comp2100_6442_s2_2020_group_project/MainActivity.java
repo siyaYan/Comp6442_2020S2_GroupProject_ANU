@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         /**
-         * the main searching page for ANU courses
+         * Leading to a sign in Page
          *
          * @author: So Young Kwon
          * @uid: 6511277

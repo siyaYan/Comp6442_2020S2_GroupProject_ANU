@@ -47,6 +47,7 @@ public class DetailActivity extends AppCompatActivity {
         prerequsit = findViewById(R.id.coursepre);
         startdate = findViewById(R.id.coursestart);
         enddate = findViewById(R.id.courseend);
+        moreInfo = findViewById(R.id.officialSite);
 
         Intent intent = getIntent();
         courseDetail =  intent.getStringArrayListExtra("courseDetail");
