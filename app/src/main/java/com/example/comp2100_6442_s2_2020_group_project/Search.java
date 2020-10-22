@@ -18,7 +18,7 @@ public class Search {
    // public RBTreeBarry<String> tree;
    // public Map<String,ArrayList<String>> map;
     //step1
-    public ArrayList<Node> searchTree(List<String> Parsed,RBTreeBarry<String> Tree) {
+    public ArrayList<Node> searchTree(List<String> Parsed, RBTree<String> Tree) {
         ArrayList<Node> nodes=new ArrayList<>();
         Node node;
         //searchByCollege goto searchNodes(return many nodes)
@@ -37,7 +37,7 @@ public class Search {
         return nodes;
     }
     //step2
-    public ArrayList<Node> searchMajor(List<String> Parsed,RBTreeBarry<String> Tree,ArrayList<String[]> majorList) {
+    public ArrayList<Node> searchMajor(List<String> Parsed, RBTree<String> Tree, ArrayList<String[]> majorList) {
         ArrayList<Node> nodes=new ArrayList<>();
         ArrayList<String> oneMajor=new ArrayList<>();
         Node node;

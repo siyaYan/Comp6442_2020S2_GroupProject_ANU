@@ -17,9 +17,9 @@ import static org.junit.Assert.assertEquals;
 public class RBtreeTest {
     @Test
     public void testRBtree(){
-        RBTreeBarry<String> tree;
+        RBTree<String> tree;
 
-        tree = new RBTreeBarry<String>();
+        tree = new RBTree<String>();
         //test some real data
         tree.insertValue("MEDI3004","1369","IMU Clinical Experience Bridging Course");
         tree.insertValue("LAWS4010","1418","Jessup Moot");
