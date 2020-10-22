@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class UserDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "users";
     private static final String TABLE_NAME = "userDetails";
@@ -25,6 +27,26 @@ public class UserDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
+    }
+
+    public ArrayList<String> getAllUsers(){
+        ArrayList<String> userList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String userID =cursor.getString(cursor.getColumnIndex("id"));
+            String username = cursor.getString(cursor.getColumnIndex("username"));
+            String password = cursor.getString(cursor.getColumnIndex("password"));
+            UserBarry user = new UserBarry(userID,username,password);
+            userList.add(user.id);
+
+            cursor.moveToNext();
+        }
+
+        return userList;
     }
 
     public boolean userExists(String userID) {
