@@ -43,9 +43,9 @@ public class Token {
 
     public static void loadData() {
         String fileName1 = "src/main/assets/courses.json";
-        courseList = new getDataUtil().readJSONFile(fileName1);
+        courseList = new GetDataUtil().readJSONFile(fileName1);
         String fileName2 = "src/main/assets/majors.csv";
-        majorList = new getDataUtil().readBespokeFile(fileName2);
+        majorList = new GetDataUtil().readBespokeFile(fileName2);
 
 
         for (Course course : courseList) {
@@ -64,8 +64,8 @@ public class Token {
      */
     public Token(String fileName1,String fileName2,Context context) {
         System.out.println(context.toString());
-        courseList = new androidFileParser().parseJson(fileName1,context);
-        majorList =  new androidFileParser().parseCsv(fileName2,context);
+        courseList = new AndroidFileParser().parseJSON(fileName1,context);
+        majorList =  new AndroidFileParser().parseCSV(fileName2,context);
 
         for (Course course : courseList) {
             subjectSet.add(course.courseDetail.get(1).toLowerCase());

@@ -44,7 +44,7 @@ public class searchTest {
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         String nodeIds="";
@@ -63,13 +63,13 @@ public class searchTest {
         majorList=new ArrayList<>();
         ArrayList<String> oneMajor=new ArrayList<>();
         String fileName2= "src/main/assets/majors.csv";
-        majorList=new getDataUtil().readBespokeFile(fileName2);
+        majorList=new GetDataUtil().readBespokeFile(fileName2);
         myInputTokenizer = new InputTokenizer("Water science");
         parsed = new Parser(myInputTokenizer).parseInput();
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         List<String> oneparse=parsed.get(0);
@@ -92,7 +92,7 @@ public class searchTest {
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1 = "src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap( courses);
@@ -113,7 +113,7 @@ public class searchTest {
         initial=new Initialization();
         courses=new ArrayList<>();
         String fileName1="src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         map=initial.initMap(courses);

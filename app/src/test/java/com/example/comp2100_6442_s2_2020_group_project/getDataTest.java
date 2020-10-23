@@ -2,7 +2,6 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import org.junit.Test;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class getDataTest {
     @Test
     public void getMajorTest() {
         String fileName2="src/main/assets/majors.csv";
-        majors=new getDataUtil().readBespokeFile(fileName2);
+        majors=new GetDataUtil().readBespokeFile(fileName2);
         String majorNames="";
         for (String[] major : majors) {
             majorNames += major[0]+",";
@@ -31,7 +30,7 @@ public class getDataTest {
     @Test
     public void getCourseTest() {
         String fileName1="src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         /*for (Course course : courses) {
             System.out.println(course.courseDetail);
         }*/

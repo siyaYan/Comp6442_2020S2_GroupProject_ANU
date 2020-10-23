@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -186,9 +185,9 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO method definition
     public void init(String jsonFile, String csvFile, Context context) {
-        androidFileParser androidFileParser = new androidFileParser();
+        AndroidFileParser androidFileParser = new AndroidFileParser();
         Initialization init = new Initialization();
-        init.Initialization(androidFileParser.parseJson(jsonFile, context), androidFileParser.parseCsv(csvFile, context));
+        init.Initialization(androidFileParser.parseJSON(jsonFile, context), androidFileParser.parseCSV(csvFile, context));
         this.tree = init.tree;
         this.map = init.map;
         this.majorList = init.majorList;
