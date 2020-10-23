@@ -5,14 +5,13 @@
     android:layout_height="match_parent"
     android:background="#A8FFFFFF"
     android:orientation="vertical"
-    android:paddingTop="80dp"
+    android:paddingTop="0dp"
     android:paddingBottom="50dp">
 
     <TextView
         android:id="@+id/courseCode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -26,23 +25,17 @@
         android:id="@+id/coursenum"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/cname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
         android:textColor="#000000"
         android:textSize="17dp" />
 
@@ -50,11 +43,8 @@
         android:id="@+id/credit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
         android:textColor="#000000"
         android:textSize="16dp" />
 
@@ -62,9 +52,6 @@
         android:id="@+id/coursepreTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginBottom="20dp"
         android:fontFamily="sans-serif-black"
         android:gravity="center"
         android:orientation="vertical"
@@ -75,26 +62,16 @@
         android:id="@+id/coursepre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginRight="30dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
         android:textColor="#000000" />
 
     <TextView
         android:id="@+id/coursestart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="15dp"
         android:textColor="#000000"
         android:textSize="16dp" />
 
@@ -102,8 +79,6 @@
         android:id="@+id/courseend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="64dp"
         android:gravity="center"
         android:orientation="vertical"
         android:textColor="#000000"
@@ -114,7 +89,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
         android:background="#BCFF7474"
         android:capitalize="sentences"
         android:includeFontPadding="false"
