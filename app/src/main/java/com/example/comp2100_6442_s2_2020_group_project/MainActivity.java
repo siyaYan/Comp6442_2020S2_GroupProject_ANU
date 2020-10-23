@@ -42,8 +42,7 @@ public class MainActivity extends AppCompatActivity {
     RBTree<String> tree;
     Map<String, ArrayList<String>> map;
     ArrayList<String[]> majorList;
-    ArrayList<User> userList;
-    User user = new User();
+
     String currentUser = "user";
     String userHistory = "";
 

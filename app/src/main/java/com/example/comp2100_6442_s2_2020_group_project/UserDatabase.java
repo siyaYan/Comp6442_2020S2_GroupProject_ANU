@@ -76,10 +76,10 @@ public class UserDatabase extends SQLiteOpenHelper {
         writedb.insert(TABLE_NAME, null, cv);
     }
 
-    public UserBarry getUserDetails(String userID){
+    public User getUserDetails(String userID){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        UserBarry user;
+        User user;
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -87,7 +87,7 @@ public class UserDatabase extends SQLiteOpenHelper {
             if (id.equals(userID)) {
                 String username = cursor.getString(cursor.getColumnIndex("username"));
                 String password = cursor.getString(cursor.getColumnIndex("password"));
-                user = new UserBarry(userID,username,password);
+                user = new User(userID,username,password);
                 return user;
             }
             cursor.moveToNext();

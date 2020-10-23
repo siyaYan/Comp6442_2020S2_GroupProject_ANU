@@ -38,16 +38,5 @@ public class getDataTest {
         Course firstCourse =courses.get(0);
         assertEquals(firstCourse.classNumber, "1205");
     }
-
-    @Test
-    public void getUserTest() {
-        String fileName="src/main/res/raw/users.xml";
-        users=new getDataUtil().readXMLFile(fileName);
-        String userNames="";
-        for (User user : users) {
-            userNames +=user.userName+",";
-        }
-        assertEquals(userNames, "Eckel,Adams,J,");
-    }
 }
 
