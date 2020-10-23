@@ -54,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
     Thread hintRefreshThread;
 
 
-
+    /**
+     *
+     * @authors: Xiran Yan, Bharath Kulkarni
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,17 +67,15 @@ public class MainActivity extends AppCompatActivity {
 
         loginButton =findViewById(R.id.mainSignin);
 
-        //set current user from login activity
+        //Bharath
+        //if coming from loginactivity, set current user
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         if (extras != null) {
             currentUser += intent.getStringExtra("userID");
         }
-
-
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
-        //initialise current user history
 
         /* main process
             1. step1/2 get tree,map,majorlist
@@ -83,22 +84,11 @@ public class MainActivity extends AppCompatActivity {
             4. go to detail by classNumber(in Node)
         */
         init("courses.json", "majors.csv", this);
-        /*for (Node node:this.tree.searchNodes(this.tree.root,"COMP",new ArrayList<Node>()) ) {
-            displayList.add(node.courseName.toString());
-        }*/
 
-       /* for (User user : userList) {
-            System.out.println(user.userName);
-        }*/
         token = new Token("courses.json", "majors.csv", this);
 
 
-        /**
-         * Leading to a sign in Page
-         *
-         * @author: So Young Kwon
-         * @uid: 6511277
-         */
+
 
         //bind view to the list
         listAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, displayList);
@@ -108,11 +98,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String course = coursedetail.get(position).courseDetail.get(0);
 
                 Intent intent = new Intent(MainActivity.this, DetailActivity.class);
                 if (coursedetail.get(position).courseDetail != null) {
-
+                    String course = coursedetail.get(position).courseDetail.get(0);
+                    //Bharath
                     //update history on click
                     if (currentUser.contains("user")) {
                         if (!userHistoryDatabase.userExists(currentUser)) {
@@ -122,11 +112,10 @@ public class MainActivity extends AppCompatActivity {
                             userHistoryDatabase.updateHistory(currentUser, course);
                             System.out.println("updateHistory");
                         }
-                        //TODO use variable userHistory to see history
                         //updates userHistory variable on each click.
                         userHistory = userHistoryDatabase.getHistory(currentUser);
                     }
-                    System.out.println("history:"+userHistory);
+
                     intent.putStringArrayListExtra("courseDetail", coursedetail.get(position).courseDetail);
                     startActivity(intent);
                 }
@@ -141,6 +130,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Leading to a sign in Page
+     * @param view
+     * @author: So Young Kwon
+     * @uid: 6511277
+     */
     public void mainButton(View view) {
         Intent intentLog = new Intent(MainActivity.this,UserLogin.class);
         startActivity(intentLog);
@@ -189,17 +184,14 @@ public class MainActivity extends AppCompatActivity {
         input.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
     }
 
-    public void init(String file1, String file2, Context context) {
-        InputStream inputStream = this.getResources().openRawResource(R.raw.users);
+    //TODO method definition
+    public void init(String jsonFile, String csvFile, Context context) {
         androidFileParser androidFileParser = new androidFileParser();
         Initialization init = new Initialization();
-        init.Initialization(androidFileParser.parseJson("courses.json", context), androidFileParser.parseCsv("majors.csv", context), androidFileParser.parseXML(inputStream));
+        init.Initialization(androidFileParser.parseJson(jsonFile, context), androidFileParser.parseCsv(csvFile, context));
         this.tree = init.tree;
         this.map = init.map;
         this.majorList = init.majorList;
-       // this.userList = init.userList;
-        //System.out.println(user.id);
-        //System.out.println(androidFileParser.tree.inOrder(androidFileParser.tree.root));
     }
 
     /**

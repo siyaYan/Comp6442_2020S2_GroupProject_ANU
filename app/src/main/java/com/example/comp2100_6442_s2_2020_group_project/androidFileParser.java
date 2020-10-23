@@ -124,34 +124,34 @@ public class androidFileParser {
         return getCourses;
     }
 
-    public ArrayList<User> parseXML(InputStream inputStream) {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        ArrayList<User> getUsers=new ArrayList<>();
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document d = db.parse(inputStream); //parse file,the root of the document tree
-            d.getDocumentElement().normalize(); //remove the redundancies
-            NodeList nodeList = d.getElementsByTagName("user");
-            for(int i = 0; i < nodeList.getLength(); i++)
-            {
-                org.w3c.dom.Node n = nodeList.item(i);
-                Element element	= (Element) n;
-                String id = element.getElementsByTagName("id").item(0).getTextContent();
-                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
-                String password= element.getElementsByTagName("password").item(0).getTextContent();
-                User user=new User();
-                user.id=id;
-                user.userName=userName;
-                user.password=password;
-                getUsers.add(user);
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return getUsers;
-    }
+//    public ArrayList<User> parseXML(InputStream inputStream) {
+//        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//        ArrayList<User> getUsers=new ArrayList<>();
+//        try {
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            Document d = db.parse(inputStream); //parse file,the root of the document tree
+//            d.getDocumentElement().normalize(); //remove the redundancies
+//            NodeList nodeList = d.getElementsByTagName("user");
+//            for(int i = 0; i < nodeList.getLength(); i++)
+//            {
+//                org.w3c.dom.Node n = nodeList.item(i);
+//                Element element	= (Element) n;
+//                String id = element.getElementsByTagName("id").item(0).getTextContent();
+//                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
+//                String password= element.getElementsByTagName("password").item(0).getTextContent();
+//                User user=new User();
+//                user.id=id;
+//                user.userName=userName;
+//                user.password=password;
+//                getUsers.add(user);
+//            }
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return getUsers;
+//    }
 
        /*public List<Course> getJson(String fileName, Context context) {
         //string builder

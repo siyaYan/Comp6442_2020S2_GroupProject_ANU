@@ -384,27 +384,5 @@ public class RBTree<T extends Comparable<T>> {
         }
         return str;
     }
-    //display preOrder
-    public String preOrder(Node<T> tree) {
-        String str="";
-        String leftStr="";
-        String rightStr="";
-        if (tree != null && tree.courseID != null) {
-            if (tree.left.courseID != null) {
-                leftStr = inOrder(tree.left);
-            }
-            if (tree.right.courseID != null) {
-                rightStr = inOrder(tree.right);
-            }
-            if (tree.right.courseID == null && tree.left.courseID == null) {
-                str= "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n" ;
-                return str;
-
-            }
-            str=  "courseID:["+tree.courseID + "] classNumber:["+ tree.classNumber + "] courseName:["+tree.courseName+ "],\n"  +
-                    (leftStr.isEmpty() ? leftStr : "" + leftStr) + (rightStr.isEmpty() ? rightStr : "" + rightStr);
-        }
-        return str;
-    }
 
 }
