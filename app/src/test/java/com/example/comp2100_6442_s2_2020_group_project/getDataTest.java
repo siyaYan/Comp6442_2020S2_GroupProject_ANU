@@ -35,7 +35,13 @@ public class getDataTest {
             System.out.println(course.courseDetail);
         }*/
         Course firstCourse =courses.get(0);
-        assertEquals(firstCourse.classNumber, "1205");
+        String detail=new String();
+        for (String str : firstCourse.courseDetail) {
+            detail += str+",";
+        }
+        Course lastCourse =courses.get(courses.size()-1);
+        assertEquals(detail, "1205,ASIA,2114,1,Advanced Studies in Asia and the Pacific 2,6,6,College Asia & Pacific,CAP, ,GRD,1/1/20,3/31/20,1/24/20,1/24/20,P,");
+        assertEquals(lastCourse.classNumber, "9821");
     }
 }
 

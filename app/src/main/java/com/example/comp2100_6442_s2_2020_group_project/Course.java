@@ -43,19 +43,4 @@ public class Course implements Serializable {
         this.courseDetail =CourseDetail;
     }
 
-    public String display() {
-        String result=this.classNumber+":";
-        for (String i : courseDetail) {
-            result+=i.toString()+"/";
-        }
-        return result;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        return false;
-    }
 }
