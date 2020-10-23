@@ -1,27 +1,13 @@
 package com.example.comp2100_6442_s2_2020_group_project;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-import android.util.Xml;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.xmlpull.v1.XmlSerializer;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-
 
 
 /**
@@ -31,7 +17,7 @@ import java.io.StringWriter;
  *  * @uid: 6511277
  */
 
-public class UserRegister extends AppCompatActivity {
+public class UserRegisterActivity extends AppCompatActivity {
     EditText username;
     EditText userID;
     EditText password;
@@ -64,15 +50,15 @@ public class UserRegister extends AppCompatActivity {
         String pwc = passwordConfrim.getText().toString();
 
         if(un.isEmpty() || id.isEmpty() || pw.isEmpty() || pwc.isEmpty()){
-            Toast.makeText(UserRegister.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegisterActivity.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
         }else if(!pw.equals(pwc)){
-            Toast.makeText(UserRegister.this,"Password does not match",Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegisterActivity.this,"Password does not match",Toast.LENGTH_SHORT).show();
         }else if(ud.userExists(id) == true){
-            Toast.makeText(UserRegister.this,"User ID already exists",Toast.LENGTH_SHORT).show();
+            Toast.makeText(UserRegisterActivity.this,"User ID already exists",Toast.LENGTH_SHORT).show();
 
         }else{
             ud.registerUser(id,un,pw);
-            Intent mainintet = new Intent(UserRegister.this,MainActivity.class);
+            Intent mainintet = new Intent(UserRegisterActivity.this,MainActivity.class);
             startActivity(mainintet);
         }
 
@@ -80,7 +66,7 @@ public class UserRegister extends AppCompatActivity {
 
 
     public void backLogin(View view) {
-        Intent login = new Intent(UserRegister.this,UserLogin.class);
+        Intent login = new Intent(UserRegisterActivity.this, UserLoginActivity.class);
         startActivity(login);
 
     }

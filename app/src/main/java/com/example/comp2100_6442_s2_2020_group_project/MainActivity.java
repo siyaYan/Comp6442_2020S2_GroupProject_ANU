@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
      * @uid: 6511277
      */
     public void mainButton(View view) {
-        Intent intentLog = new Intent(MainActivity.this,UserLogin.class);
+        Intent intentLog = new Intent(MainActivity.this, UserLoginActivity.class);
         startActivity(intentLog);
 
     }

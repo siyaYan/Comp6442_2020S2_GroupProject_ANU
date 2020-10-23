@@ -18,8 +18,13 @@
         <activity android:name=".WebActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".ListActivity" />
+<<<<<<< HEAD
         <activity android:name=".UserRegister" />
         <activity android:name=".MainActivity"/>
+=======
+        <activity android:name=".UserRegisterActivity" />
+        <activity android:name=".MainActivity">
+>>>>>>> dfc02d0e00be205ee3096f4a1e7191e9e7d255cc
 
         <activity android:name=".Splash">
             <intent-filter>
@@ -27,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserLogin">
+        <activity android:name=".UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.LOGIN" />
 

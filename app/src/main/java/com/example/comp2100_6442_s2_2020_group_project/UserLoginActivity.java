@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
  *  * @uid: 6511277
  */
 
-public class UserLogin extends AppCompatActivity {
+public class UserLoginActivity extends AppCompatActivity {
 
     EditText loginid;
     EditText loginpassword;
@@ -42,32 +42,32 @@ public class UserLogin extends AppCompatActivity {
             String id = loginid.getText().toString();
             String password = loginpassword.getText().toString();
             if (id.isEmpty() || password.isEmpty()) {
-                Toast.makeText(UserLogin.this, "Please check if you entered your ID or Password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(UserLoginActivity.this, "Please check if you entered your ID or Password", Toast.LENGTH_SHORT).show();
             } else {
                 if (ud.userExists(id)) {
                     //pretend user1
                     if (ud.getUserDetails(id).password.equals(password)) {
-                        Intent intent = new Intent(UserLogin.this, MainActivity.class);
+                        Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
                         intent.putExtra("userID", id);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(UserLogin.this, "Please check your password", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(UserLoginActivity.this, "Please check your password", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(UserLogin.this, "No matching ID, please check if you entered correct ID or sign up today!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UserLoginActivity.this, "No matching ID, please check if you entered correct ID or sign up today!", Toast.LENGTH_SHORT).show();
                 }
             }
         }
 
         public void backMain(View v){
-            Intent main = new Intent(UserLogin.this, MainActivity.class);
+            Intent main = new Intent(UserLoginActivity.this, MainActivity.class);
             startActivity(main);
 
         }
 
 
         public void signUp(View v){
-            Intent in = new Intent(UserLogin.this, UserRegister.class);
+            Intent in = new Intent(UserLoginActivity.this, UserRegisterActivity.class);
             startActivity(in);
         }
 
