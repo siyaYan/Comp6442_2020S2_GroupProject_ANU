@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.lv_results);
         input = findViewById(R.id.ev_input);
-        userName = findViewById(R.id.userName);
+        userName = findViewById(R.id.username);
 
 
         //Bharath
@@ -74,7 +74,14 @@ public class MainActivity extends AppCompatActivity {
         if (extras != null) {
             currentUser += intent.getStringExtra("userID");
         }
-
+        UserDatabase userDatabase = new UserDatabase(this);
+        //setting user name to greet
+        if(currentUser.contains("user") && currentUser.length() > 4){
+            userName.setText("Hello, "
+                    + userDatabase.getUserDetails(currentUser.substring(4)).username + "!");
+        }else{
+            userName.setText("Login to save your user history");
+        }
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
 
@@ -87,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         init("courses.json", "majors.csv", this);
 
         token = new Token("courses.json", "majors.csv", this);
+
+
 
 
         //bind view to the list
@@ -103,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     String course = coursedetail.get(position).courseDetail.get(0);
                     //Bharath
                     //update history on click
-                    if (currentUser.contains("user")) {
+                    if (currentUser.contains("user") && currentUser.length() > 4) {
                         if (!userHistoryDatabase.userExists(currentUser)) {
                             userHistoryDatabase.addToDB(currentUser, course);
                             System.out.println("initHistory");
@@ -129,9 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void findUserName(){
 
-    }
 
 
     /**
