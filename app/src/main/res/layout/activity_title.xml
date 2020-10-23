@@ -22,7 +22,7 @@
         android:id="@+id/toMain"
         android:layout_width="255dp"
         android:layout_height="77dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/search"
         android:onClick="start"
         app:layout_constraintBottom_toBottomOf="parent"
