@@ -38,10 +38,8 @@ public class UserDatabase extends SQLiteOpenHelper {
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             String userID =cursor.getString(cursor.getColumnIndex("id"));
-            String username = cursor.getString(cursor.getColumnIndex("username"));
-            String password = cursor.getString(cursor.getColumnIndex("password"));
-            UserBarry user = new UserBarry(userID,username,password);
-            userList.add(user.id);
+
+            userList.add(userID);
 
             cursor.moveToNext();
         }
