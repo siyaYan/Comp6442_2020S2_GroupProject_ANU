@@ -63,14 +63,15 @@ public class initialTest {
 
         String fileName = "src/main/assets/majors.csv";
         majors=new GetDataUtil().readBespokeFile(fileName);
-        //initial.initList( majors);
+        majors=initial.initList( majors);
         /*for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
         }*/
-        String[] firstMajor=majors.get(1);
-        String[] lastMajor=majors.get(majors.size()-1);
-        assertEquals(lastMajor[0], "Water Science");
-        assertEquals(firstMajor[0], "Astronomy and Astrophysics");
+        String allmajors=new String();
+        for (String[] major : majors) {
+            allmajors+=major[0]+",";
+        }
+        assertEquals(allmajors, "majorName,Astronomy and Astrophysics,Biochemistry,Biological Anthropology,Cell and Molecular Biology,Chemistry,Computer Science,Earth Science,Environmental Science,Evolution Ecology and Organismal Biology,Geography,Human Biology,Human Evolutionary Biology,Marine Science,Mathematical Economics,Mathematical Finance,Mathematical Modelling,Mathematics,Physics,Psychology,Quantitative Environmental Modelling,Quantitiative Biology,Resource and Environmental Management,Science Communication,Statistics,Sustainability Studies,Water Science,");
     }
 
     @Test

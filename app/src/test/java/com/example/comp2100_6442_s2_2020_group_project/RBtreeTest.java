@@ -42,6 +42,10 @@ public class RBtreeTest {
         for(int i=0;i<compnodes.size();i++) {
             compCourse +=compnodes.get(i).courseID+",";
         }
+        String treeString=tree.inOrder(tree.root);
+        String[] Nodes=treeString.split("\n");
+        String lastNode=Nodes[Nodes.length-1];
+        assertEquals(lastNode, "courseID:[MEDI3004] classNumber:[1369] courseName:[IMU Clinical Experience Bridging Course],");
         assertEquals(compCourse, "COMP2710,COMP3710,COMP2100,COMP2300,COMP1110,COMP1100,");
         assertEquals(idNode.courseName, "Software Design Methodologies");
         assertEquals(nameNode.courseID, "COMP2710");
