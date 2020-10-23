@@ -1,0 +1,24 @@
+# for information & examples on how to fill this out correctly, see
+# https://cs.anu.edu.au/courses/comp1720/resources/faq/#statement-of-originality
+
+declaration: >-
+  I declare that everything I have submitted in this assignment is entirely my
+  own work, with the following exceptions:
+
+
+# add as many "url+licence+comment" entries as necessary
+# (or remove it altogether if you haven't used any external code)
+
+code:
+  - comment: used for the hiding notification for full screen for Splash class
+    url: https://stackoverflow.com/questions/42968600/how-to-hide-status-bar-in-android-in-just-one-activity
+    licence: CC BY-SA 4.0
+
+  - comment: used for the splash scren, to learn how to use handler and runtime function to set time for Splash
+    url: https://stackoverflow.com/questions/5486789/how-do-i-make-a-splash-screen
+    licence: CC BY-SA 4.0
+
+# sign *your* name and uid here
+name: So Young Kwon
+uid: u6511277
+
