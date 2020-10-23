@@ -18,7 +18,7 @@
         <activity android:name=".WebActivity" />
         <activity android:name=".DetailActivity" />
         <activity android:name=".ListActivity" />
-        <activity android:name=".UserRegister" />
+        <activity android:name=".UserRegisterActivity" />
         <activity android:name=".MainActivity">
 
             <intent-filter>
@@ -27,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UserLogin">
+        <activity android:name=".UserLoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.LOGIN" />
 

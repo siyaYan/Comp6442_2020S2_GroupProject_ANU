@@ -30,7 +30,7 @@ public class initialTest {
         String fileName1 = "src/main/assets/courses.json";
         List<Course> courses=new ArrayList<>();
         ArrayList<Node> nodes = new ArrayList<>();
-        courses=new getDataUtil().readJSONFile(fileName1);
+        courses=new GetDataUtil().readJSONFile(fileName1);
         nodes=new Initialization().parserToNodes(courses);
         /*for(Node node:nodes)
         System.out.println(node.courseName);*/
@@ -48,7 +48,7 @@ public class initialTest {
         RBTree<String> tree = new RBTree<>();
         List<Course> courses=new ArrayList<>();
         String fileName = "src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName);
+        courses=new GetDataUtil().readJSONFile(fileName);
         nodes=initial.parserToNodes(courses);
         tree=initial.initTree( nodes);
         //System.out.println((tree.root.classNumber));
@@ -62,7 +62,7 @@ public class initialTest {
         Initialization initial=new Initialization();
 
         String fileName = "src/main/assets/majors.csv";
-        majors=new getDataUtil().readBespokeFile(fileName);
+        majors=new GetDataUtil().readBespokeFile(fileName);
         //initial.initList( majors);
         /*for (String[] courses : majors) {
             System.out.println(courses[0]+":"+courses[1]);
@@ -82,7 +82,7 @@ public class initialTest {
         Map<String,ArrayList<String>> map =new HashMap<>();
 
         String fileName = "src/main/assets/courses.json";
-        courses=new getDataUtil().readJSONFile(fileName);
+        courses=new GetDataUtil().readJSONFile(fileName);
         map=initial.initMap( courses);
 
         //Set<String> keys=  map.keySet();

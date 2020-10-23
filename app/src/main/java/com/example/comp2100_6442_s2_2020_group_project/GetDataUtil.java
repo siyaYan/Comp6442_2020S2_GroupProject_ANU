@@ -29,13 +29,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * A util function with 3 ways to parse the file by filePath
- * useing for the java backside
+ * using for the java backside
  * @author: Xiran Yan
  * @uid: 7167582
  */
 
 //step1 get file return List<Course>(if read major file return ArrayList<String[]> )
-public class getDataUtil {
+public class GetDataUtil {
     //private List<Course> courses;
     //json transfer to string
     public class courseDetail {
@@ -121,35 +121,35 @@ public class getDataUtil {
         //System.out.println(getCourses.get(1).courseDetail.get(0));
         return getCourses;
     }
-    //get all users
-    public ArrayList<User> readXMLFile(String fileName) {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        ArrayList<User> getUsers=new ArrayList<>();
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document d = db.parse(new File(fileName)); //parse file,the root of the document tree
-            d.getDocumentElement().normalize(); //remove the redundancies
-            NodeList nodeList = d.getElementsByTagName("user");
-            for(int i = 0; i < nodeList.getLength(); i++)
-            {
-                org.w3c.dom.Node n = nodeList.item(i);
-                Element element	= (Element) n;
-                String id = element.getElementsByTagName("id").item(0).getTextContent();
-                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
-                String password= element.getElementsByTagName("password").item(0).getTextContent();
-                User user=new User();
-                user.id=id;
-                user.userName=userName;
-                user.password=password;
-                getUsers.add(user);
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return getUsers;
-    }
+    //xml no longer used
+//    public ArrayList<User> readXMLFile(String fileName) {
+//        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//        ArrayList<User> getUsers=new ArrayList<>();
+//        try {
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            Document d = db.parse(new File(fileName)); //parse file,the root of the document tree
+//            d.getDocumentElement().normalize(); //remove the redundancies
+//            NodeList nodeList = d.getElementsByTagName("user");
+//            for(int i = 0; i < nodeList.getLength(); i++)
+//            {
+//                org.w3c.dom.Node n = nodeList.item(i);
+//                Element element	= (Element) n;
+//                String id = element.getElementsByTagName("id").item(0).getTextContent();
+//                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
+//                String password= element.getElementsByTagName("password").item(0).getTextContent();
+//                User user=new User();
+//                user.id=id;
+//                user.userName=userName;
+//                user.password=password;
+//                getUsers.add(user);
+//            }
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return getUsers;
+//    }
 }
 
 

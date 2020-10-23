@@ -16,13 +16,13 @@ public class Initialization {
     public RBTree<String> tree;
     public Map<String, ArrayList<String>> map;
     public ArrayList<String[]> majorList;
-    public ArrayList<User> userList;
+    //public ArrayList<User> userList;
 
-    public void Initialization(List<Course> courses, ArrayList<String[]> majorList,ArrayList<User> userList) {
+    public void Initialization(List<Course> courses, ArrayList<String[]> majorList) {
         this.tree = initTree(parserToNodes(courses));
         this.map = initMap(courses);
         this.majorList= initList(majorList);
-        this.userList=initUser(userList);
+        //this.userList=initUser(userList);
     }
 
     public Initialization() {
@@ -61,7 +61,7 @@ public class Initialization {
         return map;
     }
 
-    public ArrayList<User> initUser(ArrayList<User> userList) {
-        return userList;
-    }
+//    public ArrayList<User> initUser(ArrayList<User> userList) {
+//        return userList;
+//    }
 }

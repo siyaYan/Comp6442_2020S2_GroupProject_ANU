@@ -2,26 +2,16 @@ package com.example.comp2100_6442_s2_2020_group_project;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.content.res.Resources;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 
 /**
  * A util function with 2 ways to parse the file(json&csv) by fileName
@@ -32,7 +22,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
  * @author: Xiran Yan
  * @uid: 7167582
  */
-public class androidFileParser {
+public class AndroidFileParser {
 
     public class courseDetail {
         String classNumber;
@@ -53,7 +43,7 @@ public class androidFileParser {
         String ModeOfDelivery;
     }
 
-    public ArrayList<String> setList(getDataUtil.courseDetail detail) {
+    public ArrayList<String> setList(GetDataUtil.courseDetail detail) {
         ArrayList<String> courseDetail=new ArrayList<>();
         courseDetail.add(detail.classNumber);
         courseDetail.add(detail.Subject);
@@ -74,7 +64,7 @@ public class androidFileParser {
         return courseDetail;
     }
 
-    public ArrayList<String[]> parseCsv (String fileName, Context context) {
+    public ArrayList<String[]> parseCSV(String fileName, Context context) {
         //string builder
             ArrayList<String[]> getMajor=new ArrayList<>();
             BufferedReader br = null;
@@ -97,7 +87,7 @@ public class androidFileParser {
             return getMajor;
     }
 
-    public List<Course> parseJson (String fileName, Context context) {
+    public List<Course> parseJSON(String fileName, Context context) {
         Gson gson = new Gson();
         List<Course> getCourses=new ArrayList<>();
         JsonReader jsonReader = null;
@@ -107,8 +97,8 @@ public class androidFileParser {
             br = new BufferedReader(new BufferedReader(new InputStreamReader(
                     assetManager.open(fileName))));
             jsonReader = new JsonReader(br);
-            ArrayList<getDataUtil.courseDetail> courses=gson.fromJson(jsonReader,new TypeToken<ArrayList<getDataUtil.courseDetail>>(){}.getType());
-            for (getDataUtil.courseDetail detail:courses) {
+            ArrayList<GetDataUtil.courseDetail> courses=gson.fromJson(jsonReader,new TypeToken<ArrayList<GetDataUtil.courseDetail>>(){}.getType());
+            for (GetDataUtil.courseDetail detail:courses) {
                 ArrayList<String> coursedetail=new ArrayList<>();
                 coursedetail = setList(detail);
                 Course course=new Course();
@@ -124,34 +114,34 @@ public class androidFileParser {
         return getCourses;
     }
 
-    public ArrayList<User> parseXML(InputStream inputStream) {
-        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        ArrayList<User> getUsers=new ArrayList<>();
-        try {
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document d = db.parse(inputStream); //parse file,the root of the document tree
-            d.getDocumentElement().normalize(); //remove the redundancies
-            NodeList nodeList = d.getElementsByTagName("user");
-            for(int i = 0; i < nodeList.getLength(); i++)
-            {
-                org.w3c.dom.Node n = nodeList.item(i);
-                Element element	= (Element) n;
-                String id = element.getElementsByTagName("id").item(0).getTextContent();
-                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
-                String password= element.getElementsByTagName("password").item(0).getTextContent();
-                User user=new User();
-                user.id=id;
-                user.userName=userName;
-                user.password=password;
-                getUsers.add(user);
-            }
-        }
-        catch(Exception e)
-        {
-            e.printStackTrace();
-        }
-        return getUsers;
-    }
+//    public ArrayList<User> parseXML(InputStream inputStream) {
+//        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//        ArrayList<User> getUsers=new ArrayList<>();
+//        try {
+//            DocumentBuilder db = dbf.newDocumentBuilder();
+//            Document d = db.parse(inputStream); //parse file,the root of the document tree
+//            d.getDocumentElement().normalize(); //remove the redundancies
+//            NodeList nodeList = d.getElementsByTagName("user");
+//            for(int i = 0; i < nodeList.getLength(); i++)
+//            {
+//                org.w3c.dom.Node n = nodeList.item(i);
+//                Element element	= (Element) n;
+//                String id = element.getElementsByTagName("id").item(0).getTextContent();
+//                String userName = element.getElementsByTagName("userName").item(0).getTextContent();
+//                String password= element.getElementsByTagName("password").item(0).getTextContent();
+//                User user=new User();
+//                user.id=id;
+//                user.userName=userName;
+//                user.password=password;
+//                getUsers.add(user);
+//            }
+//        }
+//        catch(Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//        return getUsers;
+//    }
 
        /*public List<Course> getJson(String fileName, Context context) {
         //string builder

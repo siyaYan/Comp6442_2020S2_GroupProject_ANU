@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class UserDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "users";
     private static final String TABLE_NAME = "userDetails";
@@ -25,6 +27,24 @@ public class UserDatabase extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(sqLiteDatabase);
+    }
+
+    public ArrayList<String> getAllUsers(){
+        ArrayList<String> userList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String userID =cursor.getString(cursor.getColumnIndex("id"));
+
+            userList.add(userID);
+
+            cursor.moveToNext();
+        }
+
+        return userList;
     }
 
     public boolean userExists(String userID) {
@@ -56,10 +76,10 @@ public class UserDatabase extends SQLiteOpenHelper {
         writedb.insert(TABLE_NAME, null, cv);
     }
 
-    public UserBarry getUserDetails(String userID){
+    public User getUserDetails(String userID){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-        UserBarry user;
+        User user;
 
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
@@ -67,7 +87,7 @@ public class UserDatabase extends SQLiteOpenHelper {
             if (id.equals(userID)) {
                 String username = cursor.getString(cursor.getColumnIndex("username"));
                 String password = cursor.getString(cursor.getColumnIndex("password"));
-                user = new UserBarry(userID,username,password);
+                user = new User(userID,username,password);
                 return user;
             }
             cursor.moveToNext();
