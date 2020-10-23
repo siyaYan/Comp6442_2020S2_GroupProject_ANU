@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     UserHistoryDatabase userHistoryDatabase;
 
     ListView listView;
-    Button loginButton;
+    TextView userName;
     MultiAutoCompleteTextView input;
     ArrayAdapter listAdapter;
     List<List<String>> parsed;
@@ -63,8 +64,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.lv_results);
         input = findViewById(R.id.ev_input);
+        userName = findViewById(R.id.userName);
 
-        loginButton =findViewById(R.id.mainSignin);
 
         //Bharath
         //if coming from loginactivity, set current user
@@ -129,17 +130,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /**
-     * Leading to a sign in Page
-     * @param view
-     * @author: So Young Kwon
-     * @uid: 6511277
-     */
-    public void mainButton(View view) {
-        Intent intentLog = new Intent(MainActivity.this, UserLoginActivity.class);
-        startActivity(intentLog);
+    private void userLoginStatus(){
 
     }
+
 
     /**
      * Input hint refreshes every 1.5 seconds

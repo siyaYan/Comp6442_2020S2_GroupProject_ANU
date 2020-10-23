@@ -18,6 +18,7 @@ public class Splash extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         splash = findViewById(R.id.splashImage);
 
+
         Handler h = new Handler();
         h.postDelayed(new Runnable() {
             @Override
@@ -26,7 +27,7 @@ public class Splash extends AppCompatActivity {
                 startActivity(title);
                 finish();
             }
-        },3000);
+        },2000);
 
     }
 }

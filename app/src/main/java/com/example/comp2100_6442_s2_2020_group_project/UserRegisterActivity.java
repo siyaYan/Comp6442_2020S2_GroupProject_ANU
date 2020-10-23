@@ -36,7 +36,7 @@ public class UserRegisterActivity extends AppCompatActivity {
         username = (EditText)findViewById(R.id.userName);
         userID = (EditText)findViewById(R.id.userID);
         password = (EditText)findViewById(R.id.userPassword);
-        passwordConfrim = (EditText)findViewById(R.id.userPassword);
+        passwordConfrim = (EditText)findViewById(R.id.confrimPassword);
         signUp = (Button) findViewById(R.id.initialsignupButton);
         backLog = (Button) findViewById(R.id.backtoLogin);
 
