@@ -19,7 +19,7 @@ public class TitlePage extends AppCompatActivity {
         start = findViewById(R.id.toMain);
     }
     public void logIn(View v){
-        Intent login = new Intent(TitlePage.this, UserLogin.class);
+        Intent login = new Intent(TitlePage.this, UserLoginActivity.class);
         startActivity(login);
     }
 
