@@ -74,12 +74,7 @@ public class MainActivity extends AppCompatActivity {
         if (extras != null) {
             currentUser += intent.getStringExtra("userID");
         }
-        //setting user name to greet
-        if(currentUser != null){
-            userName.setText(intent.getStringExtra("username"));
-        }else{
-            userName.setText("Login to save your user history");
-        }
+
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
 
@@ -92,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
         init("courses.json", "majors.csv", this);
 
         token = new Token("courses.json", "majors.csv", this);
-
-
 
 
         //bind view to the list
@@ -136,7 +129,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void findUserName(){
 
+    }
 
 
     /**
