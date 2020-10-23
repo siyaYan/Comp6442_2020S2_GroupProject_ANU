@@ -6,12 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
 /**
- * Reads user input from registeration, and writes it to a xml file so it can be used for log in
+ * Reads user input from registeration, and writes name, id, password to the data base so it can be used for login.
  *
  *  @author So Young Kwon
  *  * @uid: 6511277
@@ -49,19 +48,18 @@ public class UserRegisterActivity extends AppCompatActivity {
         String pw = password.getText().toString();
         String pwc = passwordConfrim.getText().toString();
 
-        if(un.isEmpty() || id.isEmpty() || pw.isEmpty() || pwc.isEmpty()){
+        if(un.isEmpty() || id.isEmpty() || pw.isEmpty() || pwc.isEmpty()){ //if any of the field is not fileed up
             Toast.makeText(UserRegisterActivity.this,"Make sure you fill up all the required entries",Toast.LENGTH_SHORT).show();
-        }else if(!pw.equals(pwc)){
+        }else if(!pw.equals(pwc)){ // if the confirm password is not matching with their main password
             Toast.makeText(UserRegisterActivity.this,"Password does not match",Toast.LENGTH_SHORT).show();
-        }else if(ud.userExists(id) == true){
+        }else if(ud.userExists(id) == true){ //if there is already existing user ID
             Toast.makeText(UserRegisterActivity.this,"User ID already exists",Toast.LENGTH_SHORT).show();
 
-        }else{
+        }else{//if everything works
             ud.registerUser(id,un,pw);
-            Intent mainintet = new Intent(UserRegisterActivity.this,MainActivity.class);
+            Intent mainintet = new Intent(UserRegisterActivity.this,UserLoginActivity.class);
             startActivity(mainintet);
         }
-
     }
 
 
