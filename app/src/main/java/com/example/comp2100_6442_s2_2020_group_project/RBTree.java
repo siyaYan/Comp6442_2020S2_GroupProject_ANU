@@ -128,6 +128,10 @@ public class RBTree<T extends Comparable<T>> {
         //no tree
         return null;
     }
+    /**
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     //search by courseId
     public Node<T> searchRecurseById(Node<T> root, Node<T> node) {
         //subtree exist
@@ -152,6 +156,10 @@ public class RBTree<T extends Comparable<T>> {
             return null;
         }
     }
+    /**
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     //search by courseName
     public Node<T> searchRecurseByName(Node<T> root, Node<T> node) {
         //subtree exist
@@ -178,6 +186,10 @@ public class RBTree<T extends Comparable<T>> {
         }
         return null;
     }
+    /**
+     * @author: Xiran Yan
+     * @uid: 7167582
+     */
     //searchBycollege
     public List<Node> searchNodes(Node root,String college,List<Node> result) {
         List<Node> results=result;
@@ -196,8 +208,6 @@ public class RBTree<T extends Comparable<T>> {
         return results;
     }
 
-    //rules:
-    //
 
     /**
      * Check if the tree violates the red-red rule (ie. parent and child are both red).
