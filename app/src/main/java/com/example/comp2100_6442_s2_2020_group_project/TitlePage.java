@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import androidx.appcompat.app.AppCompatActivity;
+/**
+ * Main title page that leads to either sign in, or search page
+ *
+ *  @author So Young Kwon
+ *  * @uid: 6511277
+ */
 
 public class TitlePage extends AppCompatActivity {
     Button login;

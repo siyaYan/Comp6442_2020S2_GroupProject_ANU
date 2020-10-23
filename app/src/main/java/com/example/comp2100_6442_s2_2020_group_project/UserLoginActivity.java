@@ -6,11 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 /**
- * Reads user registeration xml and
+ * Reads user registeration using the 'UserDatabase'.
  *
  *  @author So Young Kwon
  *  * @uid: 6511277
@@ -41,11 +40,11 @@ public class UserLoginActivity extends AppCompatActivity {
         public void login(View v){
             String id = loginid.getText().toString();
             String password = loginpassword.getText().toString();
+            //If the users
             if (id.isEmpty() || password.isEmpty()) {
                 Toast.makeText(UserLoginActivity.this, "Please check if you entered your ID or Password", Toast.LENGTH_SHORT).show();
             } else {
                 if (ud.userExists(id)) {
-                    //pretend user1
                     if (ud.getUserDetails(id).password.equals(password)) {
                         Intent intent = new Intent(UserLoginActivity.this, MainActivity.class);
                         intent.putExtra("userID", id);
@@ -60,7 +59,7 @@ public class UserLoginActivity extends AppCompatActivity {
         }
 
         public void backMain(View v){
-            Intent main = new Intent(UserLoginActivity.this, MainActivity.class);
+            Intent main = new Intent(UserLoginActivity.this, TitlePage.class);
             startActivity(main);
 
         }

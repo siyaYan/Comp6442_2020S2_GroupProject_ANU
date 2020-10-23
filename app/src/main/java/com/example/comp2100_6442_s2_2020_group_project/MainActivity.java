@@ -74,6 +74,12 @@ public class MainActivity extends AppCompatActivity {
         if (extras != null) {
             currentUser += intent.getStringExtra("userID");
         }
+        //setting user name to greet
+        if(currentUser != null){
+            userName.setText(intent.getStringExtra("username"));
+        }else{
+            userName.setText("Login to save your user history");
+        }
         //initialise database
         userHistoryDatabase = new UserHistoryDatabase(this);
 
@@ -130,9 +136,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void userLoginStatus(){
 
-    }
 
 
     /**
